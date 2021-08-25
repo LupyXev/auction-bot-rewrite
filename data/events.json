@@ -1,0 +1,7 @@
+{
+  "New Year Celebration": {"duration": 3600, "start": 444000, "ecart": 0},
+  "Spooky Festival": {"duration":  3600, "start": 295200, "ecart": 3600},
+  "Winter Island": {"duration": 36000, "start": 409200, "ecart": 600},
+  "start_timestamp": 1623216900,
+  "1_year": 446400
+}

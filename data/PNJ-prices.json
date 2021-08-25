@@ -1,0 +1,3502 @@
+[
+ {
+   "Name": "Cobblestone",
+   "Rarity": "​Common",
+   "Sell": "1 coin",
+   "Buy": "3",
+   "Source": ""
+ },
+ {
+   "Name": "Game Breaker",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "777 coins",
+   "Buy": "",
+   "Source": "Hypixel Staff"
+ },
+ {
+   "Name": "Wheat",
+   "Rarity": "​Common",
+   "Sell": "1 coin",
+   "Buy": "2.3333",
+   "Source": "Farm Merchant stock Farm The Barn"
+ },
+ {
+   "Name": "Carrot",
+   "Rarity": "​Common",
+   "Sell": "1 coin",
+   "Buy": "2.3333",
+   "Source": ""
+ },
+ {
+   "Name": "Pumpkin",
+   "Rarity": "​Common",
+   "Sell": "4 coins",
+   "Buy": "8",
+   "Source": ""
+ },
+ {
+   "Name": "Melon",
+   "Rarity": "​Common",
+   "Sell": "0.5 coins",
+   "Buy": "2",
+   "Source": "The Barn"
+ },
+ {
+   "Name": "Seeds",
+   "Rarity": "​Common",
+   "Sell": "0.5 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Mushroom",
+   "Rarity": "​Common",
+   "Sell": "4 coins",
+   "Buy": "12",
+   "Source": "Red Mushroom Block\nMushroom Minion"
+ },
+ {
+   "Name": "Cocoa Beans",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "5",
+   "Source": "Mushroom Desert Farm Merchant stock"
+ },
+ {
+   "Name": "Sugar Cane",
+   "Rarity": "​Common",
+   "Sell": "2 coins",
+   "Buy": "5",
+   "Source": "Mushroom Desert"
+ },
+ {
+   "Name": "Nether Wart",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "10",
+   "Source": "Blazing Fortress Hub Island"
+ },
+ {
+   "Name": "Lapis Lazuli",
+   "Rarity": "​Common",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": "Lapis Lazuli Ore"
+ },
+ {
+   "Name": "Emerald",
+   "Rarity": "​Common",
+   "Sell": "6 coins",
+   "Buy": "",
+   "Source": "Mining Emerald Ore Emerald Minion output"
+ },
+ {
+   "Name": "Feather",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "",
+   "Source": "Dropped by Chickens"
+ },
+ {
+   "Name": "Coal",
+   "Rarity": "​Common",
+   "Sell": "2 coins",
+   "Buy": "4",
+   "Source": "Trading Coal Mine Gold Mine Gunpowder Mines Dwarven Mines"
+ },
+ {
+   "Name": "Raw Porkchop",
+   "Rarity": "​Common",
+   "Sell": "5 coins",
+   "Buy": "",
+   "Source": "Killing Pigs"
+ },
+ {
+   "Name": "Leather",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Mutton",
+   "Rarity": "​Common",
+   "Sell": "5 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Raw Chicken",
+   "Rarity": "​Common",
+   "Sell": "4 coins",
+   "Buy": "",
+   "Source": "Chickens"
+ },
+ {
+   "Name": "Raw Rabbit",
+   "Rarity": "​Common",
+   "Sell": "4 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Diamond",
+   "Rarity": "​Common",
+   "Sell": "8 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Cobblestone",
+   "Rarity": "​​Uncommon",
+   "Sell": "160 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Iron",
+   "Rarity": "​​Uncommon",
+   "Sell": "480 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Super Compactor 3000",
+   "Rarity": "​​​Rare",
+   "Sell": "50,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Rabbit Foot",
+   "Rarity": "​​​Rare",
+   "Sell": "800 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "New Year Cake",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Baker"
+ },
+ {
+   "Name": "Weather Stick",
+   "Rarity": "​​Uncommon",
+   "Sell": "160 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Iron Ingot",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "5.5 coins\n5 coins",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Emerald",
+   "Rarity": "​​Uncommon",
+   "Sell": "960 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Gold Ingot",
+   "Rarity": "​Common",
+   "Sell": "4 coins",
+   "Buy": "5.5 coins\n5 coins",
+   "Source": ""
+ },
+ {
+   "Name": "Fishing Bait",
+   "Rarity": "​Common, ​​Uncommon, ​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting, Fishing, or Mob Drops"
+ },
+ {
+   "Name": "Jungle Axe",
+   "Rarity": "​​Uncommon",
+   "Sell": "480 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Oak Wood",
+   "Rarity": "​​Uncommon",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Bone",
+   "Rarity": "​Common",
+   "Sell": "2 coins",
+   "Buy": "8",
+   "Source": "Skeleton drop (0–2) Wither Skeleton drop Wolf drop Sea Archer drop Watcher drop"
+ },
+ {
+   "Name": "Gunpowder",
+   "Rarity": "​Common",
+   "Sell": "4 coins",
+   "Buy": "10",
+   "Source": "Creeper drop"
+ },
+ {
+   "Name": "String",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "10",
+   "Source": "Spiders"
+ },
+ {
+   "Name": "Jerry",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Ender Pearl",
+   "Rarity": "​Common",
+   "Sell": "7 coins",
+   "Buy": "",
+   "Source": "Enderman drop"
+ },
+ {
+   "Name": "Promising Shovel",
+   "Rarity": "​​Uncommon",
+   "Sell": "10 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Diamond",
+   "Rarity": "​​Uncommon",
+   "Sell": "1,280 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Rotten Flesh",
+   "Rarity": "​Common",
+   "Sell": "2 coins",
+   "Buy": "8",
+   "Source": "Zombie drop Adventurer stock"
+ },
+ {
+   "Name": "Enchanted Gold",
+   "Rarity": "​​Uncommon",
+   "Sell": "640 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Gold Block",
+   "Rarity": "​​​Rare",
+   "Sell": "102,400 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Clay",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "",
+   "Source": "Fishing Clay Minion"
+ },
+ {
+   "Name": "Pufferfish",
+   "Rarity": "​Common",
+   "Sell": "15 coins",
+   "Buy": "40",
+   "Source": "Fishing Fishing Minion"
+ },
+ {
+   "Name": "Enchanted Coal",
+   "Rarity": "​​Uncommon",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Magical Mushroom Soup",
+   "Rarity": "​​Uncommon",
+   "Sell": "4 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Pond Island",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Zombie Pickaxe",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Personal Bank",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Slimeball",
+   "Rarity": "​Common",
+   "Sell": "5 coins",
+   "Buy": "14",
+   "Source": "Adventurer stock Slime drop"
+ },
+ {
+   "Name": "Enchanted Diamond Block",
+   "Rarity": "​​​Rare",
+   "Sell": "204,800 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Enchanted Block of Coal",
+   "Rarity": "​​​Rare",
+   "Sell": "51,200 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Stone Platform",
+   "Rarity": "​Common",
+   "Sell": "32 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Titanic Experience Bottle",
+   "Rarity": "​​​Rare",
+   "Sell": "5,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Magma Cream",
+   "Rarity": "​Common",
+   "Sell": "8 coins",
+   "Buy": "20",
+   "Source": "Magma Cube"
+ },
+ {
+   "Name": "Horse Armor",
+   "Rarity": "​​​Rare and ​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Fishing"
+ },
+ {
+   "Name": "Ember Fragment",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Magma Cube Boss drop"
+ },
+ {
+   "Name": "Nether Quartz",
+   "Rarity": "​Common",
+   "Sell": "4 coins",
+   "Buy": "",
+   "Source": "Mining Nether Quartz Ore"
+ },
+ {
+   "Name": "Enchanted Redstone Block",
+   "Rarity": "​​​Rare",
+   "Sell": "25,600 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Charcoal",
+   "Rarity": "​​Uncommon",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Jungle Wood",
+   "Rarity": "​​Uncommon",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Raw Fish",
+   "Rarity": "​Common",
+   "Sell": "6 coins",
+   "Buy": "20",
+   "Source": "Fishing Fishing Minion Fish Merchant Killing Sea Creatures"
+ },
+ {
+   "Name": "Raw Salmon",
+   "Rarity": "​Common",
+   "Sell": "10 coins",
+   "Buy": "30",
+   "Source": "Fishing Minion output Fish Merchant stock Sea Creatures drop"
+ },
+ {
+   "Name": "Enchanted Melon",
+   "Rarity": "​​Uncommon",
+   "Sell": "160 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Grand Experience Bottle",
+   "Rarity": "​​Uncommon",
+   "Sell": "480 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Magma Cream",
+   "Rarity": "​​Uncommon",
+   "Sell": "1,280 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Clownfish",
+   "Rarity": "​Common",
+   "Sell": "20 coins",
+   "Buy": "100",
+   "Source": "Fishing"
+ },
+ {
+   "Name": "Enchanted Rotten Flesh",
+   "Rarity": "​Common",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Ice",
+   "Rarity": "​Common",
+   "Sell": "0.5 coins",
+   "Buy": "1",
+   "Source": ""
+ },
+ {
+   "Name": "Silent Pearl",
+   "Rarity": "​​​Rare",
+   "Sell": "100 coins",
+   "Buy": "1,250",
+   "Source": "Pearl Dealer stock"
+ },
+ {
+   "Name": "Sponge",
+   "Rarity": "​Common",
+   "Sell": "50 coins",
+   "Buy": "",
+   "Source": "Fishing Fishing Minion Sea Creatures drop"
+ },
+ {
+   "Name": "Prismarine Shard",
+   "Rarity": "​Common",
+   "Sell": "5 coins",
+   "Buy": "",
+   "Source": "Fishing Fishing Minion Sea Creatures"
+ },
+ {
+   "Name": "Enchanted Obsidian",
+   "Rarity": "​​Uncommon",
+   "Sell": "1,920 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Lapis Lazuli",
+   "Rarity": "​​Uncommon",
+   "Sell": "160 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Flint",
+   "Rarity": "​Common",
+   "Sell": "4 coins",
+   "Buy": "6",
+   "Source": "Gravel drop Gravel Minion Pat stock"
+ },
+ {
+   "Name": "Emperor's Skull",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Killing Sea Emperor"
+ },
+ {
+   "Name": "Nope the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "End Race Quest"
+ },
+ {
+   "Name": "Hot Potato Book",
+   "Rarity": "​​​​Epic",
+   "Sell": "13,000 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Jungle Wood",
+   "Rarity": "​Common",
+   "Sell": "2 coins",
+   "Buy": "5",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Dandelion",
+   "Rarity": "​​Uncommon",
+   "Sell": "160 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Enchanted Eye of Ender",
+   "Rarity": "​​Uncommon",
+   "Sell": "3,520 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Bone",
+   "Rarity": "​Common",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Promising Axe",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Sweet Axe",
+   "Rarity": "​​Uncommon",
+   "Sell": "25 coins",
+   "Buy": "100",
+   "Source": ""
+ },
+ {
+   "Name": "Lily Pad",
+   "Rarity": "​Common",
+   "Sell": "10 coins",
+   "Buy": "",
+   "Source": "Sea Creatures"
+ },
+ {
+   "Name": "Creative Mind",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Magical Water Bucket",
+   "Rarity": "​Common",
+   "Sell": "40 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Book",
+   "Rarity": "​Common, ​​Uncommon, ​​​Rare, ​​​​Epic, ​​​​​Legendary, ​​​​​​Mythic, ​​​​​​​Supreme",
+   "Sell": "1 coin for each Enchantment level",
+   "Buy": "20–25,000,000 coins (depending on enchantments and NPC)",
+   "Source": "Enchanting Book"
+ },
+ {
+   "Name": "Enchanted String",
+   "Rarity": "​​Uncommon",
+   "Sell": "576 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Desert Island",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Hopper",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Carrot",
+   "Rarity": "​​Uncommon",
+   "Sell": "160 coins",
+   "Buy": "",
+   "Source": "Carrot King drop"
+ },
+ {
+   "Name": "Poisonous Potato",
+   "Rarity": "​Common",
+   "Sell": "10 coins",
+   "Buy": "",
+   "Source": "Zombie drop"
+ },
+ {
+   "Name": "Enchanted Pork",
+   "Rarity": "​​Uncommon",
+   "Sell": "800 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Hay Bale",
+   "Rarity": "​​Uncommon",
+   "Sell": "1,300 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Ink Sack",
+   "Rarity": "​Common",
+   "Sell": "2 coins",
+   "Buy": "",
+   "Source": "Sea Creature"
+ },
+ {
+   "Name": "Spider Eye",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "12",
+   "Source": "Spiders"
+ },
+ {
+   "Name": "Enchanted Egg",
+   "Rarity": "​​​Rare",
+   "Sell": "432 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Vines",
+   "Rarity": "​Common",
+   "Sell": "5 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Experience Bottle",
+   "Rarity": "​Common",
+   "Sell": "5 coins",
+   "Buy": "30",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Lapis Block",
+   "Rarity": "​​​Rare",
+   "Sell": "25,600 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Enchanted Iron Block",
+   "Rarity": "​​​Rare",
+   "Sell": "76,800 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Farming Island",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Grilled Pork",
+   "Rarity": "​​​Rare",
+   "Sell": "128,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Prismarine Crystals",
+   "Rarity": "​Common",
+   "Sell": "5 coins",
+   "Buy": "",
+   "Source": "Sea Creatures Fishing Minion"
+ },
+ {
+   "Name": "Enchanted Ender Pearl",
+   "Rarity": "​​Uncommon",
+   "Sell": "140 coins",
+   "Buy": "",
+   "Source": "Endermen"
+ },
+ {
+   "Name": "Enchanted Potato",
+   "Rarity": "​​Uncommon",
+   "Sell": "160 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Enchanted Ice",
+   "Rarity": "​​Uncommon",
+   "Sell": "80 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Biome Stick",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Sponge",
+   "Rarity": "​​Uncommon",
+   "Sell": "2,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Sugar",
+   "Rarity": "​​Uncommon",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Bone Meal",
+   "Rarity": "​Common",
+   "Sell": "1 coin",
+   "Buy": "2",
+   "Source": "Farm Merchant stock Trades"
+ },
+ {
+   "Name": "Enchanted Glowstone",
+   "Rarity": "​​Uncommon",
+   "Sell": "61,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Roofed Forest Island",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Clay",
+   "Rarity": "​​Uncommon",
+   "Sell": "480 coins",
+   "Buy": "",
+   "Source": "Fishing, Minion, Trading in seeds"
+ },
+ {
+   "Name": "Sunflower",
+   "Rarity": "​Common",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Awkward Potion",
+   "Rarity": "​Common",
+   "Sell": "2 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Fermented Spider Eye",
+   "Rarity": "​Common",
+   "Sell": "10 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "SkyBlock Menu",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Logging in on SkyBlock"
+ },
+ {
+   "Name": "Enchanted Pumpkin",
+   "Rarity": "​​Uncommon",
+   "Sell": "640 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Quartz",
+   "Rarity": "​​Uncommon",
+   "Sell": "640 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Remnant of the Eye",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Redstone Lamp",
+   "Rarity": "​​​Rare",
+   "Sell": "30,720 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Sugar Cane",
+   "Rarity": "​​​Rare",
+   "Sell": "51,200 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Ghast Tear",
+   "Rarity": "​Common",
+   "Sell": "16 coins",
+   "Buy": "200",
+   "Source": "Ghast\n Alchemist"
+ },
+ {
+   "Name": "Sleeping Eye",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Fermented Spider Eye",
+   "Rarity": "​​Uncommon",
+   "Sell": "31,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Blaze Rod",
+   "Rarity": "​Common",
+   "Sell": "9 coins",
+   "Buy": "",
+   "Source": "Blaze"
+ },
+ {
+   "Name": "Enchanted Spider Eye",
+   "Rarity": "​​Uncommon",
+   "Sell": "480 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Saplings",
+   "Rarity": "​Common",
+   "Sell": "0.2 coins",
+   "Buy": "",
+   "Source": "Decayed leaves"
+ },
+ {
+   "Name": "Stonk",
+   "Rarity": "​​​​Epic",
+   "Sell": "9,999 coins",
+   "Buy": "499,999",
+   "Source": "Pearl Dealer"
+ },
+ {
+   "Name": "Enchanted Baked Potato",
+   "Rarity": "​​Uncommon",
+   "Sell": "25,600 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Promising Pickaxe",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "35",
+   "Source": ""
+ },
+ {
+   "Name": "Blaze Powder",
+   "Rarity": "​Common",
+   "Sell": "4 coins",
+   "Buy": "12",
+   "Source": "Alchemist stock Crafting"
+ },
+ {
+   "Name": "Enchanted Blaze Powder",
+   "Rarity": "​​Uncommon",
+   "Sell": "1,440 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Farm Crystal",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Woodcutting Crystal",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Backpack",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Prismarine Shard",
+   "Rarity": "​​Uncommon",
+   "Sell": "400 coins",
+   "Buy": "",
+   "Source": "Sea Creatures"
+ },
+ {
+   "Name": "Egg",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Raw Fish",
+   "Rarity": "​​Uncommon",
+   "Sell": "960 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Cooked Fish",
+   "Rarity": "​​​Rare",
+   "Sell": "150,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Paper",
+   "Rarity": "​​Uncommon",
+   "Sell": "384 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Dark Oak Wood",
+   "Rarity": "​​Uncommon",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Gunpowder",
+   "Rarity": "​​Uncommon",
+   "Sell": "640 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Torch",
+   "Rarity": "​Common",
+   "Sell": "0.3 coins",
+   "Buy": "0.5",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Sand",
+   "Rarity": "​​​Rare",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Nether Wart Island",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Lily Pad",
+   "Rarity": "​​Uncommon",
+   "Sell": "1,600 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Emerald Block",
+   "Rarity": "​​​Rare",
+   "Sell": "153,600 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Enchanted Brown Mushroom",
+   "Rarity": "​Common",
+   "Sell": "640 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Red Mushroom",
+   "Rarity": "​Common",
+   "Sell": "640 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Wet Sponge",
+   "Rarity": "​​​Rare",
+   "Sell": "80,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Ink Sack",
+   "Rarity": "​​Uncommon",
+   "Sell": "160 coins",
+   "Buy": "",
+   "Source": "Killing Squids and Night Squids"
+ },
+ {
+   "Name": "Enchanted Ghast Tear",
+   "Rarity": "​​Uncommon",
+   "Sell": "80 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Pufferfish",
+   "Rarity": "​​Uncommon",
+   "Sell": "2,400 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Dead Bush of Love",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "333 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Flint",
+   "Rarity": "​​Uncommon",
+   "Sell": "640 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Saving Grace",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Gold Nugget",
+   "Rarity": "​Common",
+   "Sell": "0.4 coins",
+   "Buy": "",
+   "Source": "Zombie Pigmen"
+ },
+ {
+   "Name": "Enchanted Feather",
+   "Rarity": "​​Uncommon",
+   "Sell": "480 coins",
+   "Buy": "",
+   "Source": "Crafting, Monster of the Deep"
+ },
+ {
+   "Name": "Crystal Fragment",
+   "Rarity": "​​​​Epic",
+   "Sell": "500 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Slimeball",
+   "Rarity": "​​Uncommon",
+   "Sell": "800 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Reforge Anvil",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "2000000",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Enchanted Nether Wart",
+   "Rarity": "​​Uncommon",
+   "Sell": "480 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Birch Wood",
+   "Rarity": "​​Uncommon",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Clownfish",
+   "Rarity": "​​Uncommon",
+   "Sell": "3,200 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Revenant Flesh",
+   "Rarity": "​​Uncommon",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": "Revenant Horror"
+ },
+ {
+   "Name": "Wand of Healing",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Rookie Axe",
+   "Rarity": "​Common",
+   "Sell": "6 coins",
+   "Buy": "12",
+   "Source": ""
+ },
+ {
+   "Name": "Wolf Tooth",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Killing Sven Packmaster"
+ },
+ {
+   "Name": "Tarantula Web",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Tarantula Broodfather, Tarantula Vermin, Tarantula Beast, Mutant Tarantula"
+ },
+ {
+   "Name": "Revenant Viscera",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting, 5Tier V Revenant Horror"
+ },
+ {
+   "Name": "Rookie Hoe",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "10",
+   "Source": "Farm Merchant stock"
+ },
+ {
+   "Name": "Wand of Mending",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Wand of Restoration",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Toxic Arrow Poison",
+   "Rarity": "​​Uncommon",
+   "Sell": "2,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Tarantula Silk",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Undead Catalyst",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Revenant Horror 2Tier II+"
+ },
+ {
+   "Name": "Sculptor's Axe",
+   "Rarity": "​Common",
+   "Sell": "64 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Spider Catalyst",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Tarantula Broodfather"
+ },
+ {
+   "Name": "Golden Tooth",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Enchanted Spruce Wood",
+   "Rarity": "​​Uncommon",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Barrier",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Bug"
+ },
+ {
+   "Name": "Golden Powder",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Blaze Rod",
+   "Rarity": "​​Uncommon",
+   "Sell": "230,400 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Arrow",
+   "Rarity": "​Common",
+   "Sell": "2 coins",
+   "Buy": "3",
+   "Source": "Skeleton drop (0–2) Watcher drop (10–20) Gregory stock Ophelia stock Weaponsmith stock"
+ },
+ {
+   "Name": "Radiant Power Orb",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Weird Tuba",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Mana Flux Power Orb",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Overflux Power Orb",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Maddox Batphone",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Wolf Slayer LVL 3"
+ },
+ {
+   "Name": "Sugar",
+   "Rarity": "​Common",
+   "Sell": "2 coins",
+   "Buy": "4",
+   "Source": ""
+ },
+ {
+   "Name": "Charcoal",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Smelting Wood"
+ },
+ {
+   "Name": "Spray Can",
+   "Rarity": "​Common",
+   "Sell": "5 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Dye",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Mutton",
+   "Rarity": "​​Uncommon",
+   "Sell": "800 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Cooked Mutton",
+   "Rarity": "​​​Rare",
+   "Sell": "128,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Clock",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Bridge Egg",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Digested Mosquito",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Training Dummy",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Raw Salmon",
+   "Rarity": "​​Uncommon",
+   "Sell": "1,600 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Cooked Salmon",
+   "Rarity": "​​​Rare",
+   "Sell": "256,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Glistering Melon",
+   "Rarity": "​Common",
+   "Sell": "3.5 coins",
+   "Buy": "10",
+   "Source": ""
+ },
+ {
+   "Name": "Revenant Catalyst",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Revenant Horror 2Tier II+"
+ },
+ {
+   "Name": "Green Candy",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Killing mobs during the Spooky Festival"
+ },
+ {
+   "Name": "Beheaded Horror",
+   "Rarity": "​​​​Epic",
+   "Sell": "15,000 coins",
+   "Buy": "",
+   "Source": "Killing Revenant Horror 3Tier III - 5Tier V"
+ },
+ {
+   "Name": "Purple Candy",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Killing mobs during Spooky Festival"
+ },
+ {
+   "Name": "Trick or Treat Bag",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "1  Green Candy",
+   "Source": "Fear Mongerer stock"
+ },
+ {
+   "Name": "Enchanted Cactus Green",
+   "Rarity": "​​Uncommon",
+   "Sell": "160 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Cactus Green",
+   "Rarity": "​Common",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Spooky Shard",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Headless Horseman"
+ },
+ {
+   "Name": "Horseman's Candle",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Fear Mongerer"
+ },
+ {
+   "Name": "Scythe Blade",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Revenant Horror drop"
+ },
+ {
+   "Name": "Spooky Disc",
+   "Rarity": "​​​Rare",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Spooky Pie",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Spooky Festival"
+ },
+ {
+   "Name": "Golden Treat",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Spooky Festival reward"
+ },
+ {
+   "Name": "Bat the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Cocoa Bean",
+   "Rarity": "​​Uncommon",
+   "Sell": "480 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Cookie",
+   "Rarity": "​​​Rare",
+   "Sell": "61,472 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Overflux Capacitor",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Sven Packmaster drop"
+ },
+ {
+   "Name": "Enchanted Raw Chicken",
+   "Rarity": "​​Uncommon",
+   "Sell": "640 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Raw Beef",
+   "Rarity": "​​Uncommon",
+   "Sell": "640 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Raw Beef",
+   "Rarity": "​Common",
+   "Sell": "4 coins",
+   "Buy": "",
+   "Source": "Cows"
+ },
+ {
+   "Name": "Enchanted Leather",
+   "Rarity": "​​Uncommon",
+   "Sell": "1,700 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Carrot on a Stick",
+   "Rarity": "​​Uncommon",
+   "Sell": "320.4 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Golden Carrot",
+   "Rarity": "​​Uncommon",
+   "Sell": "20,608 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Golden Carrot",
+   "Rarity": "​Common",
+   "Sell": "4 coins",
+   "Buy": "8",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Poppy",
+   "Rarity": "​​Uncommon",
+   "Sell": "576 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Fly Swatter",
+   "Rarity": "​​​​Epic",
+   "Sell": "500,000 coins",
+   "Buy": "",
+   "Source": "Killing Tarantula Broodfather 3Tier III+"
+ },
+ {
+   "Name": "Red Claw Egg",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Sven Packmaster drop 3Tier III+"
+ },
+ {
+   "Name": "Grizzly Bait",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Sven Packmaster"
+ },
+ {
+   "Name": "Efficient Axe",
+   "Rarity": "​​Uncommon",
+   "Sell": "25 coins",
+   "Buy": "100",
+   "Source": "Lumber Merchant stock"
+ },
+ {
+   "Name": "Enchanted Prismarine Crystals",
+   "Rarity": "​​Uncommon",
+   "Sell": "400 coins",
+   "Buy": "",
+   "Source": "Sea Creatures"
+ },
+ {
+   "Name": "Enchanted Red Mushroom Block",
+   "Rarity": "​Common",
+   "Sell": "20,736 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Enchanted Brown Mushroom Block",
+   "Rarity": "​Common",
+   "Sell": "2,300 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Rookie Pickaxe",
+   "Rarity": "​Common",
+   "Sell": "2 coins",
+   "Buy": "12",
+   "Source": "Mine Merchant stock"
+ },
+ {
+   "Name": "Enchanted Poisonous Potato",
+   "Rarity": "​​Uncommon",
+   "Sell": "1,600 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Silky Lichen",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Woods Race"
+ },
+ {
+   "Name": "Bat Firework",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "100x  Green Candy",
+   "Source": "Fear Mongerer"
+ },
+ {
+   "Name": "Polished Pebble",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Woods Race"
+ },
+ {
+   "Name": "Fake Emerald Altar",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Romero"
+ },
+ {
+   "Name": "True Essence",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "25000",
+   "Source": "Old Shaman Nyko"
+ },
+ {
+   "Name": "Wood Singularity",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Master Tactician Funk"
+ },
+ {
+   "Name": "Campfire Badge",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Trial of Fire"
+ },
+ {
+   "Name": "Rabbit's Foot",
+   "Rarity": "​Common",
+   "Sell": "5 coins",
+   "Buy": "",
+   "Source": "Rabbit"
+ },
+ {
+   "Name": "Weak Wolf Catalyst",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Soul of the Alpha (0.5%)"
+ },
+ {
+   "Name": "Poorly Wrapped Rock",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Slime Block",
+   "Rarity": "​​​Rare",
+   "Sell": "128,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Carpentry Table",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Melon Block",
+   "Rarity": "​​​Rare",
+   "Sell": "25,600 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Glistering Melon",
+   "Rarity": "​​​Rare",
+   "Sell": "1,024 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Bone Meal",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Rabbit Hide",
+   "Rarity": "​​​Rare",
+   "Sell": "2,880 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Eye of Ender",
+   "Rarity": "​Common",
+   "Sell": "15 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Very Official Yellow Rock of Love!",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Romero and Juliette quest"
+ },
+ {
+   "Name": "Enchanted Firework Rocket",
+   "Rarity": "​​​Rare",
+   "Sell": "41,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Rabbit Hide",
+   "Rarity": "​Common",
+   "Sell": "5 coins",
+   "Buy": "",
+   "Source": "Killing Rabbits"
+ },
+ {
+   "Name": "Enchanted Raw Rabbit",
+   "Rarity": "​​Uncommon",
+   "Sell": "640 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Personal Harp",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "600,000",
+   "Source": ""
+ },
+ {
+   "Name": "Rose Bouquet",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Mushroom & Warts Stew",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Romero and Juliette quest"
+ },
+ {
+   "Name": "Chunk of the Moon",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Romero"
+ },
+ {
+   "Name": "Secret Gift for Juliette",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Romero and Juliette quest"
+ },
+ {
+   "Name": "Solved Rubix Prism",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Romero and Juliette quest"
+ },
+ {
+   "Name": "Poem of True Love",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Romero and Juliette quest"
+ },
+ {
+   "Name": "Music Disc",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Flower Maelstrom",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Romero and Juliette quest"
+ },
+ {
+   "Name": "Flint and Steel",
+   "Rarity": "​Common",
+   "Sell": "7 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Cake",
+   "Rarity": "​​Uncommon",
+   "Sell": "2,700 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Quality Map",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Snowball",
+   "Rarity": "​Common",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": "Mining snow layers on Taiga island biome with Taiga Biome Stick and Weather Stick Mining snow layers made from the Snow Shovel Fishing in Jerry Pond Snow Minion"
+ },
+ {
+   "Name": "Enchanted Packed Ice",
+   "Rarity": "​​​Rare",
+   "Sell": "12,800 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Enchanted Snow Block",
+   "Rarity": "​​Uncommon",
+   "Sell": "600 coins",
+   "Buy": "",
+   "Source": "Crafting\nSuper Compactor 3000"
+ },
+ {
+   "Name": "Hilt of True Ice",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "White Gift",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Winter Island Sea Creatures drop Defend Jerry's Workshop reward"
+ },
+ {
+   "Name": "Green Gift",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Winter Island Defend Jerry's Workshop reward St. Jerry reward (1)"
+ },
+ {
+   "Name": "Red Gift",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Defend Jerry's Workshop reward Chicken Race Cluckpoint 1 Yeti"
+ },
+ {
+   "Name": "Bottle of Jyrre",
+   "Rarity": "​Common",
+   "Sell": "100  + 100  per 20 minutes + 100  per 20 minutes per 20 levels of intelligence",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Hunk of Ice",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Fishing at Jerry Pond"
+ },
+ {
+   "Name": "Gift Compass",
+   "Rarity": "​​Uncommon",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": "Gulliver"
+ },
+ {
+   "Name": "Hunk of Blue Ice",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Killing Yeti\nRare drop from fishing at Jerry Pond or killing Frozen Adventurers"
+ },
+ {
+   "Name": "Golden Gift",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Season of Jerry"
+ },
+ {
+   "Name": "Battle Disc",
+   "Rarity": "​​​Rare",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": "Gifts"
+ },
+ {
+   "Name": "Gift the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Flake the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Winter Disc",
+   "Rarity": "​​​Rare",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": "Gift"
+ },
+ {
+   "Name": "Ancient Elevator",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Shears",
+   "Rarity": "​Common",
+   "Sell": "3 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Super Enchanted Egg",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "End Portal Frame",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Bug"
+ },
+ {
+   "Name": "Banner",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Glitches and Exploits"
+ },
+ {
+   "Name": "Map (Item)",
+   "Rarity": "​Common",
+   "Sell": "25 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Stock of Stonks",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Clock",
+   "Rarity": "​Common",
+   "Sell": "8 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Treecapitator",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Spawn Egg",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Glitches"
+ },
+ {
+   "Name": "Simple Carrot Candy",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Great Carrot Candy",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Superb Carrot Candy",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Tier Boost Core",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Endstone Protector"
+ },
+ {
+   "Name": "Lucky Clover Core",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Redstone",
+   "Rarity": "​​Uncommon",
+   "Sell": "160 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Redstone",
+   "Rarity": "​Common",
+   "Sell": "1 coin",
+   "Buy": "4",
+   "Source": "Redstone Ore in Pigmen's Den Mad Redstone Engineer stock"
+ },
+ {
+   "Name": "Travel Scrolls",
+   "Rarity": "​​​Rare, ​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Repelling Candle",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "French Bread",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Fuming Potato Book",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Training Weights",
+   "Rarity": "​​Uncommon",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Kloonboat",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Recombobulator 3000",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Revive Stone",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Grappling Hook",
+   "Rarity": "​​Uncommon",
+   "Sell": "1,200 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Mystical Mushroom Soup",
+   "Rarity": "​​​Rare",
+   "Sell": "640 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Giant pile of Cash",
+   "Rarity": "Special (Dungeons)",
+   "Sell": "1,000,000,000 coins",
+   "Buy": "0",
+   "Source": "Alpha Ophelia"
+ },
+ {
+   "Name": "Jingle Bells",
+   "Rarity": "​​​Rare",
+   "Sell": "100 coins",
+   "Buy": "",
+   "Source": "4th cluckpoint of the Chicken Race"
+ },
+ {
+   "Name": "Summoning Eye",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Zealots, Voidgloom Seraph, Voidling Extremists"
+ },
+ {
+   "Name": "Oops the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Basket of Hope from the Great Potato War",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Awarded to those in the top 1000 in the Potato collection"
+ },
+ {
+   "Name": "Potato",
+   "Rarity": "​Common",
+   "Sell": "1 coin",
+   "Buy": "2.33",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Potato War Silver Medal",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Glowstone Dust",
+   "Rarity": "​​Uncommon",
+   "Sell": "320 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Endstone Rose",
+   "Rarity": "​​​Rare",
+   "Sell": "3,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Glowstone Dust",
+   "Rarity": "​Common",
+   "Sell": "2 coins",
+   "Buy": "",
+   "Source": "Glowstone Glowstone Minion"
+ },
+ {
+   "Name": "Exp Share Core",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Yellow Rock",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Mining Gold Ore at Savanna Woodland"
+ },
+ {
+   "Name": "Cooked Mutton",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Glitch"
+ },
+ {
+   "Name": "Cluck the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Gulliver's chicken"
+ },
+ {
+   "Name": "Gift",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Journal Entry",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Dungeon"
+ },
+ {
+   "Name": "Defuse Kit",
+   "Rarity": "​​Uncommon",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Inflatable Jerry",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Shrimp the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Spirit Leap",
+   "Rarity": "​​​Rare",
+   "Sell": "100 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Decoy",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Catacombs"
+ },
+ {
+   "Name": "Trap",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Bone Block",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Spirit Bone",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Floor 4"
+ },
+ {
+   "Name": "Spirit Wing",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Dungeons"
+ },
+ {
+   "Name": "Wizard's Crystal",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Infinityboom TNT",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "50,000x Undead Essence",
+   "Source": ""
+ },
+ {
+   "Name": "Redstone Key",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Voodoo Doll",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Seeds",
+   "Rarity": "​Common",
+   "Sell": "80 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Dungeon Chest Key",
+   "Rarity": "​​​Rare",
+   "Sell": "1 coin",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Quartz Block",
+   "Rarity": "​​​Rare",
+   "Sell": "102,400 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Booster Cookie",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "325 Gems",
+   "Source": ""
+ },
+ {
+   "Name": "Hyper Catalyst Upgrade",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "300 Bits",
+   "Source": ""
+ },
+ {
+   "Name": "Ultimate Carrot Candy",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Ultimate Carrot Candy Upgrade",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "8k bits",
+   "Source": ""
+ },
+ {
+   "Name": "Colossal Experience Bottle",
+   "Rarity": "​​​​Epic",
+   "Sell": "5,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Colossal Experience Bottle Upgrade",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "1.2k bits",
+   "Source": ""
+ },
+ {
+   "Name": "Heat Core",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "3,000 Bits",
+   "Source": ""
+ },
+ {
+   "Name": "Minion Storage X-pender",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "1.5k bits",
+   "Source": ""
+ },
+ {
+   "Name": "Daedalus Stick",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Ancient Claw",
+   "Rarity": "​​​Rare",
+   "Sell": "200 coins",
+   "Buy": "",
+   "Source": "Mythological Creatures"
+ },
+ {
+   "Name": "God Potion",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "1,500 Bits",
+   "Source": ""
+ },
+ {
+   "Name": "Zog Anvil",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Griffin Feather",
+   "Rarity": "​​​Rare",
+   "Sell": "1,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Ancient Claw",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Ancestral Spade",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "5,000 coins\n32 Gold Ingots",
+   "Source": ""
+ },
+ {
+   "Name": "Beastmaster Crest",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Griffin Upgrade Stone",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Great White Shark Tooth",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Fishing Festival"
+ },
+ {
+   "Name": "Enchanted Shark Fin",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Kat Flower",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "500 Bits",
+   "Source": "Merchant"
+ },
+ {
+   "Name": "Shark Fin",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Nurse Shark drop Blue Shark drop Tiger Shark drop Great White Shark drop"
+ },
+ {
+   "Name": "Hologram",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "2k bits",
+   "Source": ""
+ },
+ {
+   "Name": "Refined Mineral",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Nurse Shark Tooth",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Blue Shark Tooth",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Tiger Shark Tooth",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Healing Tissue",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Healthy Undeads spawned by The Watcher in F5"
+ },
+ {
+   "Name": "Fel Pearl",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Fel drop"
+ },
+ {
+   "Name": "Jumbo Backpack Upgrade",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "4,000 Bits",
+   "Source": ""
+ },
+ {
+   "Name": "Mimic Fragment",
+   "Rarity": "​​​Rare",
+   "Sell": "1,000 coins",
+   "Buy": "",
+   "Source": "Mimic drop"
+ },
+ {
+   "Name": "Lesser Orb of Healing",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Ancient Rose",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Catacombs - Floor VI Chest and Woke Golems"
+ },
+ {
+   "Name": "Accessory Enrichment Swapper",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "200 Bits",
+   "Source": ""
+ },
+ {
+   "Name": "Summoning Ring",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Bonzo Fragment",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Livid Fragment",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Plasmaflux Power Orb",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Builder's Wand",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "12,000 Bits",
+   "Source": ""
+ },
+ {
+   "Name": "Plasma Nucleus",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Dark Auction when Scorpius is mayor and his darker auctions perk is active"
+ },
+ {
+   "Name": "Spook the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Scarf Fragment",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Book Bundle",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Candy the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Ectoplasm",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Killing mobs during the Spooky Festival"
+ },
+ {
+   "Name": "Spooky Sack",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Pumpkin Guts",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Killing mobs during the Spooky Festival"
+ },
+ {
+   "Name": "Blast o' Lantern",
+   "Rarity": "​​​Rare",
+   "Sell": "530 coins",
+   "Buy": "",
+   "Source": "Killing Wither Gourd during the Spooky Festival and Crafting"
+ },
+ {
+   "Name": "Echolocator",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Werewolf Skin",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Soul Fragment",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Century Cake",
+   "Rarity": "​​Uncommon or ​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Cake Soul",
+   "Rarity": "​​​​​​Mythic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Mathematical Hoe Blueprint",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Anita"
+ },
+ {
+   "Name": "Gauss Carrot Hoe",
+   "Rarity": "​Common",
+   "Sell": "280 coins",
+   "Buy": "",
+   "Source": "Mathematical Hoe Blueprint"
+ },
+ {
+   "Name": "Turing Sugar Cane Hoe",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Basket of Seeds",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Anita"
+ },
+ {
+   "Name": "Newton Nether Warts Hoe",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Mathematical Hoe Blueprint"
+ },
+ {
+   "Name": "Pumpkin Dicer",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Anita"
+ },
+ {
+   "Name": "Melon Dicer",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Anita"
+ },
+ {
+   "Name": "Jacob's Ticket",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Mutant Nether Wart",
+   "Rarity": "​​​Rare",
+   "Sell": "76,800 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Tightly-Tied Hay Bale",
+   "Rarity": "​​​Rare",
+   "Sell": "187,200 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Euclid's Wheat Hoe",
+   "Rarity": "​Common",
+   "Sell": "280 coins",
+   "Buy": "",
+   "Source": "Mathematical Hoe Blueprint"
+ },
+ {
+   "Name": "InfiniDirt™ Wand",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Anita"
+ },
+ {
+   "Name": "Hoe of Great Tilling",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "1 Bronze Medal 5 Jacob's Tickets",
+   "Source": ""
+ },
+ {
+   "Name": "Polished Pumpkin",
+   "Rarity": "​​​Rare",
+   "Sell": "102,400 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Hoe of Greater Tilling",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "1 Silver Medal 10 Jacob's Tickets",
+   "Source": ""
+ },
+ {
+   "Name": "Pythagorean Potato Hoe",
+   "Rarity": "​Common",
+   "Sell": "280 coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Coco Chopper",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Anita"
+ },
+ {
+   "Name": "Promising Hoe",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Prismapump",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Diamante's Handle",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Goldor the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Storm the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Maxor the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "L.A.S.R.'s Eye",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Jolly Pink Rock",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Bigfoot's Lasso",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Wither Catalyst",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Necron's Handle",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Necron's Blade Scrolls",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Chill the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Cactus Knife",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Anita"
+ },
+ {
+   "Name": "Magical Milk Bucket",
+   "Rarity": "​Common",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Shania"
+ },
+ {
+   "Name": "Nether Wart Pouch",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Anita"
+ },
+ {
+   "Name": "Experimentation Table",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Fungi Cutter",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Anita"
+ },
+ {
+   "Name": "Dctr's Space Helmet",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Island NPC",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "50000",
+   "Source": ""
+ },
+ {
+   "Name": "Jerry Box",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Jerry Candy",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Mithril",
+   "Rarity": "​Common",
+   "Sell": "10 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Enchanted Mithril",
+   "Rarity": "​​​Rare",
+   "Sell": "1,600 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Goblin Egg",
+   "Rarity": "​​​Rare",
+   "Sell": "421 coins",
+   "Buy": "",
+   "Source": "Goblin"
+ },
+ {
+   "Name": "Refined Mithril",
+   "Rarity": "​​​​Epic",
+   "Sell": "256,000 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Mithril Pickaxe",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Glacite Jewel",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Bejeweled Handle",
+   "Rarity": "​​​Rare",
+   "Sell": "100 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Starfall",
+   "Rarity": "​​​Rare",
+   "Sell": "15 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Dwarven Super Compactor",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Mithril Crystal",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Crafting"
+ },
+ {
+   "Name": "Titanium",
+   "Rarity": "​​​Rare",
+   "Sell": "20 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Sorrow",
+   "Rarity": "​​​Rare",
+   "Sell": "13 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Treasurite",
+   "Rarity": "​​​​Epic",
+   "Sell": "5,000 coins",
+   "Buy": "",
+   "Source": "Treasure Hoarder Drop"
+ },
+ {
+   "Name": "Refined Titanium",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "51,200 coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Enchanted Titanium",
+   "Rarity": "​​​​Epic",
+   "Sell": "3,200 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Refined Diamond",
+   "Rarity": "​​​​Epic",
+   "Sell": "4,096 coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Fractured Mithril Pickaxe",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "10,000",
+   "Source": "Bubu"
+ },
+ {
+   "Name": "Volta",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Biofuel",
+   "Rarity": "​​​Rare",
+   "Sell": "10,000 coins",
+   "Buy": "20000",
+   "Source": "Bubu"
+ },
+ {
+   "Name": "Bandaged Mithril Pickaxe",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Bubu"
+ },
+ {
+   "Name": "The Cake",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Royal Resident"
+ },
+ {
+   "Name": "Titanium Pickaxe",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Bubu"
+ },
+ {
+   "Name": "Refined Titanium Pickaxe",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Bubu"
+ },
+ {
+   "Name": "Mining Pumpkin",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Malmar"
+ },
+ {
+   "Name": "Bag of Cash",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Plasma",
+   "Rarity": "​​​Rare",
+   "Sell": "20,000 coins",
+   "Buy": "",
+   "Source": "Ghosts in The Mist"
+ },
+ {
+   "Name": "Raffle Ticket",
+   "Rarity": "​​Uncommon",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Dwarven Mines Raffle Event"
+ },
+ {
+   "Name": "Mithril Drill SX-R326",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Mithril Drill SX-R226",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Golden Plate",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Fuel Tank",
+   "Rarity": "​​​Rare",
+   "Sell": "51,000 coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Mithril Plate",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Refined Mithril Pickaxe",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Titanium-Plated Drill Engine",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Royal Pigeon",
+   "Rarity": "​​​​​Legendary",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Commission Milestone 5"
+ },
+ {
+   "Name": "Titanium Drill DR-X555",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Token of the Mountain",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Drill Engine",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Titanium Drill DR-X355",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Titanium Drill DR-X455",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Dwarven Tankard",
+   "Rarity": "​​​​Epic",
+   "Sell": "10 coins",
+   "Buy": "",
+   "Source": "Dwarven Tavern"
+ },
+ {
+   "Name": "Rock the Fish",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Goblin Omelette",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Mithril-Infused Fuel Tank",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Titanium-Infused Fuel Tank",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Mithril-Plated Drill Engine",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "The Forge"
+ },
+ {
+   "Name": "Game Annihilator",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Hypixel Staff"
+ },
+ {
+   "Name": "Kismet Feather",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "1,350 Bits",
+   "Source": ""
+ },
+ {
+   "Name": "Block Zapper",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "5k bits",
+   "Source": "Bits Shop"
+ },
+ {
+   "Name": "Autopet Rules 2-Pack",
+   "Rarity": "​​​​​​​​Special",
+   "Sell": "coins",
+   "Buy": "21k bits",
+   "Source": ""
+ },
+ {
+   "Name": "Snow Shovel",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Rock Paper Shears",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Egg Hunt",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Social Display",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Parkour Times",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Arachne Fragment",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Soul String",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Arachne's Keeper Fragment",
+   "Rarity": "​​​Rare",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": "Arachne's Keeper"
+ },
+ {
+   "Name": "Dark Queen's Soul Drop",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Souls Rebound",
+   "Rarity": "​​​​Epic",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ },
+ {
+   "Name": "Arachne Crystal",
+   "Rarity": "",
+   "Sell": "coins",
+   "Buy": "",
+   "Source": ""
+ }
+]

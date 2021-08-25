@@ -1,0 +1,41 @@
+{
+  "ping": {"desc": {"fr": "Affiche le temps de latence du bot",
+    "en": "Shows the bot's latency"}, "example": {"fr": "`ah$ping`", "en": "`ah$ping`"}},
+  "online-time": {"desc": {"fr": "Affiche depuis quelle heure le bot est allumé",
+    "en": "Shows how long the bot has been on"}, "example": {"fr": "`ah$online-time`", "en": "`ah$online-time`"}},
+
+  "config": {"desc": {"fr": "Permet de modifier une configuration (me/server)",
+    "en": "Enables you to modify a configuration (me/server)"},
+    "example": {"fr": "`ah$config me`: Affiche votre panneau personnel de configuration\n`ah$config server`: Affiche le panneau de configuration du serveur",
+      "en": "`ah$config me`: Shows your personal configuration panel\n`ah$config server`: Show the server's configuration panel"}},
+
+  "next-events": {"desc": {
+    "fr": "Affiche les prochains events skyblock importants",
+    "en": "Shows next important events"},
+    "example": {"fr": "`ah$next-events`", "en": "`ah$next-events`"}},
+
+  "events": {"desc": {
+    "fr": "Affiche les events skyblock importants",
+    "en": "Shows current important events"},
+    "example": {"fr": "`ah$events`", "en": "`ah$events`"}},
+
+  "stats": {"desc": {
+    "fr": "Affiche des statistiques sur le bot",
+    "en": "Shows bot's statistics"},
+    "example": {"fr": "`ah$stats`", "en": "`ah$stats`"}},
+
+  "price": {"desc": {
+    "fr": "Affiche le prix médian de vente d'un item depuis un certain temps (par défaut 2 heures)",
+    "en": "Shows the sold median price for some duration (default 2 hours)"},
+    "example": {"fr": "`ah$price nom_item [Optionnel: for durée_depuis_laquelle_prendre_en_compte_les_ventes]`\nEx: `ah$price livid dagger for 1j2h`",
+      "en": "`ah$price item_name [Optionnal: for duration_for_consider_sales]`\nEx: `ah$price livid dagger for 1d2h`"}},
+
+  "donators": {"desc": {
+    "fr": "Affiche les donateurs du bot",
+    "en": "Shows the bot's donators"
+  }, "example": {"fr": "`ah$donators`", "en": "`ah$donators`"}},
+  "uptime":{"desc": {
+    "fr": "Affiche le pourcentage de temps de fonctionnement correct du bot",
+    "en": "Shows the bot's uptime percentage"
+  }, "example": {"fr": "`ah$uptime`", "en": "`ah$uptime`"}}
+}
