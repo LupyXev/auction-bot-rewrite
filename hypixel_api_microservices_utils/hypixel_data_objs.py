@@ -41,7 +41,6 @@ class Reforge:
     @classmethod
     def loader(cls, json_data):
         dict_data = loads(json_data)
-        del(json_data)
         
         for reforge_id, raw_sold_history in dict_data.items():
             obj = cls.get_reforge(reforge_id)
@@ -214,7 +213,7 @@ class AdditionalAttributeSpecialized(AdditionalAttribute):
     "raider_kills", "eman_kills", "item_durability", "bow_kills", "pickonimbus_durability", "sword_kills")
 
 class BasicItem:
-    basicitem_dict = {} #tuple(id, Tier, dungeon_level): BasicItem
+    basicitem_dict = {} #id: {Tier: {dungeon_level: BasicItem}}
     ALIAS = {}
     with open("data/alias.json", "r") as f:
         ALIAS = dict(load(f))
@@ -222,6 +221,9 @@ class BasicItem:
     DUNGEON_ENCHANTED_ITEMS = {}
     with open("data/dungeon-enchanted-items.json", "r") as f:
         DUNGEON_ENCHANTED_ITEMS = tuple(load(f))
+    
+    ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD = {}#id: name
+    ITEM_IDS_NOT_IN_ALIAS_SENT_TO_DISCORD = []
 
     @classmethod
     def loader(cls, json_data):
@@ -240,20 +242,23 @@ class BasicItem:
 
     @classmethod
     def get_basicitem(cls, item_id: str, tier: Tier, dungeon_lvl: int):
-        searched_tuple = (item_id, tier, dungeon_lvl)
-        if searched_tuple in cls.basicitem_dict:
-            return cls.basicitem_dict[searched_tuple]
+        if item_id in cls.basicitem_dict and tier in cls.basicitem_dict[item_id] and dungeon_lvl in cls.basicitem_dict[item_id][tier]:
+            return cls.basicitem_dict[item_id][tier][dungeon_lvl]
         else:
             if item_id in cls.ALIAS:
                 new_obj = BasicItem(item_id, tier, dungeon_lvl)
                 return new_obj
             else:
-                logger.debug(f"item {item_id} not in alias, skipped")
+                if item_id not in cls.ITEM_IDS_NOT_IN_ALIAS_SENT_TO_DISCORD and item_id not in cls.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD: #not already alerted or to alert
+                    cls.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD[item_id] = None
+                    #logger.debug(f"item {item_id} not in alias, skipped")
                 return None
     
     def __init__(self, item_id: str, tier: Tier, dungeon_level: int, estimated_price_sold_hist: EstimatedPriceHist or None =None):
         if item_id not in self.ALIAS:
             logger.error(f"{item_id} not in alias when init BasicItem obj")
+            if item_id not in self.ITEM_IDS_NOT_IN_ALIAS_SENT_TO_DISCORD and item_id not in self.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD:
+                self.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD[item_id] = None
             return
         self.item_id = item_id
 
@@ -273,12 +278,28 @@ class BasicItem:
 
         self.dungeon_level = dungeon_level
 
-        self.basicitem_dict[(self.item_id, self.tier, self.dungeon_level)] = self
+        if self.item_id not in self.basicitem_dict:
+            self.basicitem_dict[self.item_id] = {}
+        if self.tier not in self.basicitem_dict[self.item_id]:
+            self.basicitem_dict[self.item_id][self.tier] = {}
+        
+        self.basicitem_dict[self.item_id][self.tier][self.dungeon_level] = self
 
         if estimated_price_sold_hist is None:
             self.estimated_price_sold_hist = EstimatedPriceHist([])
         else:
             self.estimated_price_sold_hist = estimated_price_sold_hist
+    
+    def get_lowests_bins(self, number_of_lowests_bins=3):
+        lowests = [None] * number_of_lowests_bins
+        for auction in tuple(Auction.auction_uuid_to_obj.values()):
+            if auction.item.basic.item_id == self.item_id:
+                price = auction.starting_bid
+                for lowest_index in range(number_of_lowests_bins):
+                    if lowests[lowest_index] is None or price < lowests[lowest_index]:
+                        lowests[lowest_index] = price
+                        break #to avoid an auction to be in multiple lowests bins
+        return lowests
         
     def for_save(self):
         return (self.item_id, self.tier.tier_id, self.dungeon_level), self.estimated_price_sold_hist.raw_data 
@@ -293,9 +314,11 @@ class Estimation:
         self.fully_successfully_estimated = False
         self.total = None
 
-        self.enchants = {}
-        self.runes = {}
+        self.enchants = {} #Enchant: [estimation, [Quartile1, Quartile2]]
+        self.runes = {} #Rune: [estimation, [Quartile1, Quartile2]]
         #we do not init item_without_attributes, reforge
+
+        self.trust_rate = None
     
     def estimate_for_sold_item(self):
         if self.complex_linked_item:
@@ -345,34 +368,59 @@ class Estimation:
     def estimate(self):
         if self.complex_linked_item:
             #TODO handle complex items
-            return None
+            return None, 0
         
-        def estimate_one_attr(estimated_price_sold_hist, total):
+        def estimate_one_attr(estimated_price_sold_hist, intervalls_used, total, price_and_quartiles):
             attr, intervall, smart_hist = estimated_price_sold_hist.get_smart_median()
+            sold_amount_used = len(smart_hist)
+
+            quartiles = (None, None)
+            if sold_amount_used >= 2: #sold_amount_used = len(smart_hist)
+                quartile_lenght = sold_amount_used / 4
+                quartile_1_index, quartile_3_index = quartile_lenght, quartile_lenght * 3
+
+                def get_quartile(quartile_index, smart_hist):
+                    
+                    beyond_decimal_point = quartile_index*10 % 10 / 10
+                    quartile_index_without_decimal = int(quartile_index - beyond_decimal_point)
+                    return (smart_hist[quartile_index_without_decimal][0] * beyond_decimal_point + smart_hist[quartile_index_without_decimal + 1][0] * (1 - beyond_decimal_point)) / 2
+
+                quartiles = (get_quartile(quartile_1_index, smart_hist), get_quartile(quartile_3_index, smart_hist))
+
             del(smart_hist)
             if attr is None: #haven't correctly estimated
-                return False, (attr, Timestamp(time() - intervall)), total
+                #(estimation, intervall_used, (Quartile1, Quartile2))
+                return False, (attr, Timestamp(time() - intervall), quartiles, sold_amount_used), total
             else:
+                if intervall < intervalls_used[0]:
+                    intervalls_used[0] = intervall
+                if intervall > intervalls_used[1]:
+                    intervalls_used[1] = intervall
+                
                 total += attr
-                return True, (attr, Timestamp(time() - intervall)), total #correctly estimated
+                price_and_quartiles.append((attr, quartiles))
+                #(estimation, intervall_used, (Quartile1, Quartile2))
+                return True, (attr, Timestamp(time() - intervall), quartiles, sold_amount_used), total #correctly estimated
 
         currently_correctly_estimated = True
         total = 0
+        intervalls_used = [999999999999999, 0] #min, max
+        price_and_quartiles = [] #price, quartiles
 
-        #estimate the item
-        currently_correctly_estimated, self.item_only, total = estimate_one_attr(self.linked_item.basic.estimated_price_sold_hist, total)
+        #estimate the item 
+        currently_correctly_estimated, self.item_only, total = estimate_one_attr(self.linked_item.basic.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles)
         
         if self.linked_item.reforge is not None:
             #estimate the reforge
-            currently_correctly_estimated, self.reforge, total = estimate_one_attr(self.linked_item.reforge.estimated_price_sold_hist, total)
+            currently_correctly_estimated, self.reforge, total = estimate_one_attr(self.linked_item.reforge.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles)
 
         for enchant in self.linked_item.enchants:
             #estimate the enchant
-            currently_correctly_estimated, self.enchants[enchant], total = estimate_one_attr(enchant.estimated_price_sold_hist, total)
+            currently_correctly_estimated, self.enchants[enchant], total = estimate_one_attr(enchant.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles)
 
         for rune in self.linked_item.runes:
             #estimate the rune
-            currently_correctly_estimated, self.runes[rune], total = estimate_one_attr(rune.estimated_price_sold_hist, total)
+            currently_correctly_estimated, self.runes[rune], total = estimate_one_attr(rune.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles)
         
         #end
         if currently_correctly_estimated:
@@ -380,10 +428,22 @@ class Estimation:
         self.fully_successfully_estimated = currently_correctly_estimated
         self.already_estimated = True
 
+        self.intervalls_used = intervalls_used
+
         if currently_correctly_estimated:
-            return total
+            #calculate the quartiles trust rate
+            MIN_PRICE_PERCENTAGE_OF_AN_ATTR_TO_BE_IN_TRUST_RATE = 0.1
+            quartiles_trust = 1 #bc we multiply quartiles between them
+            for price, quartiles in price_and_quartiles:
+                if price / total >= MIN_PRICE_PERCENTAGE_OF_AN_ATTR_TO_BE_IN_TRUST_RATE and quartiles[0] is not None:
+                    this_attr_quartiles_trust = (quartiles[0] / quartiles[1])
+                    if this_attr_quartiles_trust < 0.1: this_attr_quartiles_trust = 0.1
+
+                    quartiles_trust *= this_attr_quartiles_trust
+            
+            return total, quartiles_trust
         else:
-            return None
+            return None, 0 #quartiles trust rate is 0
 
 class Item:
     def __init__(self, item_name: str, basicitem: BasicItem, reforge: Reforge or None, enchants: Enchant or tuple or list, runes: Rune or tuple or list, additional_data: tuple=()):
@@ -403,8 +463,8 @@ class Item:
 
 class Auction:
     auction_uuid_to_obj = {}
-    MIN_ABSOLUTE_PROFITABILITY_FOR_ALERTING = 200
-    MIN_PROFITABILITY_PERCENTAGE_FOR_ALERTING = 0.01 #as coefficient, not % (ex: 20% = 0.2)
+    MIN_ABSOLUTE_PROFITABILITY_FOR_ALERTING = 200_000
+    MIN_PROFITABILITY_PERCENTAGE_FOR_ALERTING = 0.1 #as coefficient, not % (ex: 20% = 0.2)
 
     def __init__(self, uuid: str, seller_uuid: str, start: Timestamp or int, end: Timestamp or int, item_count: int, item: Item, starting_bid: int):
         self.uuid = uuid
@@ -434,16 +494,37 @@ class Auction:
         #adding the auction to the dict
         self.auction_uuid_to_obj[uuid] = self
     
-    def calculate_profitability(self):#returns >200k profit and >10% profit, absolute profitability
-        value = self.item.estimation.estimate()
+    def calculate_profitability(self, cur_run):#returns must_be_alerted, absolute profitability, percentage profitability
+        value, quartiles_trust = self.item.estimation.estimate()
         if value is None: #couldn't estimate propely
-            return False, None
+            return False, None, None, None
         #else not needed because of return
-        profitability = value - self.starting_bid
-        if profitability >= self.MIN_ABSOLUTE_PROFITABILITY_FOR_ALERTING and profitability >= self.MIN_PROFITABILITY_PERCENTAGE_FOR_ALERTING * self.starting_bid:
-            return True, profitability
+        absolute_profitability = value - self.starting_bid
+        percentage_profitability = value / self.starting_bid - 1
+
+        if cur_run != 0:
+            lowest_bins = self.item.basic.get_lowests_bins()
+            lowest_bins_trust = 0
+            lowest_bins_not_none = 0
+            for lowest_bin in lowest_bins:
+                if not lowest_bin is None:
+                    lowest_bins_trust += lowest_bin
+                    lowest_bins_not_none += 1
+
+            missing_lowest_bins_penalty = (len(lowest_bins) - lowest_bins_not_none) / 4
+
+            lowest_bins_trust /= lowest_bins_not_none + missing_lowest_bins_penalty #the mean plus the penalty
+            lowest_bins_trust /= self.starting_bid_cost_per_item #divided by the price
+            lowest_bins_trust = lowest_bins_trust ** 3 #to increase the gap, the signifiance of lowest bins cheaper than the item's price
+            if lowest_bins_trust > 1: lowest_bins_trust = 1
+        else:
+            lowest_bins_trust = 0.4 #40% of trust
+        trust = quartiles_trust / 2 + lowest_bins_trust / 2
+
+        if absolute_profitability >= self.MIN_ABSOLUTE_PROFITABILITY_FOR_ALERTING and percentage_profitability >= self.MIN_PROFITABILITY_PERCENTAGE_FOR_ALERTING:
+            return True, absolute_profitability, percentage_profitability, trust
         #else not needed because of return
-        return False, profitability
+        return False, absolute_profitability, percentage_profitability, trust
 
 class SoldAuction:
     #must be SOLD, NOT cancelled or expired

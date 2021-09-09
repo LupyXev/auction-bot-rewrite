@@ -2,7 +2,9 @@ from datetime import datetime
 from time import time
 
 class Timestamp:
-    def __init__(self, value: int=time()):
+    def __init__(self, value=None):
+        if value is None:
+            value = time()
         if value > 9000000000:
             #the value is in milliseconds
             value /= 1000

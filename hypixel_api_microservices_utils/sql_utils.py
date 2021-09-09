@@ -11,18 +11,21 @@ except:
 logger = init_a_new_logger("SQL Utils HAM")
 
 def save_sold_history():
+    logger.debug("saving sold history")
     db = sqlite3.connect("testDB.db")
 
     cursor = db.cursor()
     
     basic_items_dict = {} #id str: {Tier.id str: {dungeon_level int: estimated_price_sold_hist: list}}
-    for basic_item in tuple(BasicItem.basicitem_dict.values()):
-        if basic_item.item_id not in basic_items_dict:
-            basic_items_dict[basic_item.item_id] = {}
-        if basic_item.tier.tier_id not in basic_items_dict[basic_item.item_id]:
-            basic_items_dict[basic_item.item_id][basic_item.tier.tier_id] = {}
-        basic_items_dict[basic_item.item_id][basic_item.tier.tier_id][basic_item.dungeon_level] = basic_item.estimated_price_sold_hist.raw_hist
-    print(basic_items_dict)
+    for basic_item_id, by_id in BasicItem.basicitem_dict.items():
+        if basic_item_id not in basic_items_dict:
+            basic_items_dict[basic_item_id] = {}
+        for tier, by_tier in by_id.items():
+            if tier.tier_id not in basic_items_dict[basic_item_id]:
+                basic_items_dict[basic_item_id][tier.tier_id] = {}
+            for dungeon_level, basic_item in by_tier.items():
+                basic_items_dict[basic_item_id][tier.tier_id][dungeon_level] = basic_item.estimated_price_sold_hist.raw_hist
+    #print(basic_items_dict)
     
     cursor.execute("DELETE FROM sold_history WHERE key='basic_items';")
     cursor.execute(f"INSERT INTO sold_history VALUES ('basic_items', '{dumps(basic_items_dict)}', {time()});")
@@ -65,6 +68,7 @@ def save_sold_history():
     cursor.close()
 
 def load_sold_history():
+    logger.debug("loading sold history")
     db = sqlite3.connect("testDB.db")
 
     cursor = db.cursor()
@@ -78,9 +82,13 @@ def load_sold_history():
             loader(value_got[0])
 
     get_something("basic_items", BasicItem.loader)
+    logger.debug(f"loaded {len(BasicItem.basicitem_dict)} basic items")
     get_something("reforges", Reforge.loader)
+    logger.debug(f"loaded {len(Reforge.reforge_dict)} reforges")
     get_something("enchants", EnchantType.loader)
+    logger.debug(f"loaded {len(EnchantType.enchant_type_dict)} enchant types")
     get_something("runes", RuneType.loader)
+    logger.debug(f"loaded {len(RuneType.rune_type_dict)} rune types")
 
 """load_sold_history()
 print(BasicItem.basicitem_dict)

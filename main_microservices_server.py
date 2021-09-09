@@ -112,6 +112,7 @@ def init_a_new_logger(name, lvl=logging.DEBUG):
         if key_to_destroy is not None:
             self.dict.pop(key_to_destroy)"""
 
+logger = init_a_new_logger("Global MMS")
 
 class Microservice:
     
@@ -184,26 +185,45 @@ class Microservice:
                 socket_to_close.send("CLOSE".encode(FORMAT))
             except:
                 print("didn't succeeded in send CLOSE state")
-            self.send_socket.close()
-            self.send_socket = None
+            if self.send_socket is not None:
+                self.send_socket.close()
+                self.send_socket = None
             del(socket_to_close)
     
     def change_socket(self, send_socket):
         if self.send_socket is not None: #overwrites
             self.send_socket.close()
         self.send_socket = send_socket
+        self.is_sending = False
     
     """def add_communication(self, communication):
         if communication not in self.communications:
             self.communications.append(communication)"""
     
+    def ask_alive(self):
+        content = "alive {}"
+        self.is_sending = True
+        self.send_socket.send(str(len(content)).encode(FORMAT))
+        resp = self.send_socket.recv(HEADER) #to wait the client to receive the req lenght
+        self.send_socket.send(content)
+        self.is_sending = False
+        if resp is None:
+            self.alive = False
+        else:
+            self.alive = True
+        return self.alive
+    
     def send(self, content: str):
+        if self.alive is False and self.ask_alive() == False:
+            logger.warning(f"tried to send to a died microservice, sending cancelled")
+            return
         while self.is_sending:
             logger.warning(f"waiting for socket stop sending, for {self.name}")
             time.sleep(0.01)
         content = content.encode(FORMAT)
         self.is_sending = True
         self.send_socket.send(str(len(content)).encode(FORMAT))
+        self.send_socket.recv(HEADER) #to wait the client to receive the req lenght
         self.send_socket.send(content)
         self.is_sending = False
 
@@ -266,9 +286,11 @@ def handle_server(conn, addr): #for clientmode, when the other side is mainly re
         logger.error(f"client mode bad name or not initialized : {name}")
     else:
         #set this socket for commands to this microservice
+        microservice_obj.close_socket()
         microservice_obj.change_socket(conn)
         #Confirm the initialization
         conn.send(name.encode(FORMAT))
+        microservice_obj.alive = True
 
         print(f"{microservice_obj.name} CLIENTmode initialized")
 
@@ -290,6 +312,7 @@ def handle_client(conn, addr):
     while True:
         try:
             msg_length = conn.recv(HEADER)
+            microservice_obj.alive = True
         except:
             break
 
@@ -297,6 +320,7 @@ def handle_client(conn, addr):
         if msg_length: #handle None received
             msg_length = int(msg_length)
             print("taille reçue", msg_length)
+            conn.send(str(msg_length).encode(FORMAT)) #to prevent receiving req_lenght and content in same time
             msg = conn.recv(msg_length).decode(FORMAT)
             print(f"reçu {msg}")
 
@@ -314,14 +338,15 @@ def handle_client(conn, addr):
                 pass
             elif msg[0] == ">": 
                 dest = Microservice.get_microservice(msgSplitted[0][1:])
+                verification_code = None
                 if dest is None:
-                    conn.send("*BAD_DEST_NAME".encode(FORMAT))
+                    verification_code = "*BAD_DEST_NAME".encode(FORMAT)
                     logger.error(f"Bad destination name : {msgSplitted[0][1:]} from {name}")
                 elif dest.alive is False:
-                    conn.send("*DIED_DEST".encode(FORMAT))
+                    verification_code = "*DIED_DEST".encode(FORMAT)
                     logger.warning(f"Died dest : {msgSplitted[0][1:]} asked from {name}")
                 elif dest.send_socket is None:
-                    conn.send("*NO_SOCKET_DEST".encode(FORMAT))
+                    verification_code = "*NO_SOCKET_DEST".encode(FORMAT)
                     logger.warning(f"No socket dest : {msgSplitted[0][1:]} asked from {name}")
                 else:
                     data = msg[len(msgSplitted[0]) + 1:]
@@ -331,11 +356,16 @@ def handle_client(conn, addr):
                     try:
                         dest.send(data)
                     except:
-                        conn.send("*DEST_SOCKET_WORKING_ERR".encode(FORMAT))
+                        verification_code = "*DEST_SOCKET_WORKING_ERR".encode(FORMAT)
                         logger.warning(f"Error when sending data (socket closed ?) to : {msgSplitted[0][1:]} asked from {name}\n{data}")
 
-                    #send verification to request's source
-                    conn.send(f"V{msg_length}".encode(FORMAT))
+                    if verification_code is None: #no above error
+                        verification_code = f"V{msg_length}".encode(FORMAT)
+
+                verification_lenght = str(len(verification_code)).encode(FORMAT)
+                conn.send(verification_lenght)
+                conn.recv(HEADER) #to prevent sending verif lenght and code in same time
+                conn.send(verification_code)
             else:
                 conn.send("*BAD_PREFIX".encode(FORMAT))
                 logger.warn(f"no correct prefix specified : {msg} from {name}")
@@ -345,6 +375,7 @@ def handle_client(conn, addr):
             break
     
     print(f"microservice {name}'s request port (our SERVERmode) disconnected")
+    microservice_obj.alive = False
 
 def start_servermode():
     server.listen()

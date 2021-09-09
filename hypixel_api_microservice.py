@@ -1,7 +1,7 @@
 from hypixel_api_microservices_utils.hypixel_data_objs import *
 from hypixel_api_microservices_utils.logs_obj import init_a_new_logger
 from hypixel_api_microservices_utils.others_objs import GlobalHAM
-from hypixel_api_microservices_utils.sql_utils import save_sold_history
+from hypixel_api_microservices_utils.sql_utils import save_sold_history, load_sold_history
 
 main_py_file_logger = init_a_new_logger("Main HAM py file")
 
@@ -16,10 +16,20 @@ import requests
 from base64 import b64decode
 from io import BytesIO
 from nbt.nbt import NBTFile
+import socket
+from microservices_utils.objs import MicroserviceReceiver, MicroserviceSender, Microservice
 
 HYPIXEL_API_SKYBLOCK_LINK = "https://api.hypixel.net/skyblock/"
 HYPIXEL_API_AUCTIONS_LINK = HYPIXEL_API_SKYBLOCK_LINK + "auctions"
 HYPIXEL_API_ENDED_AUCTIONS_LINK = HYPIXEL_API_SKYBLOCK_LINK + "auctions_ended"
+MICROSERVICE_NAME = "hypixel_api_analysis"
+MICROSERVICE_PREFIX = "H"
+
+microservice = Microservice(MICROSERVICE_NAME, MICROSERVICE_PREFIX, {})
+sender = MicroserviceSender(microservice, init_a_new_logger("MicroserviceSender HAM"))
+
+sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "send", {"channel_id": 811605424935403560, "content": "microservice hypixel api lancé"})
+#sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "send", {"channel_id": 811605424935403560, "content": "test"})
 
 python_process = psutil.Process(os.getpid())
 
@@ -66,13 +76,18 @@ def get_useful_data_from_auction(auction: dict):
 
     item_attributes = {"item_name": auction["item_name"], "basicitem": BasicItem.get_basicitem(**basicitem_attributes), "reforge": reforge, "enchants": enchants, "runes": runes}
     if item_attributes["basicitem"] is None:
+        #the basic item might had an alias error
+        #we add the item's name to show the missing alias
+        if basicitem_attributes["item_id"] in BasicItem.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD and BasicItem.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD[basicitem_attributes["item_id"]] is None: #if the last added have no name
+            BasicItem.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD[basicitem_attributes["item_id"]] = auction["item_name"]
         return None, None
     return auction_attributes, item_attributes
 
-def get_new_auctions_and_analyzing_them(logger, last_api_update):
+def get_new_auctions_and_analyzing_them(logger, last_api_update, cur_run):
     TIMEOUT = 3 #in seconds
     cur_page = 0
     total_pages = 1
+    first_last_api_update = None
 
     while cur_page < total_pages:
         req = requests.get(HYPIXEL_API_AUCTIONS_LINK, params={"page": cur_page}, timeout=TIMEOUT)
@@ -85,28 +100,69 @@ def get_new_auctions_and_analyzing_them(logger, last_api_update):
             total_pages = req_json["totalPages"]
 
             if last_api_update is None:
-                last_api_update = req_json["lastUpdated"]
-            elif last_api_update != req_json["lastUpdated"]:
-                last_api_update = req_json["lastUpdated"]
+                last_api_update = req_json["lastUpdated"] / 1000
+            elif last_api_update != req_json["lastUpdated"] / 1000:
+                last_api_update = req_json["lastUpdated"] / 1000
                 logger.warning(f"lastUpdated changed between pages requests beggining and this page, {cur_page}/{total_pages}")
+            if first_last_api_update is None:
+                first_last_api_update = req_json["lastUpdated"] / 1000
 
             for auction in req_json["auctions"]:
-                if "bin" in auction and auction["bin"] is True and auction["uuid"] not in Auction.auction_uuid_to_obj: #is a new auction and a bin one
+                if "bin" in auction and auction["bin"] is True and auction["uuid"] not in Auction.auction_uuid_to_obj and auction["item_name"] != "null": #is a new auction and a bin one
                     auction_attributes, item_attributes = get_useful_data_from_auction(auction)
                     if auction_attributes is not None and item_attributes is not None and auction_attributes["item_count"] > 0:
                         auction_obj = Auction(item=Item(**item_attributes), **auction_attributes)
                         
-                        must_be_alert, profitability = auction_obj.calculate_profitability()
+                        must_be_alert, absolute_profitability, relative_profitability, trust_rate = auction_obj.calculate_profitability(cur_run)
                         if must_be_alert:
                             print("------------- Aleeeeeeeeeeert -----------")
-                            print(auction["item_name"], profitability, "/viewauction", auction["uuid"])
-                            #TODO sending to discord part that it is an alert
+                            print(auction["item_name"], absolute_profitability, "/viewauction", auction["uuid"])
+                            full_estimation = auction_obj.item.estimation
+
+                            item_data = {
+                                "dungeon_item_which_can_be_drop_enchanted": auction_obj.item.basic.can_be_drop_enchanted,
+                                "name": auction_obj.item.item_name,
+                                "tier": auction_obj.item.basic.tier.tier_id,
+                                "item_only": {"estimation": full_estimation.item_only[0], "sold_amount": full_estimation.item_only[3]}
+                            }
+                            
+                            reforge = auction_obj.item.reforge
+                            if reforge is not None:
+                                item_data["reforge"] = {"name": reforge.reforge_id, "estimation": full_estimation.reforge[0], "sold_amount": full_estimation.reforge[3]}
+                            
+                            enchants = auction_obj.item.enchants
+                            if len(enchants) > 0:
+                                item_data["enchants"] = []
+                                for enchant in enchants:
+                                    enchant_estimation = full_estimation.enchants[enchant]
+                                    item_data["enchants"].append({"name": f"{enchant.basic.enchant_type_id} {enchant.level}", "estimation": enchant_estimation[0]})
+                            
+                            runes = auction_obj.item.runes
+                            if len(runes) > 0:
+                                item_data["runes"] = []
+                                for rune in runes:
+                                    rune_estimation = full_estimation.runes[rune]
+                                    item_data["runes"].append({"name": f"{rune.basic.rune_type_id} {rune.level}", "estimation": rune_estimation[0], "sold_amount": full_estimation.reforge[3]})
+
+                            sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "stonks_alert", {
+                                "intervalls_used": full_estimation.intervalls_used,
+                                "absolute_profitability": absolute_profitability, 
+                                "relative_profitability": relative_profitability,
+                                "full_estimation": full_estimation.total,
+                                "buy_price": auction_obj.starting_bid,
+                                "lowest_bins": auction_obj.item.basic.get_lowests_bins(),
+                                "potential_resell_price": full_estimation.total,
+                                "item_data": item_data,
+                                "seller_uuid": auction_obj.seller_uuid,
+                                "auction_uuid": auction_obj.uuid,
+                                "trust_rate": trust_rate
+                                })
 
         else:
             logger.error(f"req for auctions page {cur_page}/{total_pages} has success = false, json : {req_json}")
         
         cur_page += 1
-    return last_api_update
+    return first_last_api_update
 
 def get_sold_auctions_and_analyzing_them(logger):
     req = requests.get(HYPIXEL_API_ENDED_AUCTIONS_LINK)
@@ -118,7 +174,6 @@ def get_sold_auctions_and_analyzing_them(logger):
         for auction in req_json["auctions"]:
             if auction["auction_id"] in Auction.auction_uuid_to_obj:
                 auction_obj = Auction.auction_uuid_to_obj[auction["auction_id"]]
-                print("ended", auction_obj)
                 sold_auction = SoldAuction(auction_obj)
                 sold_auction.sold(auction["price"])
 
@@ -136,7 +191,7 @@ def wait_until_api_refresh(logger, last_api_update):
                 logger.warning(f"req for auctions list when waiting a new api refresh finished with code {req.status_code}")
         req_json = req.json()
         if req_json["success"]:
-            return req_json["lastUpdated"]
+            return req_json["lastUpdated"] / 1000
         else:
             logger.error(f"req for auctions list when waiting a new api refresh = false, json : {req_json}")
             return 0 #error
@@ -164,12 +219,21 @@ def main_getting_and_analyzing_api():
     logger.info("main_getting_and_analyzing_api started")
     last_api_update = None
     runs_since_last_save = 0
+    cur_run = 0
+    load_sold_history()
 
     while GlobalHAM.run:
-        last_api_update = get_new_auctions_and_analyzing_them(logger, last_api_update)
+        sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "cur_run_number", {"run_number": cur_run})
+        last_api_update = get_new_auctions_and_analyzing_them(logger, last_api_update, cur_run)
         get_sold_auctions_and_analyzing_them(logger)
 
-        if runs_since_last_save > RUNS_BETWEEN_SAVES:
+        #to send missing alias
+        for item_id, item_name in BasicItem.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD:
+            sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "missing_alias", {"item_id": item_id, "item_name": item_name})
+            BasicItem.ITEM_IDS_NOT_IN_ALIAS_SENT_TO_DISCORD.append(item_id)
+        BasicItem.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD = [] #clear everything bc we've already processed everything
+
+        if runs_since_last_save >= RUNS_BETWEEN_SAVES:
             save_sold_history()
             runs_since_last_save = 0
         else:
@@ -177,14 +241,18 @@ def main_getting_and_analyzing_api():
         
         last_api_update = wait_until_api_refresh(logger, last_api_update)
 
+        cur_run += 1
+
 def listening_to_main_microservices_serv():
     logger = init_a_new_logger("Socket listening HAM")
     logger.info("listening_to_main_microservices_serv started")
-    
+    receiver = MicroserviceReceiver(microservice, logger)
+    while GlobalHAM.run:
+        req = receiver.listen()
+        
 
 process_main_getting_and_analyzing_api = threading.Thread(target=main_getting_and_analyzing_api)
 process_main_getting_and_analyzing_api.start()
-#process_main_getting_and_analyzing_api.join()
 
 process_listening_to_main_microservices_serv = threading.Thread(target=listening_to_main_microservices_serv)
 process_listening_to_main_microservices_serv.start()
