@@ -2,6 +2,7 @@ from hypixel_api_microservices_utils.hypixel_data_objs import *
 from hypixel_api_microservices_utils.logs_obj import init_a_new_logger
 from hypixel_api_microservices_utils.others_objs import GlobalHAM
 from hypixel_api_microservices_utils.sql_utils import save_sold_history, load_sold_history
+import hypixel_api_microservices_utils.internal_microservices_commands as internal_microservices_commands
 
 main_py_file_logger = init_a_new_logger("Main HAM py file")
 
@@ -212,13 +213,21 @@ def wait_until_api_refresh(logger, last_api_update):
 
     return last_updated_got_with_request #will be the new last_api_update
 
+def full_cleanup(logger):
+    logger.info("Starting cleanup")
+    Reforge.cleanup()
+    EnchantType.cleanup()
+    RuneType.cleanup()
+    BasicItem.cleanup()
+
 def main_getting_and_analyzing_api():
     RUNS_BETWEEN_SAVES = 2
+    RUNS_BETWEEN_CLEANUPS = 20
 
     logger = init_a_new_logger("Main API HAM")
     logger.info("main_getting_and_analyzing_api started")
     last_api_update = None
-    runs_since_last_save = 0
+    runs_since_last_save, runs_since_last_cleanup = 0, 0
     cur_run = 0
     load_sold_history()
 
@@ -228,16 +237,22 @@ def main_getting_and_analyzing_api():
         get_sold_auctions_and_analyzing_them(logger)
 
         #to send missing alias
-        for item_id, item_name in BasicItem.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD:
+        for item_id, item_name in BasicItem.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD.items():
             sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "missing_alias", {"item_id": item_id, "item_name": item_name})
             BasicItem.ITEM_IDS_NOT_IN_ALIAS_SENT_TO_DISCORD.append(item_id)
-        BasicItem.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD = [] #clear everything bc we've already processed everything
+        BasicItem.ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD = {} #clear everything bc we've already processed everything
 
         if runs_since_last_save >= RUNS_BETWEEN_SAVES:
             save_sold_history()
             runs_since_last_save = 0
         else:
             runs_since_last_save += 1
+        
+        if runs_since_last_cleanup >= RUNS_BETWEEN_CLEANUPS:
+            full_cleanup(logger)
+            runs_since_last_cleanup = 0
+        else:
+            runs_since_last_cleanup += 1
         
         last_api_update = wait_until_api_refresh(logger, last_api_update)
 
@@ -247,9 +262,19 @@ def listening_to_main_microservices_serv():
     logger = init_a_new_logger("Socket listening HAM")
     logger.info("listening_to_main_microservices_serv started")
     receiver = MicroserviceReceiver(microservice, logger)
+    logger.info(f"new MicroserviceReceiver created for {microservice.name} microservice")
+    time.sleep(0.1)
     while GlobalHAM.run:
-        req = receiver.listen()
-        
+        if not receiver.connection_alive:
+            time.sleep(1)
+        while receiver.connection_alive:
+            req = receiver.listen()
+            if req is None:
+                break #connection closed, not alive anymore
+            if req["command"] in internal_microservices_commands.text_to_command:
+                internal_microservices_commands.text_to_command[req["command"]](req["args"], microservice)
+            else:
+                logger.error(f"Got a request with a command not in text_to_command : {req}")
 
 process_main_getting_and_analyzing_api = threading.Thread(target=main_getting_and_analyzing_api)
 process_main_getting_and_analyzing_api.start()

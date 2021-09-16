@@ -22,7 +22,7 @@ def print_attr(uuid):
                 for enchant in extras_data["enchantments"]:
                     print(enchant, extras_data["enchantments"][enchant])"""
                 exit()
-print_attr("bee8c31add904fa6a5d3faaded158a93")
+#print_attr("bee8c31add904fa6a5d3faaded158a93")
 
 page, nb_pages = 0, 1
 extra_attributes = {}
@@ -52,12 +52,14 @@ while page < nb_pages:
                 elif reponse == "y":
                     extra_attributes[extra] = True
                     extra_conserv.append(extra)"""
-        for attr in attr_to_find:
+        """for attr in attr_to_find:
             if attr in extras_data:
                 print("----", attr, "----")
                 print(extras_data.pretty_tree())
                 attr_to_find.remove(attr)
-                print(f"{len(attr_to_find)} restants")
+                print(f"{len(attr_to_find)} restants")"""
+        if extras_data["id"].value == "SUMMONING_RING":
+            print(extras_data.pretty_tree())
     
     print(page)
     page += 1

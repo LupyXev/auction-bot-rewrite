@@ -30968,3 +30968,89 @@ me discord_bot
 2021-09-08 19:26:28,056 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
 2021-09-08 19:26:28,057 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
 2021-09-08 19:26:28,069 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 18:16:42,739 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 18:16:42,748 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 18:16:42,749 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 18:16:42,751 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 18:21:17,011 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 18:21:17,019 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 18:21:17,021 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 18:21:17,032 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 18:56:56,490 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 18:56:56,497 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 18:56:56,498 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 18:56:56,510 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 18:58:23,624 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 18:58:23,630 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 18:58:23,632 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 18:58:23,642 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 19:08:22,617 - Socket listening DBM - ERROR - Error when receiving, connection closed ?, linked microservice : discord_bot
+2021-09-10 20:24:52,493 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:24:52,500 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:24:52,501 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:24:52,513 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:28:27,144 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:28:27,151 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:28:27,152 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:28:27,165 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:29:24,245 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:29:24,251 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:29:24,253 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:29:24,265 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:30:22,461 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:30:22,467 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:30:22,468 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:30:22,478 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:31:06,069 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:31:06,077 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:31:06,078 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:31:06,091 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:38:47,323 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:38:47,330 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:38:47,331 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:38:47,344 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:39:20,772 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:39:20,779 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:39:20,780 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:39:20,791 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:40:08,544 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:40:08,551 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:40:08,555 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:40:08,568 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:40:43,302 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:40:43,309 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:40:43,311 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:40:43,322 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:41:37,381 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:41:37,388 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:41:37,389 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:41:37,401 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:41:59,497 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:41:59,503 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:41:59,504 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:41:59,518 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:43:17,022 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:43:17,028 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:43:17,029 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:43:17,041 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:44:28,661 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:44:28,668 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:44:28,670 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:44:28,681 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:44:56,605 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:44:56,612 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:44:56,613 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:44:56,629 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-10 20:45:15,651 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:45:15,658 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-10 20:45:15,659 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-10 20:45:15,668 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-16 18:44:51,346 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-16 18:44:51,355 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-16 18:44:51,357 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-16 18:44:51,359 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-16 20:28:59,224 - Microservice sender DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-16 20:28:59,231 - Socket listening DBM - INFO - listening_to_main_microservices_serv started
+2021-09-16 20:28:59,234 - Socket listening DBM - INFO - Starting init to Microservice main server, with microservice name discord_bot
+2021-09-16 20:28:59,247 - Socket listening DBM - INFO - new MicroserviceReceiver created for discord_bot microservice
+2021-09-16 20:29:06,250 - Discord Bot Commands - DBM - WARNING - Req for get_price_with_item_name not successful, code : V117

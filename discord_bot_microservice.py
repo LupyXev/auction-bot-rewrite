@@ -45,7 +45,7 @@ def listening_to_main_microservices_serv():
             if req["command"] in internal_microservices_commands.text_to_command:
                 queue_to_execute.add(req["args"]["request_id"], {"command": internal_microservices_commands.text_to_command[req["command"]], "args": req["args"]})
             else:
-                logger.warning(f"Got a request with a command not in text_to_command : {req}")
+                logger.error(f"Got a request with a command not in text_to_command : {req}")
 
 #Test
 Guild(842453728154091561, alert_channels_by_id={

@@ -64,11 +64,18 @@ class Reforge:
 
         if estimated_price_sold_hist is None:
             self.estimated_price_sold_hist = EstimatedPriceHist([])
-        else:
+        elif estimated_price_sold_hist is EstimatedPriceHist:
             self.estimated_price_sold_hist = estimated_price_sold_hist
+        else:
+            logger.error(f"estimated_price_sold_hist gave for __init__ bad type : {type(estimated_price_sold_hist)}")
         
     def for_save(self):
         return self.reforge_id, self.estimated_price_sold_hist.raw_data
+    
+    @classmethod
+    def cleanup(cls):
+        for reforge in cls.reforge_dict.values():
+            reforge.estimated_price_sold_hist.cleanup()
 
 class EnchantType:
     enchant_type_dict = {}
@@ -109,6 +116,12 @@ class EnchantType:
             new_obj = Enchant(level, self)
             self.enchant_by_levels_dict[level] = new_obj
             return new_obj
+    
+    @classmethod
+    def cleanup(cls):
+        for enchant_type in cls.enchant_type_dict.values():
+            for enchant_level in enchant_type.enchant_by_levels_dict.values():
+                enchant_level.estimated_price_sold_hist.cleanup()
 
 class Enchant:
     def __init__(self, level: int, enchant_type: EnchantType, estimated_price_sold_hist: EstimatedPriceHist or None =None):
@@ -163,6 +176,12 @@ class RuneType:
             new_obj = Rune(rune_level, self)
             self.rune_by_levels_dict[rune_level] = new_obj
             return new_obj
+    
+    @classmethod
+    def cleanup(cls):
+        for rune_type in cls.rune_type_dict.values():
+            for rune_level in rune_type.rune_by_levels_dict.values():
+                rune_level.estimated_price_sold_hist.cleanup()
 
 class Rune:
     def __init__(self, level: int, rune_type: RuneType, estimated_price_sold_hist: EstimatedPriceHist or None =None):
@@ -210,7 +229,7 @@ class AdditionalAttributeUnspecialized(AdditionalAttribute):
 class AdditionalAttributeSpecialized(AdditionalAttribute):
     ATTRIBUTES_NAME_FOR_THIS_CLASS = ("spider_kills", "zombie_kills", "wood_singularity_count", "drill_part_upgrade_module", "drill_fuel", 
     "stored_drill_fuel", "drill_part_fuel_tank", "drill_part_engine", "ability_scroll", "power_ability_scroll",
-    "raider_kills", "eman_kills", "item_durability", "bow_kills", "pickonimbus_durability", "sword_kills")
+    "raider_kills", "eman_kills", "item_durability", "bow_kills", "pickonimbus_durability", "sword_kills", "necromancer_souls")
 
 class BasicItem:
     basicitem_dict = {} #id: {Tier: {dungeon_level: BasicItem}}
@@ -289,6 +308,20 @@ class BasicItem:
             self.estimated_price_sold_hist = EstimatedPriceHist([])
         else:
             self.estimated_price_sold_hist = estimated_price_sold_hist
+        
+        #for less alerting new items
+        self.coef_for_alerting_this_item = self.ALIAS[item_id][2]
+        try:
+            days_since_add = (time() - self.ALIAS[item_id][2]) / 3600 / 24
+            function_result = -1.0 * days_since_add**2 + 100.0 #f(x)=-x^2+100
+
+            coef = function_result / 10
+            if coef < 1: #if the coef advise to reduce the min_profitability
+                coef = 1
+            self.coef_for_alerting_this_item = coef
+        except:
+            logger.error(f"error with coef for alerting this item with item id {item_id}")
+            self.coef_for_alerting_this_item = 1
     
     def get_lowests_bins(self, number_of_lowests_bins=3):
         lowests = [None] * number_of_lowests_bins
@@ -302,7 +335,14 @@ class BasicItem:
         return lowests
         
     def for_save(self):
-        return (self.item_id, self.tier.tier_id, self.dungeon_level), self.estimated_price_sold_hist.raw_data 
+        return (self.item_id, self.tier.tier_id, self.dungeon_level), self.estimated_price_sold_hist.raw_data
+
+    @classmethod
+    def cleanup(cls):
+        for item_id_dict in cls.basicitem_dict.values():
+            for tier_dict in item_id_dict.values():
+                for basic_item in tier_dict.values():
+                    basic_item.estimated_price_sold_hist.cleanup()
 
 class Estimation:
     def __init__(self, linked_item):
@@ -521,7 +561,7 @@ class Auction:
             lowest_bins_trust = 0.4 #40% of trust
         trust = quartiles_trust / 2 + lowest_bins_trust / 2
 
-        if absolute_profitability >= self.MIN_ABSOLUTE_PROFITABILITY_FOR_ALERTING and percentage_profitability >= self.MIN_PROFITABILITY_PERCENTAGE_FOR_ALERTING:
+        if absolute_profitability >= self.MIN_ABSOLUTE_PROFITABILITY_FOR_ALERTING and percentage_profitability >= self.item.basic.coef_for_alerting_this_item * self.MIN_PROFITABILITY_PERCENTAGE_FOR_ALERTING:
             return True, absolute_profitability, percentage_profitability, trust
         #else not needed because of return
         return False, absolute_profitability, percentage_profitability, trust

@@ -22,6 +22,8 @@ class EstimatedPriceHist:
 
     BLACKLISTED_SOLD_STORAGE_ITEMS = ("SPOOKY_PIE", "NEW_YEAR_CAKE") #item which we won't store their sold hist
 
+    INTERVALL_KEPT_FOR_SOLD_HISTORY = 3600*24
+
     @classmethod
     def find_median(cls, raw_data, return_timestamp=False):
         if len(raw_data) < 1:
@@ -110,8 +112,8 @@ class EstimatedPriceHist:
         else:
             return None, smarter_intervall, smarter_sold_hist #we haven't found a smart median
 
-    def cleanup(self, intervall_kept: int):
-        self.raw_hist = self.get_for_an_intervall(intervall_kept, False)
+    def cleanup(self):
+        self.raw_hist = self.get_for_an_intervall(self.INTERVALL_KEPT_FOR_SOLD_HISTORY, False)
 
     """@classmethod
     def get_smart_median_for_multiple_hists(cls, estimated_price_sold_hist_objs: tuple):

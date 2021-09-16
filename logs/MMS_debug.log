@@ -834,3 +834,80 @@ stonks_alert {"intervalls_used": [1800.0, 1800.0], "absolute_profitability": 700
 2021-09-08 20:16:31,048 - Global MMS - DEBUG - new clientmode connexion started
 2021-09-08 20:28:39,427 - Global MMS - DEBUG - new servermode connexion started
 2021-09-08 20:28:39,451 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 18:16:42,745 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 18:16:42,745 - Global MMS - INFO - Initializing discord_bot microservice
+2021-09-10 18:16:42,751 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 18:16:45,733 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 18:16:45,733 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-09-10 18:16:45,758 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 18:21:17,017 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 18:21:17,017 - Global MMS - INFO - Initializing discord_bot microservice
+2021-09-10 18:21:17,022 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 18:21:19,875 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 18:21:19,875 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-09-10 18:21:19,898 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 18:24:47,239 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 18:24:47,264 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 18:27:03,219 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 18:27:03,242 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 18:38:31,216 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 18:38:31,237 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 18:56:56,495 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 18:56:56,500 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 18:57:01,211 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 18:57:01,227 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 18:58:23,629 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 18:58:23,633 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:24:52,498 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:24:52,498 - Global MMS - INFO - Initializing discord_bot microservice
+2021-09-10 20:24:52,503 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:28:27,149 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:28:27,153 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:29:24,250 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:29:24,254 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:30:22,466 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:30:22,470 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:31:06,075 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:31:06,080 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:38:47,328 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:38:47,332 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:39:20,777 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:39:20,781 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:40:08,550 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:40:08,557 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:40:43,308 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:40:43,312 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:41:37,386 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:41:37,390 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:41:59,501 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:41:59,506 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:43:17,027 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:43:17,030 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:44:28,666 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:44:28,671 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:44:56,610 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:44:56,616 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-10 20:45:15,656 - Global MMS - DEBUG - new servermode connexion started
+2021-09-10 20:45:15,660 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-16 18:44:51,351 - Global MMS - DEBUG - new servermode connexion started
+2021-09-16 18:44:51,351 - Global MMS - INFO - Initializing discord_bot microservice
+2021-09-16 18:44:51,358 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-16 18:44:58,786 - Global MMS - DEBUG - new servermode connexion started
+2021-09-16 18:44:58,786 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-09-16 18:44:58,809 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-16 19:12:38,048 - Global MMS - DEBUG - new servermode connexion started
+2021-09-16 19:12:38,069 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-16 19:14:49,258 - Global MMS - DEBUG - new servermode connexion started
+2021-09-16 19:14:49,273 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-16 19:21:05,610 - Global MMS - DEBUG - new servermode connexion started
+2021-09-16 19:21:05,626 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-16 19:22:58,158 - Global MMS - DEBUG - new servermode connexion started
+2021-09-16 19:22:58,175 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-16 19:27:06,752 - Global MMS - DEBUG - new servermode connexion started
+2021-09-16 19:27:06,769 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-16 20:17:27,755 - Global MMS - DEBUG - new servermode connexion started
+2021-09-16 20:17:27,782 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-16 20:28:52,615 - Global MMS - DEBUG - new servermode connexion started
+2021-09-16 20:28:52,641 - Global MMS - DEBUG - new clientmode connexion started
+2021-09-16 20:28:59,229 - Global MMS - DEBUG - new servermode connexion started
+2021-09-16 20:28:59,236 - Global MMS - DEBUG - new clientmode connexion started

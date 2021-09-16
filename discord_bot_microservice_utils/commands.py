@@ -32,8 +32,9 @@ class DiscordCommands:
         guild_ids = [727239318602514526, 842453728154091561] # les Ids des serveurs pour gagner en temps lors de l'ajout de slashs commandes
 
         @slash.slash(name="ping", guild_ids=guild_ids)
-        async def _ping(ctx): 
-            await ctx.send(f"Pong! ({client.latency*1000}ms)")
+        async def _ping(ctx):
+            print(type(ctx))
+            await ctx.send(f"Pong! ({round(client.latency*1000, 1)}ms)")
 
         DEFAULT_INTERVALL = 2*60*60
 
@@ -54,6 +55,7 @@ class DiscordCommands:
             guild_ids=guild_ids
         )
         async def _price(ctx, item, intervall=DEFAULT_INTERVALL):
-            good_verif_code, verif_code = await self.send_to_a_microservice(ctx, "hypixel_api_analysis", "test")
-            print(verif_code)
-            await ctx.send("heyy")
+            success, verif_code = await self.send_to_a_microservice(ctx, "hypixel_api_analysis", "get_price_with_item_name", {"item_name": item, "intervall": intervall})
+            if not success:
+                self.logger.warning(f"Req for get_price_with_item_name not successful, code : {verif_code}")
+            

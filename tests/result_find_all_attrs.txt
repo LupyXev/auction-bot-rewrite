@@ -46,7 +46,7 @@ event conserv (y/n) n
 farming_for_dummies_count conserv (y/n) n 
 fishes_caught conserv (y/n) n
 talisman_enrichment conserv (y/n) y
-necromancer_souls conserv (y/n) n
+necromancer_souls conserv (y/n) y
 potion_level conserv (y/n) n
 enhanced conserv (y/n) n
 potion conserv (y/n) n
@@ -140,4 +140,4 @@ recall_potion_biome conserv (y/n) n
 recall_potion_location conserv (y/n) n
 personal_deletor_2 conserv (y/n) n
 
-['petInfo', 'hot_potato_count', 'skin', 'spider_kills', 'zombie_kills', 'hotPotatoBonus', 'wood_singularity_count', 'talisman_enrichment', 'drill_part_upgrade_module', 'drill_fuel', 'stored_drill_fuel', 'ability_scroll', 'drill_part_fuel_tank', 'power_ability_scroll', 'drill_part_engine']
+['petInfo', 'hot_potato_count', 'skin', 'spider_kills', 'zombie_kills', 'hotPotatoBonus', 'wood_singularity_count', 'talisman_enrichment', 'drill_part_upgrade_module', 'drill_fuel', 'stored_drill_fuel', 'ability_scroll', 'drill_part_fuel_tank', 'power_ability_scroll', 'drill_part_engine', 'necromancer_souls']

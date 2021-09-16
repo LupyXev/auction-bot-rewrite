@@ -64,7 +64,8 @@ class MicroserviceSender(MicroserviceSocket):
             req_id=f"{self.microservice.prefix_id}{round(time(), 3)}"
         args["request_id"] = req_id
         req_content = f"{req_type}{dest} {command} {dumps(args)}".encode(self.FORMAT)
-        print(req_content)
+        self.logger.debug(f"sending {req_content}")
+        
         req_lenght = str(len(req_content)).encode(self.FORMAT)
         
         self.sock_send(req_lenght)
