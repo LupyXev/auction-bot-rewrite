@@ -160,6 +160,7 @@ class Microservice:
 
     def __init__(self, name, send_socket=None):
         logger.info(f"Initializing {name} microservice")
+        self.last_listening_connexion_etablished = time.time()
         self.name = name
         self.alive = True
         self.is_sending = False #if the socket is currently used
@@ -299,6 +300,8 @@ def handle_client(conn, addr):
     #must send its microservice type
     name = conn.recv(128).decode(FORMAT)
     microservice_obj = Microservice.add_microservice(name)
+    etablished_time = time.time()
+    microservice_obj.last_listening_connexion_etablished = etablished_time #to prevent died dest
 
     if microservice_obj is None:
         conn.send("*BAD_NAME".encode(FORMAT))
@@ -324,7 +327,7 @@ def handle_client(conn, addr):
             msg = conn.recv(msg_length).decode(FORMAT)
             print(f"reçu {msg}")
 
-            msgSplitted = msg.split(" ")
+            msg_splitted = msg.split(" ")
             if msg[0] == "!": #main server commands
                 if msg == "!DISCONNECT":
                     print("Disconnected by customer")
@@ -333,23 +336,21 @@ def handle_client(conn, addr):
                 else:
                     conn.send("*BAD_SERVER_COMMAND".encode(FORMAT))
                     logger.warn(f"bad server command : {msg} from {name}")
-            elif msg[0] == "$": #output to an existing Communication
-                #not implemented yet
-                pass
-            elif msg[0] == ">": 
-                dest = Microservice.get_microservice(msgSplitted[0][1:])
+                    
+            elif msg[0] == ">" or msg[0] == "$": 
+                dest = Microservice.get_microservice(msg_splitted[0][1:])
                 verification_code = None
                 if dest is None:
                     verification_code = "*BAD_DEST_NAME".encode(FORMAT)
-                    logger.error(f"Bad destination name : {msgSplitted[0][1:]} from {name}")
+                    logger.error(f"Bad destination name : {msg_splitted[0][1:]} from {name}")
                 elif dest.alive is False:
                     verification_code = "*DIED_DEST".encode(FORMAT)
-                    logger.warning(f"Died dest : {msgSplitted[0][1:]} asked from {name}")
+                    logger.warning(f"Died dest : {msg_splitted[0][1:]} asked from {name}")
                 elif dest.send_socket is None:
                     verification_code = "*NO_SOCKET_DEST".encode(FORMAT)
-                    logger.warning(f"No socket dest : {msgSplitted[0][1:]} asked from {name}")
+                    logger.warning(f"No socket dest : {msg_splitted[0][1:]} asked from {name}")
                 else:
-                    data = msg[len(msgSplitted[0]) + 1:]
+                    data = msg[0] + msg_splitted[1] + " " + name + " " + msg[len(msg_splitted[0]) + len(msg_splitted[1]) + 2:]
                     #cur_request = Request(microservice_obj, dest, data)
 
                     #send the request
@@ -357,7 +358,7 @@ def handle_client(conn, addr):
                         dest.send(data)
                     except:
                         verification_code = "*DEST_SOCKET_WORKING_ERR".encode(FORMAT)
-                        logger.warning(f"Error when sending data (socket closed ?) to : {msgSplitted[0][1:]} asked from {name}\n{data}")
+                        logger.warning(f"Error when sending data (socket closed ?) to : {msg_splitted[0][1:]} asked from {name}\n{data}")
 
                     if verification_code is None: #no above error
                         verification_code = f"V{msg_length}".encode(FORMAT)
@@ -375,7 +376,10 @@ def handle_client(conn, addr):
             break
     
     print(f"microservice {name}'s request port (our SERVERmode) disconnected")
-    microservice_obj.alive = False
+    
+    if microservice_obj.last_listening_connexion_etablished == etablished_time: 
+        logger.warning(f"We've set the microservice {name} to died")
+        microservice_obj.alive = False #if there is no other new handle_client connexion
 
 def start_servermode():
     server.listen()

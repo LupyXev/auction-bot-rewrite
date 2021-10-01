@@ -7,6 +7,7 @@ except:
 
 from json import load, loads
 from time import time
+from fuzzysearch import find_near_matches
 
 logger = init_a_new_logger("Hypixel data objs HAM")
 
@@ -78,34 +79,49 @@ class Reforge:
             reforge.estimated_price_sold_hist.cleanup()
 
 class EnchantType:
-    enchant_type_dict = {}
+    enchant_type_dict = {} #enchant_id: enchant_type(types below): obj
+    CLASSIC_TYPE = 0
+    ENCHANTED_DUNGEON_ITEM_TYPE = 1
+    ENCHANTED_BOOK_TYPE = 2
 
     @classmethod
     def loader(cls, json_data):
         dict_data = loads(json_data)
         del(json_data)
         for enchant_id, enchant_id_data in dict_data.items():
-            enchant_type_obj = cls.get_enchant_type(enchant_id)
+            for enchant_type, enchant_type_data in enchant_id_data.items():
+                enchant_type_obj = cls.get_enchant_type(enchant_id, enchant_type)
 
-            for enchant_level, raw_sold_history in enchant_id_data.items():
-                obj = enchant_type_obj.get_enchant(int(enchant_level))
-                if obj is None: #we can't have a correct obj
-                    logger.error(f"enchant obj is None when loading basic items by loader : {enchant_id}, {enchant_id_data}")
+                for enchant_level, raw_sold_history in enchant_type_data.items():
+                    obj = enchant_type_obj.get_enchant(int(enchant_level))
+                    if obj is None: #we can't have a correct obj
+                        logger.error(f"enchant obj is None when loading basic items by loader : {enchant_id}, {enchant_id_data}")
                 else:
                     obj.estimated_price_sold_hist.raw_hist = raw_sold_history
 
     @classmethod
-    def get_enchant_type(cls, enchant_type_id: str):
+    def get_enchant_type(cls, enchant_type_id: str, enchant_type: int):
+        #the enchant_type is what item is it come from, like CLASSIC, ENCHANTED DUNGEON ITEM or ENCHANTED BOOK
         if enchant_type_id in cls.enchant_type_dict:
-            return cls.enchant_type_dict[enchant_type_id]
+            if enchant_type in cls.enchant_type_dict[enchant_type_id]:
+                return cls.enchant_type_dict[enchant_type_id][enchant_type]
+            else:
+                #will create a new obj
+                new_obj = EnchantType(enchant_type_id, enchant_type)
+                return new_obj
         else:
             #will create a new obj
-            new_obj = EnchantType(enchant_type_id)
+            new_obj = EnchantType(enchant_type_id, enchant_type)
             return new_obj
     
-    def __init__(self, enchant_type_id: str):
+    def __init__(self, enchant_type_id: str, enchant_type: int):
         self.enchant_type_id = enchant_type_id
-        self.enchant_type_dict[enchant_type_id] = self
+        self.enchant_type = enchant_type
+        
+        if enchant_type_id not in self.enchant_type_dict:
+            self.enchant_type_dict[enchant_type_id] = {}
+        self.enchant_type_dict[enchant_type_id][enchant_type] = self
+
         self.enchant_by_levels_dict = {} #will store Enchant obj for each level
     
     def get_enchant(self, level: int):
@@ -119,9 +135,10 @@ class EnchantType:
     
     @classmethod
     def cleanup(cls):
-        for enchant_type in cls.enchant_type_dict.values():
-            for enchant_level in enchant_type.enchant_by_levels_dict.values():
-                enchant_level.estimated_price_sold_hist.cleanup()
+        for enchant_id_data in cls.enchant_type_dict.values():
+            for enchant_type in enchant_id_data.values():
+                for enchant_level in enchant_type.enchant_by_levels_dict.values():
+                    enchant_level.estimated_price_sold_hist.cleanup()
 
 class Enchant:
     def __init__(self, level: int, enchant_type: EnchantType, estimated_price_sold_hist: EstimatedPriceHist or None =None):
@@ -244,6 +261,12 @@ class BasicItem:
     ITEM_IDS_NOT_IN_ALIAS_TO_SEND_TO_DISCORD = {}#id: name
     ITEM_IDS_NOT_IN_ALIAS_SENT_TO_DISCORD = []
 
+    ALIAS_ID_BY_LOWCASE_NAME = {}
+    for alias_id, alias_data in ALIAS.items():
+        ALIAS_ID_BY_LOWCASE_NAME[alias_data[0].lower()] = alias_id
+
+    ALIAS_NAMES_STRING_LOWCASE = "||---||" + "||---||".join(list(ALIAS_ID_BY_LOWCASE_NAME.keys())) + "||---||"
+
     @classmethod
     def loader(cls, json_data):
         dict_data = loads(json_data)
@@ -322,6 +345,17 @@ class BasicItem:
         except:
             logger.error(f"error with coef for alerting this item with item id {item_id}")
             self.coef_for_alerting_this_item = 1
+        
+        #the alerts to be able to "tempban" this item
+        self.alerts_detection_hist = [] #timestamps
+        self.alert_temp_ban_with_duration = [None, None] #timestamp of tempban, duration
+    
+    def get_ban_state(self):
+        if self.alert_temp_ban_with_duration[0] is None or self.alert_temp_ban_with_duration[1] is None:
+            return False
+        if self.alert_temp_ban_with_duration[0] + self.alert_temp_ban_with_duration[1] > time():
+            return True
+        return False
     
     def get_lowests_bins(self, number_of_lowests_bins=3):
         lowests = [None] * number_of_lowests_bins
@@ -343,6 +377,29 @@ class BasicItem:
             for tier_dict in item_id_dict.values():
                 for basic_item in tier_dict.values():
                     basic_item.estimated_price_sold_hist.cleanup()
+    
+    @classmethod
+    def search_item_name(cls, searched_item_name: str):
+        cur_l_dist = -1
+        names_matches = []
+        while len(names_matches) < 1 and cur_l_dist < len(searched_item_name):
+            cur_l_dist += 1
+            matches = find_near_matches(searched_item_name, cls.ALIAS_NAMES_STRING_LOWCASE, max_l_dist=cur_l_dist)
+            names_matches = []
+            for match in matches:
+                start = match.start
+                while cls.ALIAS_NAMES_STRING_LOWCASE[start-3:start] != "-||":
+                    start -= 1
+                end = match.end
+                while cls.ALIAS_NAMES_STRING_LOWCASE[end:end+3] != "||-":
+                    end += 1
+                lowcase_name = cls.ALIAS_NAMES_STRING_LOWCASE[start:end]
+                names_matches.append(cls.ALIAS[cls.ALIAS_ID_BY_LOWCASE_NAME[lowcase_name]][0])
+        return cur_l_dist, names_matches
+
+    @classmethod
+    def get_by_correct_name(cls, name):
+        pass
 
 class Estimation:
     def __init__(self, linked_item):
@@ -410,7 +467,7 @@ class Estimation:
             #TODO handle complex items
             return None, 0
         
-        def estimate_one_attr(estimated_price_sold_hist, intervalls_used, total, price_and_quartiles):
+        def estimate_one_attr(estimated_price_sold_hist, intervalls_used, total, price_and_quartiles, currently_correctly_estimated):
             attr, intervall, smart_hist = estimated_price_sold_hist.get_smart_median()
             sold_amount_used = len(smart_hist)
 
@@ -440,7 +497,7 @@ class Estimation:
                 total += attr
                 price_and_quartiles.append((attr, quartiles))
                 #(estimation, intervall_used, (Quartile1, Quartile2))
-                return True, (attr, Timestamp(time() - intervall), quartiles, sold_amount_used), total #correctly estimated
+                return currently_correctly_estimated, (attr, Timestamp(time() - intervall), quartiles, sold_amount_used), total #correctly estimated
 
         currently_correctly_estimated = True
         total = 0
@@ -448,19 +505,19 @@ class Estimation:
         price_and_quartiles = [] #price, quartiles
 
         #estimate the item 
-        currently_correctly_estimated, self.item_only, total = estimate_one_attr(self.linked_item.basic.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles)
+        currently_correctly_estimated, self.item_only, total = estimate_one_attr(self.linked_item.basic.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles, currently_correctly_estimated)
         
         if self.linked_item.reforge is not None:
             #estimate the reforge
-            currently_correctly_estimated, self.reforge, total = estimate_one_attr(self.linked_item.reforge.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles)
+            currently_correctly_estimated, self.reforge, total = estimate_one_attr(self.linked_item.reforge.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles, currently_correctly_estimated)
 
         for enchant in self.linked_item.enchants:
             #estimate the enchant
-            currently_correctly_estimated, self.enchants[enchant], total = estimate_one_attr(enchant.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles)
+            currently_correctly_estimated, self.enchants[enchant], total = estimate_one_attr(enchant.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles, currently_correctly_estimated)
 
         for rune in self.linked_item.runes:
             #estimate the rune
-            currently_correctly_estimated, self.runes[rune], total = estimate_one_attr(rune.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles)
+            currently_correctly_estimated, self.runes[rune], total = estimate_one_attr(rune.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles, currently_correctly_estimated)
         
         #end
         if currently_correctly_estimated:
@@ -470,17 +527,24 @@ class Estimation:
 
         self.intervalls_used = intervalls_used
 
-        if currently_correctly_estimated:
+        if currently_correctly_estimated and total > 0:
             #calculate the quartiles trust rate
             MIN_PRICE_PERCENTAGE_OF_AN_ATTR_TO_BE_IN_TRUST_RATE = 0.1
-            quartiles_trust = 1 #bc we multiply quartiles between them
+            quartiles_trust = 0
+            quartiles_in_trust = 0
             for price, quartiles in price_and_quartiles:
                 if price / total >= MIN_PRICE_PERCENTAGE_OF_AN_ATTR_TO_BE_IN_TRUST_RATE and quartiles[0] is not None:
-                    this_attr_quartiles_trust = (quartiles[0] / quartiles[1])
+                    this_attr_quartiles_trust = quartiles[0] / quartiles[1]
                     if this_attr_quartiles_trust < 0.1: this_attr_quartiles_trust = 0.1
 
-                    quartiles_trust *= this_attr_quartiles_trust
+                    quartiles_trust += this_attr_quartiles_trust
+                    quartiles_in_trust += 1
             
+            if quartiles_in_trust > 0:
+                quartiles_trust /= quartiles_in_trust #to be a mean
+            else:
+                quartiles_trust = 0 #cannot be trust bc there is not quartiles utilisables
+                logger.warning("Estimation.estimate : no quartiles_in_trust so we set it to 0")
             return total, quartiles_trust
         else:
             return None, 0 #quartiles trust rate is 0
@@ -505,6 +569,9 @@ class Auction:
     auction_uuid_to_obj = {}
     MIN_ABSOLUTE_PROFITABILITY_FOR_ALERTING = 200_000
     MIN_PROFITABILITY_PERCENTAGE_FOR_ALERTING = 0.1 #as coefficient, not % (ex: 20% = 0.2)
+    MAX_ALERTS_IN_LASTS_15_MINUTES_FOR_ALERTING = 8
+    ALERTS_HIST_INTERVALL_KEPT = 60*15 #15min
+    FIRST_TEMPBAN_DURATION = 60*15 #15min
 
     def __init__(self, uuid: str, seller_uuid: str, start: Timestamp or int, end: Timestamp or int, item_count: int, item: Item, starting_bid: int):
         self.uuid = uuid
@@ -534,35 +601,78 @@ class Auction:
         #adding the auction to the dict
         self.auction_uuid_to_obj[uuid] = self
     
-    def calculate_profitability(self, cur_run):#returns must_be_alerted, absolute profitability, percentage profitability
-        value, quartiles_trust = self.item.estimation.estimate()
-        if value is None: #couldn't estimate propely
+    def calculate_profitability(self, cur_run, microservice):#returns must_be_alerted, absolute profitability, percentage profitability
+        value_estimated, quartiles_trust = self.item.estimation.estimate()
+        if value_estimated is None: #couldn't estimate propely
             return False, None, None, None
         #else not needed because of return
-        absolute_profitability = value - self.starting_bid
-        percentage_profitability = value / self.starting_bid - 1
+        absolute_profitability = value_estimated - self.starting_bid
+        percentage_profitability = value_estimated / self.starting_bid - 1
 
+        lowest_bins_total = 0
         if cur_run != 0:
             lowest_bins = self.item.basic.get_lowests_bins()
-            lowest_bins_trust = 0
             lowest_bins_not_none = 0
             for lowest_bin in lowest_bins:
                 if not lowest_bin is None:
-                    lowest_bins_trust += lowest_bin
+                    lowest_bins_total += lowest_bin
                     lowest_bins_not_none += 1
 
-            missing_lowest_bins_penalty = (len(lowest_bins) - lowest_bins_not_none) / 4
+            missing_lowest_bins_penalty = (len(lowest_bins) - lowest_bins_not_none) / 5 #0.2 for each lowest missing
 
-            lowest_bins_trust /= lowest_bins_not_none + missing_lowest_bins_penalty #the mean plus the penalty
-            lowest_bins_trust /= self.starting_bid_cost_per_item #divided by the price
-            lowest_bins_trust = lowest_bins_trust ** 3 #to increase the gap, the signifiance of lowest bins cheaper than the item's price
+            lowest_bins_total /= lowest_bins_not_none #the mean plus the penalty
+            lowest_bins_trust = lowest_bins_total / self.starting_bid_cost_per_item #to make trust increasing by price lower than lowests
+            #at this point, if the item is worth than the cost => lowest_bins_trust is > 1 otherwise it's less than 1
+            #so we'll dectrement it by 1 to make it negative when not worth the cost and positive when it is
+            lowest_bins_trust -= 1
+            #we'll apply the x+0.3 function to have a close to correct trust
+            lowest_bins_trust += 0.3
+
+            #we apply the potential penalty
+            lowest_bins_trust -= missing_lowest_bins_penalty
+
+            if lowest_bins_trust < 0: lowest_bins_trust = 0
             if lowest_bins_trust > 1: lowest_bins_trust = 1
         else:
-            lowest_bins_trust = 0.4 #40% of trust
-        trust = quartiles_trust / 2 + lowest_bins_trust / 2
-
+            lowest_bins_trust = 0.2 #20% of trust if this is 1st run (DEPRECATED because of run 1 alerts disabling)
+        trust = quartiles_trust * 0.4 + lowest_bins_trust * 0.6 #40%'s trust rate is quartiles and 60% is lowest bins
+        
+        try:
+            if lowest_bins_total != 0 and self.item.estimation.item_only[0] > lowest_bins_total*2:
+                #we skip items that are for sale very less than resell estimated price
+                return False, None, None, None
+        except:
+            logger.warning("Excepting in calculate_profitability when verifying if self.item.estimation.item_only[0] > lowest_bins_total*2")
+        
         if absolute_profitability >= self.MIN_ABSOLUTE_PROFITABILITY_FOR_ALERTING and percentage_profitability >= self.item.basic.coef_for_alerting_this_item * self.MIN_PROFITABILITY_PERCENTAGE_FOR_ALERTING:
-            return True, absolute_profitability, percentage_profitability, trust
+            must_be_alert = True
+            total_alerts = 0
+            for i in range(len(self.item.basic.alerts_detection_hist)-1, -1, -1): #-1 to pop
+                if self.item.basic.alerts_detection_hist[i] < time() - self.ALERTS_HIST_INTERVALL_KEPT:
+                    self.item.basic.alerts_detection_hist.pop(i)
+                else:
+                    total_alerts += 1
+
+            temp_banned = self.item.basic.get_ban_state()
+
+            if total_alerts > self.MAX_ALERTS_IN_LASTS_15_MINUTES_FOR_ALERTING:
+                must_be_alert = False
+                if not temp_banned:
+                    if self.item.basic.alert_temp_ban_with_duration[0] is not None and self.item.basic.alert_temp_ban_with_duration[0] > time() - self.ALERTS_HIST_INTERVALL_KEPT*2:
+                        #if has been since 2*ALERTS_HIST_INTERVALL_KEPT : we increase the ban time by *2
+                        ban_duration = self.item.basic.alert_temp_ban_with_duration[1]*2 if self.item.basic.alert_temp_ban_with_duration[1] is not None else self.FIRST_TEMPBAN_DURATION
+                    else:
+                        ban_duration = self.FIRST_TEMPBAN_DURATION
+                    self.item.basic.alert_temp_ban_with_duration = [round(time()), ban_duration] #new tempban
+                    logger.info(f"Item {self.item.basic.item_name} temp banned for {ban_duration}")
+                    #send discord alert for the ban
+                    if hasattr(microservice, "sender"):
+                        microservice.sender.send_to_a_microservice(microservice.sender.FIRST_REQUEST, "discord_bot", "item_tempban", {"item_name": self.item.basic.item_name, "duration": ban_duration})
+
+            self.item.basic.alerts_detection_hist.append(round(time())) #we still save this as an alert
+            if must_be_alert:
+                print(f"{self.item.item_name} trust : quartiles : {round(quartiles_trust*100)}% | lowests : {round(lowest_bins_trust*100)}%")
+            return must_be_alert, absolute_profitability, percentage_profitability, trust
         #else not needed because of return
         return False, absolute_profitability, percentage_profitability, trust
 
@@ -589,5 +699,8 @@ class SoldAuction:
 
         #we're going to determinate the price of the less hist data attr, even if it has a 0 data lenght
         sold_hist_obj_of_attr_with_less_sold.add(price - total_attrs_hist, Timestamp())
+
+class Statistics:
+    dict = {}
 
 logger.debug("init ended")

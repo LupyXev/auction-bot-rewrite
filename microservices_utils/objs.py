@@ -58,7 +58,7 @@ class MicroserviceSender(MicroserviceSocket):
         
         return self.sock_receive(resp_lenght).decode(self.FORMAT) #the verification resp
 
-    def send_to_a_microservice(self, req_type, dest, command, args={}, req_id=None):
+    def send_to_a_microservice(self, req_type, dest, command, args={}, req_id=None, return_req_id=False):
         sleep(0.005) #to limit IDs errors (with same id) and spamming
         if req_id is None:
             req_id=f"{self.microservice.prefix_id}{round(time(), 3)}"
@@ -81,17 +81,19 @@ class MicroserviceSender(MicroserviceSocket):
         self.sock_send(str(resp_lenght).encode(self.FORMAT)) #to say to the server that you've got the verif lenght
 
         verif_code = self.sock_receive(resp_lenght).decode(self.FORMAT)
-        good_verif_code = True if verif_code[0] == "V" else False
+        good_verif_code = True if verif_code[0] == "V" or verif_code[1] == "V" else False
 
         if good_verif_code:
             try:
-                verif_code_lenght_received = int(verif_code[1:])
-                if verif_code_lenght_received != req_lenght:
+                verif_code_lenght_received = verif_code[1:]
+                if verif_code_lenght_received != req_lenght.decode(self.FORMAT):
                     good_verif_code = False
                 #else: no error
             except:
                 good_verif_code = False
 
+        if return_req_id:
+            return good_verif_code, verif_code, req_id
         return good_verif_code, verif_code #the verification resp
 
 class MicroserviceReceiver(MicroserviceSocket):
@@ -123,9 +125,9 @@ class MicroserviceReceiver(MicroserviceSocket):
             self.microservice.initialized_to_main_microservices_server = False
         req_splitted = req.split()
         args = {}
-        if len(req_splitted) > 1: args = loads(req[len(req_splitted[0]):]) #if there is args
+        if len(req_splitted) > 2: args = loads(req[len(req_splitted[0])+len(req_splitted[1])+2:]) #if there is args
 
-        req_dict = {"command": req_splitted[0], "args": args}
+        req_dict = {"command": req_splitted[0], "sender": req_splitted[1],"args": args}
         
         return req_dict
 
