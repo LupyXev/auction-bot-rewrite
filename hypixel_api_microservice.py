@@ -8,18 +8,20 @@ main_py_file_logger = init_a_new_logger("Main HAM py file")
 
 main_py_file_logger.info("--------| Hypixel Api Microservice Starting |--------")
 
+main_py_file_logger.warning("Starting Hypixel Api Microservice")
+
 import sys
 import os
-import psutil
 import threading
 import time
 import requests
 from base64 import b64decode
 from io import BytesIO
-from nbt.nbt import NBTFile
+import nbtlib
 import socket
 from microservices_utils.objs import MicroserviceReceiver, MicroserviceSender, Microservice
 from json import load
+from datetime import datetime
 
 HYPIXEL_API_SKYBLOCK_LINK = "https://api.hypixel.net/skyblock/"
 HYPIXEL_API_AUCTIONS_LINK = HYPIXEL_API_SKYBLOCK_LINK + "auctions"
@@ -30,42 +32,54 @@ MICROSERVICE_PREFIX = "H"
 microservice = Microservice(MICROSERVICE_NAME, MICROSERVICE_PREFIX, {})
 sender = MicroserviceSender(microservice, init_a_new_logger("MicroserviceSender HAM"))
 
-sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "send", {"channel_id": 811605424935403560, "content": "microservice hypixel api lancé"})
+sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "send", {"channel_id": 811605424935403560, "content": "<@&834456742640877580> microservice hypixel api lancé"})
 #sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "send", {"channel_id": 811605424935403560, "content": "test"})
 
 ignored_items = ()
+
+events_to_alert = ("Spooky Festival", "Winter Island")
+events_data = {}
+with open("data/events.json") as f:
+    events_data = load(f)
+
 with open("data/ignored-items.json") as f:
     ignored_items = tuple(load(f))
 
-python_process = psutil.Process(os.getpid())
+items_linked_with_event = {}
+with open("data/items_linked_events.json") as f:
+    items_linked_with_event = load(f)
+
+"""python_process = psutil.Process(os.getpid())
 
 def get_ram():
-    return python_process.memory_info().rss / 1024 ** 2
+    return python_process.memory_info().rss / 1024 ** 2"""
 
 def get_useful_data_from_auction(auction: dict):
     dataDecoded = b64decode(auction["item_bytes"])
-    nbt_data = NBTFile(fileobj=BytesIO(dataDecoded))
+    import gzip
+    a = gzip.decompress(dataDecoded)
+    nbt_data = nbtlib.File.from_fileobj(BytesIO(a))
 
     auction_attributes = {"uuid": auction["uuid"], "seller_uuid": auction["auctioneer"], "start": Timestamp(auction["start"]),
-        "end": Timestamp(auction["end"]), "item_count": nbt_data["i"][0]["Count"].value, "starting_bid": auction["starting_bid"]
+        "end": Timestamp(auction["end"]), "item_count": nbt_data.find("Count").real, "starting_bid": auction["starting_bid"]
     }
 
-    extra_attributes = nbt_data["i"][0]["tag"]["ExtraAttributes"]
+    extra_attributes = nbt_data.find("ExtraAttributes")
     dungeon_lvl = 0 
-    if "dungeon_item_level" in extra_attributes: dungeon_lvl = extra_attributes["dungeon_item_level"].value
+    if "dungeon_item_level" in extra_attributes: dungeon_lvl = extra_attributes["dungeon_item_level"].real
     
     if "runes" in extra_attributes: 
         runes = []
         for rune in extra_attributes["runes"]:
-            runes.append(RuneType.get_rune_type(rune).get_rune(extra_attributes["runes"][rune].value))
+            runes.append(RuneType.get_rune_type(rune).get_rune(extra_attributes["runes"][rune].real))
         runes = tuple(runes)
     else:
         runes = ()
     
     reforge = None
-    if "modifier" in extra_attributes: reforge = Reforge.get_reforge(extra_attributes["modifier"].value)
+    if "modifier" in extra_attributes: reforge = Reforge.get_reforge(str(extra_attributes["modifier"]))
 
-    basicitem_attributes = {"item_id": extra_attributes["id"].value, "tier": Tier.get_tier(auction["tier"]), "dungeon_lvl": dungeon_lvl}
+    basicitem_attributes = {"item_id": str(extra_attributes["id"]), "tier": Tier.get_tier(auction["tier"]), "dungeon_lvl": dungeon_lvl}
     basicitem = BasicItem.get_basicitem(**basicitem_attributes)
     if basicitem is None:
         #the basic item might had an alias error
@@ -83,7 +97,7 @@ def get_useful_data_from_auction(auction: dict):
     if "enchantments" in extra_attributes: 
         enchants = []
         for enchant in extra_attributes["enchantments"]:
-            enchants.append(EnchantType.get_enchant_type(enchant, enchants_type).get_enchant(extra_attributes["enchantments"][enchant].value))
+            enchants.append(EnchantType.get_enchant_type(enchant, enchants_type).get_enchant(extra_attributes["enchantments"][enchant].real))
         enchants = tuple(enchants)
     else:
         enchants = ()
@@ -134,54 +148,90 @@ def get_new_auctions_and_analyzing_them(logger, last_api_update, cur_run):
                             Statistics.dict["total_bin_auctions_prices"] += auction_obj.starting_bid
                         
                         must_be_alert, absolute_profitability, relative_profitability, trust_rate = auction_obj.calculate_profitability(cur_run, microservice)
-                        if must_be_alert and cur_run > 0 and auction_obj.item.estimation.item_only[0] != None:
-                            
+                        if must_be_alert and cur_run > 0:
                             full_estimation = auction_obj.item.estimation
 
-                            item_data = {
-                                "name": auction_obj.item.item_name,
-                                "tier": auction_obj.item.basic.tier.tier_id,
-                                "item_only": {"estimation": full_estimation.item_only[0], "sold_amount": full_estimation.item_only[3]},
-                                "enchants_type": None
-                            }
-                            
-                            reforge = auction_obj.item.reforge
-                            if reforge is not None:
-                                item_data["reforge"] = {"name": reforge.reforge_id, "estimation": full_estimation.reforge[0], "sold_amount": full_estimation.reforge[3]}
-                            
-                            enchants = auction_obj.item.enchants
-                            if len(enchants) > 0:
-                                item_data["enchants"] = []
-                                item_data["enchants_type"] = enchants[0].basic.enchant_type
-                                for enchant in enchants:
-                                    enchant_estimation = full_estimation.enchants[enchant]
-                                    item_data["enchants"].append({"name": f"{enchant.basic.enchant_type_id} {enchant.level}", "estimation": enchant_estimation[0]})
-                            
-                            runes = auction_obj.item.runes
-                            if len(runes) > 0:
-                                item_data["runes"] = []
-                                for rune in runes:
-                                    rune_estimation = full_estimation.runes[rune]
-                                    item_data["runes"].append({"name": f"{rune.basic.rune_type_id} {rune.level}", "estimation": rune_estimation[0], "sold_amount": full_estimation.reforge[3]})
+                            if full_estimation.enchanted_book:
+                                if cur_run > 0:
+                                    Statistics.dict["total_estimated_profit"] += absolute_profitability
+                                    Statistics.dict["total_advices"] += 1
+                                    Statistics.dict["total_advices_prices"] += auction_obj.starting_bid
+                                
+                                item_data = {
+                                    "name": "Enchanted Book",
+                                    "tier": auction_obj.item.basic.tier.tier_id,
+                                    "item_only": {"estimation": full_estimation.total},
+                                    "enchants_type": 2
+                                }
 
-                            if cur_run > 0:
-                                Statistics.dict["total_estimated_profit"] += absolute_profitability
-                                Statistics.dict["total_advices"] += 1
-                                Statistics.dict["total_advices_prices"] += auction_obj.starting_bid
+                                enchants = auction_obj.item.enchants
+                                if len(enchants) > 0:
+                                    item_data["enchants"] = []
+                                    item_data["enchants_type"] = enchants[0].basic.enchant_type
+                                    for enchant in enchants:
+                                        enchant_estimation = full_estimation.enchants[enchant]
+                                        item_data["enchants"].append({"name": f"{enchant.basic.enchant_type_id} {enchant.level}", "estimation": enchant_estimation[0]})
+                                
+                                sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "stonks_alert", {
+                                    "item_data": item_data,
+                                    "intervalls_used": full_estimation.intervalls_used,
+                                    "absolute_profitability": absolute_profitability, 
+                                    "relative_profitability": relative_profitability,
+                                    "full_estimation": full_estimation.total,
+                                    "buy_price": auction_obj.starting_bid,
+                                    "lowest_bins": auction_obj.item.basic.get_lowests_bins(),
+                                    "potential_resell_price": full_estimation.total,
+                                    "seller_uuid": auction_obj.seller_uuid,
+                                    "auction_uuid": auction_obj.uuid,
+                                    "trust_rate": trust_rate
+                                    })
+                            
+                            elif auction_obj.item.estimation.item_only[0] != None:
 
-                            sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "stonks_alert", {
-                                "intervalls_used": full_estimation.intervalls_used,
-                                "absolute_profitability": absolute_profitability, 
-                                "relative_profitability": relative_profitability,
-                                "full_estimation": full_estimation.total,
-                                "buy_price": auction_obj.starting_bid,
-                                "lowest_bins": auction_obj.item.basic.get_lowests_bins(),
-                                "potential_resell_price": full_estimation.total,
-                                "item_data": item_data,
-                                "seller_uuid": auction_obj.seller_uuid,
-                                "auction_uuid": auction_obj.uuid,
-                                "trust_rate": trust_rate
-                                })
+                                item_data = {
+                                    "name": auction_obj.item.item_name,
+                                    "tier": auction_obj.item.basic.tier.tier_id,
+                                    "item_only": {"estimation": full_estimation.item_only[0], "sold_amount": full_estimation.item_only[3]},
+                                    "enchants_type": None
+                                }
+                                
+                                reforge = auction_obj.item.reforge
+                                if reforge is not None:
+                                    item_data["reforge"] = {"name": reforge.reforge_id, "estimation": full_estimation.reforge[0], "sold_amount": full_estimation.reforge[3]}
+                                
+                                enchants = auction_obj.item.enchants
+                                if len(enchants) > 0:
+                                    item_data["enchants"] = []
+                                    item_data["enchants_type"] = enchants[0].basic.enchant_type
+                                    for enchant in enchants:
+                                        enchant_estimation = full_estimation.enchants[enchant]
+                                        item_data["enchants"].append({"name": f"{enchant.basic.enchant_type_id} {enchant.level}", "estimation": enchant_estimation[0]})
+                                
+                                runes = auction_obj.item.runes
+                                if len(runes) > 0:
+                                    item_data["runes"] = []
+                                    for rune in runes:
+                                        rune_estimation = full_estimation.runes[rune]
+                                        item_data["runes"].append({"name": f"{rune.basic.rune_type_id} {rune.level}", "estimation": rune_estimation[0], "sold_amount": full_estimation.reforge[3]})
+
+                                if cur_run > 0:
+                                    Statistics.dict["total_estimated_profit"] += absolute_profitability
+                                    Statistics.dict["total_advices"] += 1
+                                    Statistics.dict["total_advices_prices"] += auction_obj.starting_bid
+
+                                sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "stonks_alert", {
+                                    "intervalls_used": full_estimation.intervalls_used,
+                                    "absolute_profitability": absolute_profitability, 
+                                    "relative_profitability": relative_profitability,
+                                    "full_estimation": full_estimation.total,
+                                    "buy_price": auction_obj.starting_bid,
+                                    "lowest_bins": auction_obj.item.basic.get_lowests_bins(),
+                                    "potential_resell_price": full_estimation.total,
+                                    "item_data": item_data,
+                                    "seller_uuid": auction_obj.seller_uuid,
+                                    "auction_uuid": auction_obj.uuid,
+                                    "trust_rate": trust_rate
+                                    })
 
         else:
             logger.error(f"req for auctions page {cur_page}/{total_pages} has success = false, json : {req_json}")
@@ -244,6 +294,55 @@ def full_cleanup(logger):
     RuneType.cleanup()
     BasicItem.cleanup()
 
+def handle_events():    
+    logger.debug("handling events")
+
+    cur_year_start = events_data["start_timestamp"]
+    while cur_year_start < time.time() - events_data["1_year"]:
+        cur_year_start += events_data["1_year"]
+    
+    for this_event in events_to_alert:
+        this_event_data = events_data[this_event]
+        if cur_year_start + this_event_data["start"] - this_event_data["gap"] <= time.time() and\
+            cur_year_start + this_event_data["start"] + this_event_data["duration"] >= time.time():
+            #there is an event currently
+            
+            if this_event not in GlobalHAM.current_events:
+                #if the last alert is not for this event
+                time_before_event = cur_year_start + this_event_data["start"] - time.time()
+                time_before_event_end = cur_year_start + this_event_data["start"] + this_event_data["duration"] - time.time()
+                expiring_end_timestamp = cur_year_start + this_event_data["start"] + this_event_data["duration"] + this_event_data["gap"]
+                end_date = str(datetime.fromtimestamp(cur_year_start + this_event_data["start"] + this_event_data["duration"]))
+                GlobalHAM.current_events.append(this_event)
+
+                for item_linked_with_this_event in items_linked_with_event[this_event]:
+                    if item_linked_with_this_event not in GlobalHAM.temp_disabled_items or GlobalHAM.temp_disabled_items[item_linked_with_this_event]["expiring_timestamp"] < expiring_end_timestamp:
+                        GlobalHAM.temp_disabled_items[item_linked_with_this_event] = {"expiring_timestamp": expiring_end_timestamp}
+
+                if time_before_event > 0:
+                    logger.warning(f"An event incoming detected, {this_event}")
+                    #f"<@&849292716788940841> **Event {this_event} is coming soon (less than {timestamp_to_pretty_hour(time_before_event)})**\nIt will end in **{timestamp_to_pretty_hour(time_before_event_end)}** (until {end_date} UTC+0)"
+                    sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "event_incoming", {
+                        "event_name": this_event,
+                        "time_before_event_start": time_before_event,
+                        "time_before_event_end": time_before_event_end,
+                        "end_date": end_date
+                    })
+                else:
+                    logger.warning(f"An event active detected, {this_event}")
+                    #f"<@&849292716788940841> **Event {this_event} is currently active**\nIt will end in **{timestamp_to_pretty_hour(time_before_event_end)}** (until {end_date} UTC+0)"
+                    sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "event_active", {
+                        "event_name": this_event,
+                        "time_before_event_end": time_before_event_end,
+                        "end_date": end_date
+                    })
+
+        elif cur_year_start + this_event_data["start"] + this_event_data["duration"] + this_event_data["gap"] <= time.time() and this_event in GlobalHAM.current_events:
+            logger.info(f"{this_event} ended")
+            if this_event in GlobalHAM.current_events:
+                GlobalHAM.current_events.remove(this_event)
+
+
 def main_getting_and_analyzing_api():
     RUNS_BETWEEN_SAVES = 2
     RUNS_BETWEEN_CLEANUPS = 20
@@ -258,6 +357,9 @@ def main_getting_and_analyzing_api():
 
     while GlobalHAM.run:
         sender.send_to_a_microservice(sender.FIRST_REQUEST, "discord_bot", "cur_run_number", {"run_number": cur_run})
+
+        handle_events()
+
         last_api_update = get_new_auctions_and_analyzing_them(logger, last_api_update, cur_run)
         get_sold_auctions_and_analyzing_them(logger)
 

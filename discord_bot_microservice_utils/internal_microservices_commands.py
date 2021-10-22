@@ -11,6 +11,7 @@ import asyncio, aiohttp
 from discord import Embed, Game, Status
 from time import time
 from discord_slash.utils.manage_components import create_actionrow, create_select, create_select_option, wait_for_component
+from datetime import datetime
 
 URL_API_TO_USERNAME = "https://minecraft-api.com/api/pseudo/"
 MAX_PURPOSES_FOR_ITEM_NAME = 20
@@ -37,6 +38,17 @@ emojis_list = [
         "🇬",
         "🇭"
 ]
+images_percentage = ("https://cdn.discordapp.com/attachments/811611272251703357/858393696809517066/0.png",
+                     "https://cdn.discordapp.com/attachments/811611272251703357/858393698470330408/10.png",
+                     "https://cdn.discordapp.com/attachments/811611272251703357/858393700086185984/20.png",
+                     "https://cdn.discordapp.com/attachments/811611272251703357/858393701699813386/30.png",
+                     "https://cdn.discordapp.com/attachments/811611272251703357/858393703302955038/40.png",
+                     "https://cdn.discordapp.com/attachments/811611272251703357/858393704889188362/50.png",
+                     "https://cdn.discordapp.com/attachments/811611272251703357/858393706398744617/60.png",
+                     "https://cdn.discordapp.com/attachments/811611272251703357/858393708130598932/70.png",
+                     "https://cdn.discordapp.com/attachments/811611272251703357/858393709959970816/80.png",
+                     "https://cdn.discordapp.com/attachments/811611272251703357/858393773095780382/90.png",
+                     "https://cdn.discordapp.com/attachments/811611272251703357/858393695123538001/100.png")
 
 async def cmd_send(args, microservice):
     print("args got", args)
@@ -54,28 +66,31 @@ async def cmd_send(args, microservice):
         await channel.send(embed=Embed.from_dict(args["embed"]))
 
 async def cmd_stonks_alert(args, microservice):
-    images_percentage = ("https://cdn.discordapp.com/attachments/811611272251703357/858393696809517066/0.png",
-                     "https://cdn.discordapp.com/attachments/811611272251703357/858393698470330408/10.png",
-                     "https://cdn.discordapp.com/attachments/811611272251703357/858393700086185984/20.png",
-                     "https://cdn.discordapp.com/attachments/811611272251703357/858393701699813386/30.png",
-                     "https://cdn.discordapp.com/attachments/811611272251703357/858393703302955038/40.png",
-                     "https://cdn.discordapp.com/attachments/811611272251703357/858393704889188362/50.png",
-                     "https://cdn.discordapp.com/attachments/811611272251703357/858393706398744617/60.png",
-                     "https://cdn.discordapp.com/attachments/811611272251703357/858393708130598932/70.png",
-                     "https://cdn.discordapp.com/attachments/811611272251703357/858393709959970816/80.png",
-                     "https://cdn.discordapp.com/attachments/811611272251703357/858393773095780382/90.png",
-                     "https://cdn.discordapp.com/attachments/811611272251703357/858393695123538001/100.png")
+    item_data = args["item_data"]
+
+    if args["trust_rate"] < 0.45:
+        logger.info(f"Alert with item {item_data['name']} skipped because of trust rate < 45%")
+        return
     absolute_profitability = args["absolute_profitability"]
     relative_profitability = args["relative_profitability"]
 
-    item_data = args["item_data"]
-    attributes = f" - This item : {item_data['tier']}, is estimated at {pretty_number(item_data['item_only']['estimation'])} coins *on {pretty_number(item_data['item_only']['sold_amount'], 1)} sales*"
+    attributes = f" - This item : {item_data['tier']}, is estimated at {pretty_number(item_data['item_only']['estimation'])} coins"
+    if "sold_amount" in item_data["item_only"]: attributes += f" *on {pretty_number(item_data['item_only']['sold_amount'], 1)} sales*"
+
     if "reforge" in item_data:
         attributes += f"\n**Reforge:** {item_data['reforge']['name']} estimated at {pretty_number(item_data['reforge']['estimation'])} *on {pretty_number(item_data['reforge']['sold_amount'], 1)} sales*"
     if "enchants" in item_data:
         attributes += "\n\n**Enchantments:**"
+        hidden_enchants_amount = 0
         for enchant in item_data["enchants"]:
-            attributes += f" {enchant['name']} ({pretty_number(enchant['estimation'])}) +"
+            if item_data["enchants_type"] == 2 or enchant['estimation'] > args['full_estimation'] * 0.02:#if this is an enchanted book we show everything
+                attributes += f" {enchant['name']} ({pretty_number(enchant['estimation'])}) +"
+            else:
+                hidden_enchants_amount += 1
+        
+        if hidden_enchants_amount > 0:
+            attributes += f" {hidden_enchants_amount} hidden low price enchants"
+
         attributes = attributes[:-2] #to delete the last " +"
         if item_data["enchants_type"] != None:
             if item_data["enchants_type"] == 1:
@@ -170,10 +185,14 @@ async def cmd_stonks_alert(args, microservice):
                         logger.debug(f"Channel with id {alert_channel.channel_id} in guild {guild.guild_id} is None when getting it")
                     else:
                         if str_roles_to_ping == "> ": #won't create a content in the message
-                            await channel.send(embed=embed)
+                            #if there is no role to ping we won't send the alert message
+                            logger.debug(f"{item_data['name']} won't be alerted because of no roles to ping with")
                         else:
                             embed.colour = embed_color_with_group[0]
-                            await channel.send(content=str_roles_to_ping, embed=embed)
+                            message = await channel.send(content=str_roles_to_ping, embed=embed)
+                            if args["auction_uuid"] not in GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id:
+                                GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id[args["auction_uuid"]] = []
+                            GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id[args["auction_uuid"]].append((alert_channel.channel_id, message.id))
 
 async def cmd_cur_hypixel_api_run_number(args, microservice):
     await microservice.useful_objs["discord_client"].change_presence(status=Status.online,
@@ -295,6 +314,57 @@ async def cmd_item_tempban(args, microservice):
     channel = await microservice.useful_objs["discord_client"].fetch_channel(860890262612082708)
     await channel.send(f"Item {args['item_name']} tempbanned for {timestamp_to_pretty_hour(args['duration'])}")
 
+async def cmd_event_incoming(args, microservice):
+    channel = microservice.useful_objs["discord_client"].get_channel(856251437041188864)
+    last_message = ""
+    async for message in channel.history(limit=1):
+        last_message = message
+
+    if args['event_name'] in last_message.content and last_message.created_at > time() - 86400:
+        logger.warning(f"Skipped sending event {args['event_name']} alert because it seems already sent")
+    else: 
+        await channel.send(f"<@&849292716788940841> **Event {args['event_name']} is coming soon (less than {timestamp_to_pretty_hour(args['time_before_event_start'])})**\nIt will end in **{timestamp_to_pretty_hour(args['time_before_event_end'])}** (until {args['end_date']} UTC+0)")
+
+
+async def cmd_event_active(args, microservice):
+    channel = microservice.useful_objs["discord_client"].get_channel(856251437041188864)
+    if args['event_name'] in channel.last_message and channel.last_message.created_at > time() - 86400:
+        logger.warning(f"Skipped sending event {args['event_name']} alert because it seems already sent")
+    else: 
+        await microservice.useful_objs["discord_client"].get_channel(856251437041188864).send(f"<@&849292716788940841> **Event {args['event_name']} is currently active**\nIt will end in **{timestamp_to_pretty_hour(args['time_before_event_end'])}** (until {args['end_date']} UTC+0)")
+
+async def cmd_disable(args, microservice):
+    awaited_request = AwaitedRequest.request_id_to_obj[args["request_id"]]
+    ctx = awaited_request.args["ctx"]
+    duration_since_disabling_end = awaited_request.args["duration_since_disabling_end"]
+    item_name_asked = awaited_request.args["item_name_asked"]
+
+    if args["status"] == "MULTIPLE FOUND":
+        for item_name_propositions in args["found_names"]:
+            if item_name_asked.lower() == item_name_propositions.lower():
+                args["status"] = "OK"
+                args['found_name'] = item_name_propositions
+
+    if args["status"] == "NOTHING FOUND":
+        await ctx.send("Item not found")
+    elif args["status"] == "NOTHING ACCURATE":
+        await ctx.send("Item not found, nothing accurate")
+    elif args["status"] == "MULTIPLE FOUND" and item_name_asked:
+        propositions = "`" + "`, `".join(args["found_names"]) + "`"
+        await ctx.send(f"Doubt on the item\nSeveral items corresponding to your request have been found\n\nPlease use the good one :\n{propositions}\n\nRetry with the good one")
+    elif args["status"] == "OK":
+        await ctx.send(f"Found a corresponding item: {args['found_name']}, asking the Hypixel API Microservice to disable it with duration {duration_since_disabling_end}s")
+        microservice.sender.send_to_a_microservice(microservice.sender.EXISTING_REQUEST, "hypixel_api_analysis", "disable", {"item_name": args['found_name'], "duration_until_disabling_end": duration_since_disabling_end}, req_id=args["request_id"])
+    else:
+        await ctx.send(":x: Internal error : bad status")
+        logger.error("bad cmd_resp_search_item_name status")
+        return
+
+async def cmd_disable_confirmation(args, microservice):
+    awaited_request = AwaitedRequest.request_id_to_obj[args["request_id"]]
+    ctx = awaited_request.args["ctx"]
+    await ctx.send(f":white_check_mark: Successfully disabled item with id {args['item_id']}, until {datetime.fromtimestamp(args['expiring_timestamp'])}")
+
 text_to_command = {
     ">send": cmd_send, 
     ">stonks_alert": cmd_stonks_alert,
@@ -302,7 +372,11 @@ text_to_command = {
     ">missing_alias": cmd_send_missing_alias,
     ">alive": cmd_alive,
     ">item_tempban": cmd_item_tempban,
+    ">event_incoming": cmd_event_incoming,
+    ">event_active": cmd_event_active,
     "$search_item_name": cmd_resp_search_item_name,
     "$get_price_with_search_item_name": cmd_resp_get_price_with_search_item_name,
-    "$get_price_with_correct_name": cmd_resp_get_price_with_correct_name
+    "$get_price_with_correct_name": cmd_resp_get_price_with_correct_name,
+    "$disable": cmd_disable,
+    "$disable_confirmation": cmd_disable_confirmation
 }

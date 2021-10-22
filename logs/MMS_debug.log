@@ -3602,3 +3602,906 @@ stonks_alert {"intervalls_used": [1800.0, 1800.0], "absolute_profitability": 700
 2021-10-01 21:11:42,076 - Global MMS - WARNING - We've set the microservice discord_bot to died
 2021-10-01 21:11:44,676 - Global MMS - DEBUG - new servermode connexion started
 2021-10-01 21:11:44,684 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-01 22:20:40,408 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-01 22:20:41,582 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-02 09:50:28,369 - Global MMS - DEBUG - new servermode connexion started
+2021-10-02 09:50:28,370 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-10-02 09:50:28,384 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-02 09:50:28,389 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-02 09:50:28,464 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-02 09:50:31,980 - Global MMS - DEBUG - new servermode connexion started
+2021-10-02 09:50:31,981 - Global MMS - INFO - Initializing discord_bot microservice
+2021-10-02 09:50:31,988 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-02 10:19:26,571 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-02 10:19:30,834 - Global MMS - DEBUG - new servermode connexion started
+2021-10-02 10:19:30,852 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-03 18:35:14,533 - Global MMS - DEBUG - new servermode connexion started
+2021-10-03 18:35:14,533 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-10-03 18:35:14,547 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-03 18:35:14,552 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-03 18:35:14,626 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-03 18:35:19,536 - Global MMS - DEBUG - new servermode connexion started
+2021-10-03 18:35:19,536 - Global MMS - INFO - Initializing discord_bot microservice
+2021-10-03 18:35:19,543 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:01:25,868 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:01:25,869 - Global MMS - INFO - Initializing discord_bot microservice
+2021-10-08 17:01:25,876 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:01:32,869 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:01:32,869 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-10-08 17:01:32,884 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:12:38,776 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:12:38,781 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:16:06,292 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:16:06,297 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:17:41,508 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:17:41,514 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:30:28,328 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:30:28,334 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:30:58,664 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:30:58,670 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:31:22,215 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:31:22,220 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:35:06,551 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-08 17:35:19,069 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:35:19,076 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:35:42,451 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:35:42,457 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:36:20,762 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:36:20,767 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:48:09,806 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:48:09,810 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:48:34,849 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:48:34,858 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:52:16,057 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:52:16,063 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:52:47,230 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:52:47,235 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:54:30,942 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:54:30,947 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 17:55:18,197 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 17:55:18,202 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 18:11:39,190 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 18:11:39,204 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 18:23:32,016 - Global MMS - DEBUG - new servermode connexion started
+2021-10-08 18:23:32,021 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-08 19:09:09,326 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-08 19:09:10,575 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-08 19:11:51,750 - Global MMS - INFO - client is listening...
+2021-10-08 19:11:51,750 - Global MMS - INFO - server is listening...
+2021-10-08 19:12:12,262 - Global MMS - ERROR - test
+2021-10-08 19:12:12,267 - Global MMS - INFO - client is listening...
+2021-10-08 19:12:12,267 - Global MMS - INFO - server is listening...
+2021-10-08 19:12:29,731 - Global MMS - ERROR - test
+2021-10-08 19:12:29,735 - Global MMS - ERROR - test2
+2021-10-08 19:12:29,736 - Global MMS - INFO - server is listening...
+2021-10-08 19:12:29,736 - Global MMS - INFO - client is listening...
+2021-10-08 19:14:01,361 - Global MMS - INFO - client is listening...
+2021-10-08 19:14:01,361 - Global MMS - INFO - server is listening...
+2021-10-08 19:14:25,035 - Global MMS - ERROR - test
+2021-10-08 19:14:25,040 - Global MMS - INFO - client is listening...
+2021-10-08 19:14:25,040 - Global MMS - INFO - server is listening...
+2021-10-08 19:15:13,315 - Global MMS - ERROR - test
+2021-10-08 19:15:13,320 - Global MMS - ERROR - test2
+2021-10-08 19:15:13,322 - Global MMS - INFO - server is listening...
+2021-10-08 19:15:13,322 - Global MMS - INFO - client is listening...
+2021-10-08 19:16:47,569 - Global MMS - ERROR - test
+2021-10-08 19:16:47,573 - Global MMS - ERROR - test2
+2021-10-08 19:16:47,574 - Global MMS - INFO - server is listening...
+2021-10-08 19:16:47,574 - Global MMS - INFO - client is listening...
+2021-10-08 19:18:16,904 - Global MMS - ERROR - test
+2021-10-08 19:18:16,908 - Global MMS - ERROR - test2
+2021-10-08 19:19:23,151 - Global MMS - ERROR - test
+2021-10-08 19:19:23,665 - Global MMS - ERROR - test2
+2021-10-08 19:19:23,668 - Global MMS - INFO - server is listening...
+2021-10-08 19:19:23,668 - Global MMS - INFO - client is listening...
+2021-10-08 19:19:59,260 - Global MMS - ERROR - test
+2021-10-08 19:19:59,263 - Global MMS - ERROR - test2
+2021-10-08 19:19:59,265 - Global MMS - INFO - server is listening...
+2021-10-08 19:19:59,265 - Global MMS - INFO - client is listening...
+2021-10-08 19:20:29,354 - Global MMS - ERROR - test
+2021-10-08 19:20:29,358 - Global MMS - ERROR - test2
+2021-10-08 19:20:29,360 - Global MMS - INFO - client is listening...
+2021-10-08 19:20:29,360 - Global MMS - INFO - server is listening...
+2021-10-08 19:20:56,693 - Global MMS - ERROR - test
+2021-10-08 19:20:56,697 - Global MMS - ERROR - test2
+2021-10-08 19:20:56,698 - Global MMS - INFO - server is listening...
+2021-10-08 19:20:56,698 - Global MMS - INFO - client is listening...
+2021-10-08 19:21:39,083 - Global MMS - ERROR - test
+2021-10-08 19:21:39,087 - Global MMS - ERROR - test2
+2021-10-08 19:21:41,094 - Global MMS - ERROR - test3
+2021-10-08 19:21:41,096 - Global MMS - INFO - client is listening...
+2021-10-08 19:21:41,096 - Global MMS - INFO - server is listening...
+2021-10-08 19:22:14,925 - Global MMS - ERROR - test
+2021-10-08 19:22:14,929 - Global MMS - ERROR - test2
+2021-10-08 19:22:16,939 - Global MMS - ERROR - test3
+2021-10-08 19:22:16,941 - Global MMS - INFO - server is listening...
+2021-10-08 19:22:16,941 - Global MMS - INFO - client is listening...
+2021-10-08 19:23:27,639 - Global MMS - ERROR - test
+2021-10-08 19:23:27,643 - Global MMS - ERROR - test2
+2021-10-08 19:23:29,644 - Global MMS - ERROR - test3
+2021-10-08 19:23:29,646 - Global MMS - INFO - client is listening...
+2021-10-08 19:23:29,646 - Global MMS - INFO - server is listening...
+2021-10-08 19:32:24,768 - Global MMS - ERROR - test
+2021-10-08 19:32:24,772 - Global MMS - ERROR - test2
+2021-10-08 19:32:26,785 - Global MMS - ERROR - test3
+2021-10-08 19:32:26,787 - Global MMS - INFO - server is listening...
+2021-10-08 19:32:26,787 - Global MMS - INFO - client is listening...
+2021-10-08 19:33:46,067 - Global MMS - ERROR - test
+2021-10-08 19:33:46,071 - Global MMS - ERROR - test2
+2021-10-08 19:33:48,079 - Global MMS - ERROR - test3
+2021-10-08 19:33:48,081 - Global MMS - INFO - server is listening...
+2021-10-08 19:33:48,081 - Global MMS - INFO - client is listening...
+2021-10-08 19:35:28,851 - Global MMS - ERROR - test
+2021-10-08 19:35:28,855 - Global MMS - ERROR - test2
+2021-10-08 19:35:30,860 - Global MMS - ERROR - test3
+2021-10-08 19:35:30,862 - Global MMS - INFO - server is listening...
+2021-10-08 19:35:30,863 - Global MMS - INFO - client is listening...
+2021-10-08 19:43:08,927 - Global MMS - ERROR - test
+2021-10-08 19:43:09,943 - Global MMS - ERROR - test2
+2021-10-08 19:43:11,955 - Global MMS - ERROR - test3
+2021-10-08 19:43:11,956 - Global MMS - INFO - server is listening...
+2021-10-08 19:43:11,956 - Global MMS - INFO - client is listening...
+2021-10-08 19:44:07,832 - Global MMS - ERROR - test
+2021-10-08 19:44:09,845 - Global MMS - ERROR - test2
+2021-10-08 19:44:12,855 - Global MMS - ERROR - test3
+2021-10-08 19:44:12,858 - Global MMS - INFO - server is listening...
+2021-10-08 19:44:12,858 - Global MMS - INFO - client is listening...
+2021-10-08 19:45:02,678 - Global MMS - ERROR - test
+2021-10-08 19:45:03,697 - Global MMS - ERROR - test2
+2021-10-08 19:45:05,713 - Global MMS - ERROR - test3
+2021-10-08 19:45:05,714 - Global MMS - INFO - client is listening...
+2021-10-08 19:45:05,715 - Global MMS - INFO - server is listening...
+2021-10-08 19:45:31,252 - Global MMS - ERROR - test
+2021-10-08 19:45:32,270 - Global MMS - ERROR - test2
+2021-10-08 19:45:34,275 - Global MMS - ERROR - test3
+2021-10-08 19:45:34,277 - Global MMS - INFO - server is listening...
+2021-10-08 19:45:34,277 - Global MMS - INFO - client is listening...
+2021-10-08 19:46:02,822 - Global MMS - ERROR - test
+2021-10-08 19:46:04,844 - Global MMS - ERROR - test2
+2021-10-08 19:46:08,861 - Global MMS - ERROR - test3
+2021-10-08 19:46:09,874 - Global MMS - INFO - client is listening...
+2021-10-08 19:46:09,874 - Global MMS - INFO - server is listening...
+2021-10-08 19:46:47,097 - Global MMS - ERROR - test
+2021-10-08 19:46:48,115 - Global MMS - ERROR - test2
+2021-10-08 19:46:50,121 - Global MMS - ERROR - test3
+2021-10-08 19:46:50,123 - Global MMS - INFO - server is listening...
+2021-10-08 19:46:50,124 - Global MMS - INFO - client is listening...
+2021-10-09 12:02:40,519 - Global MMS - ERROR - test
+2021-10-09 12:02:41,529 - Global MMS - ERROR - test2
+2021-10-09 12:02:43,545 - Global MMS - ERROR - test3
+2021-10-09 12:02:43,546 - Global MMS - INFO - server is listening...
+2021-10-09 12:02:43,546 - Global MMS - INFO - client is listening...
+2021-10-09 12:03:27,519 - Global MMS - ERROR - test
+2021-10-09 12:03:28,532 - Global MMS - ERROR - test2
+2021-10-09 12:03:30,539 - Global MMS - ERROR - test3
+2021-10-09 12:03:30,541 - Global MMS - INFO - client is listening...
+2021-10-09 12:03:30,541 - Global MMS - INFO - server is listening...
+2021-10-09 12:04:54,510 - Global MMS - ERROR - test
+2021-10-09 12:04:55,529 - Global MMS - ERROR - test2
+2021-10-09 12:04:57,543 - Global MMS - ERROR - test3
+2021-10-09 12:04:57,545 - Global MMS - INFO - server is listening...
+2021-10-09 12:04:57,545 - Global MMS - INFO - client is listening...
+2021-10-09 12:05:39,944 - Global MMS - ERROR - test
+2021-10-09 12:05:40,955 - Global MMS - ERROR - test2
+2021-10-09 12:05:42,963 - Global MMS - ERROR - test3
+2021-10-09 12:05:42,964 - Global MMS - INFO - server is listening...
+2021-10-09 12:05:42,965 - Global MMS - INFO - client is listening...
+2021-10-09 12:06:50,440 - Global MMS - ERROR - test
+2021-10-09 12:06:51,453 - Global MMS - ERROR - test2
+2021-10-09 12:06:53,461 - Global MMS - ERROR - test3
+2021-10-09 12:06:53,463 - Global MMS - INFO - server is listening...
+2021-10-09 12:06:53,463 - Global MMS - INFO - client is listening...
+2021-10-09 12:07:24,842 - Global MMS - ERROR - test
+2021-10-09 12:07:25,854 - Global MMS - ERROR - test2
+2021-10-09 12:07:27,856 - Global MMS - ERROR - test3
+2021-10-09 12:07:27,858 - Global MMS - INFO - client is listening...
+2021-10-09 12:07:27,858 - Global MMS - INFO - server is listening...
+2021-10-09 12:09:22,502 - Global MMS - ERROR - test
+2021-10-09 12:09:23,506 - Global MMS - ERROR - test2
+2021-10-09 12:09:25,518 - Global MMS - ERROR - test3
+2021-10-09 12:09:25,520 - Global MMS - INFO - client is listening...
+2021-10-09 12:09:25,520 - Global MMS - INFO - server is listening...
+2021-10-09 12:09:41,054 - Global MMS - ERROR - test
+2021-10-09 12:09:42,070 - Global MMS - ERROR - test2
+2021-10-09 12:09:44,079 - Global MMS - ERROR - test3
+2021-10-09 12:09:44,080 - Global MMS - INFO - server is listening...
+2021-10-09 12:09:44,080 - Global MMS - INFO - client is listening...
+2021-10-09 12:11:17,200 - Global MMS - WARNING - Started main microservice server
+2021-10-09 12:11:18,206 - Global MMS - INFO - client is listening...
+2021-10-09 12:11:18,206 - Global MMS - INFO - server is listening...
+2021-10-09 12:16:22,893 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:16:22,893 - Global MMS - INFO - Initializing discord_bot microservice
+2021-10-09 12:16:22,894 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-09 12:16:23,914 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:16:23,915 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:16:23,915 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-09 12:24:58,618 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:24:58,618 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-10-09 12:24:58,618 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:24:58,636 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:24:58,636 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:24:58,637 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:27:54,620 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:27:54,621 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:27:58,235 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:27:58,236 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:27:58,254 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:27:58,254 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:27:58,255 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:28:24,330 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:28:24,331 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:28:28,817 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:28:28,817 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:28:28,836 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:28:28,836 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:28:28,837 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:30:01,455 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:30:01,456 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:30:04,128 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:30:04,128 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:30:04,140 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:30:04,140 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:30:04,140 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:32:43,767 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:32:43,768 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:32:47,368 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:32:47,369 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:32:47,384 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:32:47,384 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:32:47,385 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:34:53,866 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:34:53,867 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:34:57,587 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:34:57,588 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:34:57,606 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:34:57,606 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:34:57,607 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:35:55,359 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:35:55,360 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:35:55,768 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-09 12:35:55,769 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-09 12:36:56,564 - Global MMS - WARNING - Started main microservice server
+2021-10-09 12:36:58,580 - Global MMS - INFO - server is listening...
+2021-10-09 12:36:58,580 - Global MMS - INFO - client is listening...
+2021-10-09 12:37:03,062 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:37:03,063 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-10-09 12:37:03,063 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:37:03,075 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:37:05,098 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:37:05,098 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:37:05,098 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:37:05,172 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:37:33,058 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:37:33,059 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:37:36,898 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:37:36,899 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:37:36,913 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:37:36,918 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:37:36,918 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:37:36,918 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:37:36,991 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:38:36,917 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:38:36,918 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:38:40,531 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:38:40,531 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:38:40,537 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:38:40,543 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:38:40,544 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:38:40,544 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:38:40,630 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:40:49,719 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:40:49,720 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:40:53,451 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:40:53,451 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:40:53,465 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:40:53,470 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:40:53,470 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:40:53,471 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:40:53,543 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:41:46,945 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:41:46,946 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:41:50,923 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:41:50,923 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:41:50,944 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:41:50,949 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:41:50,949 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:41:50,949 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:41:51,021 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:43:47,464 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:43:47,465 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:43:51,704 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:43:51,704 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:43:51,723 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:43:51,727 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:43:51,727 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:43:51,728 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:43:51,798 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:44:35,041 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:44:35,042 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:44:39,108 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:44:39,108 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:44:39,128 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:44:39,132 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:44:39,132 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:44:39,133 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:44:39,190 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:47:45,358 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:47:45,359 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:47:51,102 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:47:51,102 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:47:51,111 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:47:51,116 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:47:51,116 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:47:51,117 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:47:51,187 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:48:05,177 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:48:05,178 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:48:09,791 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:48:09,791 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:48:09,799 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:48:09,804 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:48:09,804 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:48:09,804 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:48:09,875 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:51:48,477 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:51:48,478 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:51:52,609 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:51:52,609 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:51:52,620 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:51:52,625 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:51:52,625 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:51:52,626 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:51:52,697 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:52:31,517 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:52:31,518 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:52:35,912 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:52:35,912 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:52:35,930 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:52:35,935 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:52:35,935 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:52:35,936 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:52:36,023 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:54:14,504 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:54:14,505 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:54:18,382 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:54:18,382 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:54:18,398 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:54:18,402 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:54:18,402 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:54:18,403 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:54:18,473 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:54:45,098 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:54:45,098 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:54:49,604 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:54:49,604 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:54:49,611 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:54:49,615 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:54:49,615 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:54:49,616 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:54:49,688 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:54:58,429 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:54:58,430 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:55:02,403 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:55:02,403 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:55:02,411 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:55:02,415 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:55:02,415 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:55:02,416 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:55:02,489 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:56:12,257 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:56:12,258 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:56:15,838 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:56:15,838 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:56:15,854 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:56:15,858 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:56:15,859 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:56:15,860 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:56:15,930 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:57:53,045 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:57:53,046 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:57:57,824 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:57:57,824 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:57:57,844 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:57:57,849 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:57:57,849 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:57:57,850 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:57:57,936 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:58:56,228 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 12:58:56,229 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 12:59:00,651 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 12:59:00,651 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 12:59:00,666 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 12:59:00,671 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 12:59:00,671 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 12:59:00,671 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 12:59:00,743 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:03:58,578 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 13:03:58,579 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 13:04:04,007 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 13:04:04,007 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 13:04:04,013 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:04:04,018 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 13:04:04,018 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 13:04:04,018 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 13:04:04,090 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:05:37,116 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 13:05:37,117 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 13:05:40,782 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 13:05:40,782 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 13:05:40,798 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:05:40,802 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 13:05:40,802 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 13:05:40,803 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 13:05:40,873 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:06:30,564 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 13:06:30,565 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 13:06:34,321 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 13:06:34,321 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 13:06:34,340 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:06:34,345 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 13:06:34,345 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 13:06:34,346 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 13:06:34,416 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:07:42,767 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 13:07:42,768 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 13:07:50,276 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 13:07:50,276 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 13:07:50,291 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:07:50,295 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 13:07:50,295 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 13:07:50,296 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 13:07:50,352 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:08:11,559 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 13:08:11,560 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 13:08:15,613 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 13:08:15,613 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 13:08:15,621 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:08:17,641 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 13:08:17,641 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 13:08:17,642 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 13:08:17,713 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:08:35,946 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 13:08:35,947 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-09 13:08:39,835 - Global MMS - DEBUG - new servermode connexion started
+2021-10-09 13:08:39,835 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-09 13:08:39,854 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:08:39,858 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-09 13:08:39,858 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-09 13:08:39,859 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-09 13:08:39,931 - Global MMS - ERROR - Bad destination name : discord_bot from hypixel_api_analysis
+2021-10-09 13:08:49,520 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-09 13:08:49,521 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 10:25:33,900 - Global MMS - WARNING - Started main microservice server
+2021-10-17 10:25:34,911 - Global MMS - INFO - server is listening...
+2021-10-17 10:25:34,911 - Global MMS - INFO - client is listening...
+2021-10-17 10:25:38,822 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 10:25:38,822 - Global MMS - INFO - Initializing discord_bot microservice
+2021-10-17 10:25:38,822 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 10:25:39,869 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 10:25:39,870 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 10:25:39,870 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 10:25:51,140 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 10:25:51,140 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-10-17 10:25:51,141 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 10:25:51,435 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 10:25:51,436 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 10:25:51,436 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-17 11:44:30,750 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 11:44:30,754 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 11:44:36,716 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:44:36,716 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 11:44:36,749 - Global MMS - INFO - None received, closing servermode loop
+2021-10-17 11:44:36,750 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 11:44:36,750 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 11:45:37,108 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:45:37,109 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 11:45:37,129 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:45:37,129 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:45:37,130 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-17 11:47:34,941 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 11:47:34,941 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 11:47:38,879 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:47:38,879 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 11:47:38,893 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:47:38,893 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:47:38,894 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-17 11:50:13,922 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 11:50:13,922 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 11:50:18,159 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:50:18,160 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 11:50:18,174 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:50:18,175 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:50:18,175 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-17 11:51:45,088 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 11:51:45,088 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-17 11:51:47,324 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 11:51:47,324 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 11:51:51,804 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:51:51,804 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 11:51:52,829 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:51:52,829 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:51:52,830 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 11:52:01,976 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:52:01,976 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 11:52:01,995 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:52:01,995 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:52:01,996 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-17 11:52:34,711 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 11:52:34,712 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-17 11:52:35,625 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 11:52:35,626 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 11:52:39,162 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:52:39,162 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 11:52:40,181 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:52:40,181 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:52:40,181 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 11:52:43,823 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:52:43,823 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 11:52:43,837 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:52:43,837 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:52:43,837 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-17 11:53:14,656 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 11:53:14,657 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-17 11:53:14,975 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 11:53:14,976 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 11:53:18,209 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:53:18,209 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 11:53:19,238 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:53:19,238 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:53:19,239 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 11:53:22,268 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:53:22,268 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 11:53:22,278 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:53:22,279 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:53:22,279 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-17 11:53:53,950 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 11:53:53,950 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 11:54:00,855 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:54:00,855 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 11:54:00,868 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:54:00,869 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:54:00,869 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-17 11:54:56,620 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 11:54:56,621 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 11:55:08,721 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:55:08,721 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 11:55:08,733 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:55:08,734 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:55:08,738 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-17 11:55:21,899 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 11:55:21,900 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 11:55:38,279 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 11:55:38,279 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 11:55:38,302 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 11:55:38,302 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 11:55:38,302 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-17 12:10:33,452 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 12:10:33,453 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-17 12:10:34,189 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 12:10:34,190 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-17 12:44:05,910 - Global MMS - WARNING - Started main microservice server
+2021-10-17 12:44:06,917 - Global MMS - INFO - server is listening...
+2021-10-17 12:44:06,917 - Global MMS - INFO - client is listening...
+2021-10-17 12:44:09,859 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 12:44:09,859 - Global MMS - INFO - Initializing discord_bot microservice
+2021-10-17 12:44:09,859 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 12:44:10,890 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 12:44:10,890 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 12:44:10,891 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 12:44:15,345 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 12:44:15,345 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-10-17 12:44:15,346 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-17 12:44:15,363 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 12:44:15,363 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 12:44:15,364 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-17 12:52:21,948 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 12:52:21,948 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-17 12:52:26,873 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 12:52:26,873 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 12:52:27,906 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 12:52:27,906 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 12:52:27,907 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 12:53:06,127 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 12:53:06,127 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 12:53:07,156 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 12:53:07,156 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 12:53:07,973 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 12:54:11,140 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 12:54:11,141 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-17 12:54:12,280 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 12:54:12,280 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 12:54:13,306 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 12:54:13,306 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 12:54:13,307 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 13:45:34,081 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 13:45:34,082 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-17 13:45:41,668 - Global MMS - WARNING - Died dest : discord_bot asked from hypixel_api_analysis
+2021-10-17 13:45:47,169 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 13:45:47,169 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 13:45:48,205 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 13:45:48,205 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 13:45:48,206 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 13:56:17,313 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 13:56:17,322 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-17 13:56:20,124 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 13:56:20,124 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 13:56:21,150 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 13:56:21,150 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 13:56:21,151 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 14:04:49,353 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 14:04:49,353 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 14:04:50,379 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 14:04:50,379 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 14:04:52,348 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 14:16:06,531 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 14:16:06,531 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 14:16:07,564 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 14:16:07,565 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 14:16:08,362 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 14:18:30,613 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 14:18:30,614 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 14:18:31,632 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 14:18:31,632 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 14:18:31,695 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 14:22:51,290 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 14:22:51,290 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-17 14:22:53,313 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 14:22:53,314 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 14:22:54,335 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 14:22:54,335 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 14:22:54,335 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 14:29:48,949 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 14:29:48,949 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 14:29:49,799 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 14:29:49,971 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 14:29:49,971 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 14:29:49,972 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 14:58:36,664 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 14:58:36,665 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-17 14:58:39,886 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 14:58:39,887 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 14:58:40,925 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 14:58:40,925 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 14:58:40,926 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 15:36:22,162 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 15:36:22,164 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-17 15:36:24,493 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 15:36:24,493 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 15:36:25,520 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 15:36:25,520 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-17 15:36:25,521 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 16:06:19,578 - Global MMS - DEBUG - new servermode connexion started
+2021-10-17 16:06:19,578 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-17 16:06:20,601 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-17 16:06:20,601 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-17 16:06:20,927 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-17 16:15:54,077 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-17 16:15:54,078 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-19 20:37:16,842 - Global MMS - WARNING - Started main microservice server
+2021-10-19 20:37:17,849 - Global MMS - INFO - server is listening...
+2021-10-19 20:37:17,850 - Global MMS - INFO - client is listening...
+2021-10-19 20:37:27,859 - Global MMS - DEBUG - new servermode connexion started
+2021-10-19 20:37:27,859 - Global MMS - INFO - Initializing discord_bot microservice
+2021-10-19 20:37:27,859 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-19 20:37:28,884 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-19 20:37:28,884 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-19 20:37:28,885 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-19 20:37:34,217 - Global MMS - DEBUG - new servermode connexion started
+2021-10-19 20:37:34,217 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-10-19 20:37:34,218 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-19 20:37:34,246 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-19 20:37:34,246 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-19 20:37:34,247 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-19 20:38:44,582 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-19 20:38:44,583 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-19 20:38:45,210 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-19 20:38:45,210 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-19 20:38:48,718 - Global MMS - DEBUG - new servermode connexion started
+2021-10-19 20:38:48,718 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-19 20:38:49,744 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-19 20:38:49,744 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-19 20:38:49,745 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-19 20:38:54,359 - Global MMS - DEBUG - new servermode connexion started
+2021-10-19 20:38:54,359 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-19 20:38:54,382 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-19 20:38:54,382 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-19 20:38:54,383 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-19 20:39:08,420 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-19 20:39:08,421 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-19 20:39:12,079 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-19 20:39:12,080 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-19 20:41:25,419 - Global MMS - DEBUG - new servermode connexion started
+2021-10-19 20:41:25,419 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-19 20:41:26,448 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-19 20:41:26,448 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-19 20:41:26,449 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-19 20:41:31,556 - Global MMS - DEBUG - new servermode connexion started
+2021-10-19 20:41:31,557 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-19 20:41:31,582 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-19 20:41:31,582 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-19 20:41:31,583 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-19 20:42:23,813 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-19 20:42:23,814 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-19 20:42:24,804 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-19 20:42:24,806 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 15:29:36,152 - Global MMS - WARNING - Started main microservice server
+2021-10-22 15:29:37,163 - Global MMS - INFO - server is listening...
+2021-10-22 15:29:37,163 - Global MMS - INFO - client is listening...
+2021-10-22 15:29:40,038 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 15:29:40,039 - Global MMS - INFO - Initializing discord_bot microservice
+2021-10-22 15:29:40,039 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-22 15:29:41,069 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 15:29:41,069 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 15:29:41,070 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-22 15:29:45,913 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 15:29:45,914 - Global MMS - INFO - Initializing hypixel_api_analysis microservice
+2021-10-22 15:29:45,914 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 15:29:45,940 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 15:29:45,940 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 15:29:45,941 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 15:55:59,202 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 15:55:59,202 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 15:55:59,723 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-22 15:55:59,724 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-22 15:56:03,094 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 15:56:03,094 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-22 15:56:04,131 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 15:56:04,131 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 15:56:04,131 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-22 15:56:09,653 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 15:56:09,653 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 15:56:09,678 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 15:56:09,678 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 15:56:09,679 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:20:31,242 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:20:31,243 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:20:31,754 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-22 16:20:31,755 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-22 16:20:34,722 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:20:34,722 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-22 16:20:35,750 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:20:35,750 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:20:35,751 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-22 16:20:40,137 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:20:40,138 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:20:40,152 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:20:40,152 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:20:40,153 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:23:36,155 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:23:36,156 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:24:13,239 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-22 16:24:13,239 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-22 16:24:34,217 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:24:34,217 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-22 16:24:35,239 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:24:35,239 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:24:35,240 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-22 16:24:39,171 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:24:39,171 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:24:39,186 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:24:39,186 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:24:39,186 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:25:43,127 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:25:43,128 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:25:43,740 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:25:43,741 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-22 16:25:44,773 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:25:44,774 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-22 16:25:45,830 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-22 16:25:48,244 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:25:48,244 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:25:48,264 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:25:48,265 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:25:48,265 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:26:51,536 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:26:51,537 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:26:51,561 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:26:51,561 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-22 16:26:52,440 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-22 16:26:52,593 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:26:52,594 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:26:52,595 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-22 16:26:55,793 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:26:55,793 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:26:55,808 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:26:55,808 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:26:55,809 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:28:04,940 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:28:04,940 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:28:05,672 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:28:05,672 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:28:05,692 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:28:05,692 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:28:05,692 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:30:11,419 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:30:11,420 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-22 16:30:11,504 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:30:11,505 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:30:12,296 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-22 16:30:12,452 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:30:12,452 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:30:12,453 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-22 16:30:16,200 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:30:16,200 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:30:16,218 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:30:16,219 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:30:16,219 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:32:09,235 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:32:09,236 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:32:14,005 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:32:14,005 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:32:14,028 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:32:14,029 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:32:14,029 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:33:51,990 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:33:51,990 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:33:52,012 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:33:52,012 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:33:52,652 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:38:07,780 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:38:07,780 - Global MMS - WARNING - Error when sending data (socket closed ?) to : hypixel_api_analysis asked from discord_bot
+>search_item_name discord_bot {"item_name": "wither cloak sword", "command_to_return_with": "disable", "request_id": "D1634913387.877"}
+2021-10-22 16:38:07,781 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:38:07,973 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:38:07,976 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:38:07,997 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:38:07,997 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:38:07,998 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:39:57,957 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:39:57,957 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:39:57,969 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:39:57,969 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:39:58,714 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:40:49,904 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:40:49,904 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-22 16:40:50,937 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:40:50,938 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-22 16:40:51,257 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-22 16:41:12,472 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:41:12,472 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:41:16,776 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-22 16:41:16,776 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-22 16:41:21,841 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:41:21,841 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-22 16:41:22,863 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:41:22,863 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:41:22,864 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-22 16:41:27,125 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:41:27,125 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:41:27,138 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:41:27,138 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:41:27,139 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:51:47,318 - Global MMS - INFO - microservice discord_bot's request port (our SERVERmode) disconnected
+2021-10-22 16:51:47,318 - Global MMS - WARNING - We've set the microservice discord_bot to died
+2021-10-22 16:51:49,141 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:51:49,142 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:51:52,200 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:51:52,201 - Global MMS - INFO - discord_bot SERVERmode initialized
+2021-10-22 16:51:53,218 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:51:53,219 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:51:53,219 - Global MMS - INFO - discord_bot CLIENTmode initialized
+2021-10-22 16:51:57,085 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:51:57,086 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:51:57,106 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:51:57,106 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:51:57,107 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:56:32,312 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:56:32,313 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:56:33,394 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:56:33,394 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:56:33,413 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:56:33,413 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:56:33,414 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:57:28,175 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected
+2021-10-22 16:57:28,176 - Global MMS - WARNING - We've set the microservice hypixel_api_analysis to died
+2021-10-22 16:57:28,755 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:57:28,755 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:57:28,774 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:57:28,774 - Global MMS - INFO - didn't succeeded in send CLOSE state
+2021-10-22 16:57:28,775 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:58:47,799 - Global MMS - DEBUG - new servermode connexion started
+2021-10-22 16:58:47,799 - Global MMS - INFO - hypixel_api_analysis SERVERmode initialized
+2021-10-22 16:58:47,824 - Global MMS - DEBUG - new clientmode connexion started
+2021-10-22 16:58:47,825 - Global MMS - INFO - hypixel_api_analysis CLIENTmode initialized
+2021-10-22 16:58:48,135 - Global MMS - INFO - None received, closing servermode loop
+2021-10-22 16:58:48,135 - Global MMS - INFO - microservice hypixel_api_analysis's request port (our SERVERmode) disconnected

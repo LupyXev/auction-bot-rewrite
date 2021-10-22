@@ -9,12 +9,12 @@ except:
 logger = init_a_new_logger("SQL Utils DBM")
 db = sqlite3.connect("testDB.db")
 
-def update_stat(stat_name, value):
+def update_stat(stat_name, value, table="dbm_stats"):
     logger.debug(f"modifying stat {stat_name} to {value}")
     
     cursor = db.cursor()
 
-    cursor.execute(f"UPDATE dbm_stats SET value='{dumps(value)}', update_time='{time()}' WHERE key='{dumps(stat_name)}';")
+    cursor.execute(f"UPDATE {table} SET value='{dumps(value)}', update_time='{time()}' WHERE key='{dumps(stat_name)}';")
     cursor.close()
     db.commit()
     logger.debug("modified stat")
@@ -27,6 +27,13 @@ def get_stat(stat_name, table="dbm_stats"):
     value = cursor.fetchone()[0]
     cursor.close()
     return loads(value)
+
+def command(command):
+    cursor = db.cursor()
+
+    cursor.execute(command)
+    cursor.close()
+    db.commit()
 
 """def save_stats():
     logger.debug("saving stats")

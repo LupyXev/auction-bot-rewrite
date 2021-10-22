@@ -1,8 +1,8 @@
 try:
-    from hypixel_api_microservices_utils.others_objs import Timestamp, EstimatedPriceHist
+    from hypixel_api_microservices_utils.others_objs import Timestamp, EstimatedPriceHist, GlobalHAM
     from hypixel_api_microservices_utils.logs_obj import init_a_new_logger
 except:
-    from others_objs import Timestamp, EstimatedPriceHist
+    from others_objs import Timestamp, EstimatedPriceHist, GlobalHAM
     from logs_obj import init_a_new_logger
 
 from json import load, loads
@@ -101,7 +101,7 @@ class EnchantType:
 
     @classmethod
     def get_enchant_type(cls, enchant_type_id: str, enchant_type: int):
-        #the enchant_type is what item is it come from, like CLASSIC, ENCHANTED DUNGEON ITEM or ENCHANTED BOOK
+        #the enchant_type is what item is it come from, like CLASSIC: 0, ENCHANTED DUNGEON ITEM: 1 or ENCHANTED BOOK: 2
         if enchant_type_id in cls.enchant_type_dict:
             if enchant_type in cls.enchant_type_dict[enchant_type_id]:
                 return cls.enchant_type_dict[enchant_type_id][enchant_type]
@@ -406,6 +406,7 @@ class Estimation:
         self.linked_item = linked_item
 
         self.complex_linked_item = BasicItem.ALIAS[linked_item.basic.item_id][1]
+        self.enchanted_book = True if linked_item.basic.item_id == "ENCHANTED_BOOK" else False
 
         self.already_estimated = False
         self.fully_successfully_estimated = False
@@ -463,7 +464,7 @@ class Estimation:
         return missing_prices_number, sold_hist_obj_of_attr_with_less_sold_lenght[0], total
     
     def estimate(self):
-        if self.complex_linked_item:
+        if self.complex_linked_item and not self.enchanted_book:
             #TODO handle complex items
             return None, 0
         
@@ -498,13 +499,43 @@ class Estimation:
                 price_and_quartiles.append((attr, quartiles))
                 #(estimation, intervall_used, (Quartile1, Quartile2))
                 return currently_correctly_estimated, (attr, Timestamp(time() - intervall), quartiles, sold_amount_used), total #correctly estimated
+        
+        def calculate_quatiles_trust(price_and_quartiles):
+            MIN_PRICE_PERCENTAGE_OF_AN_ATTR_TO_BE_IN_TRUST_RATE = 0.1
+            quartiles_trust = 0
+            quartiles_in_trust = 0
+            for price, quartiles in price_and_quartiles:
+                if price / total >= MIN_PRICE_PERCENTAGE_OF_AN_ATTR_TO_BE_IN_TRUST_RATE and quartiles[0] is not None:
+                    this_attr_quartiles_trust = quartiles[0] / quartiles[1]
+                    if this_attr_quartiles_trust < 0.1: this_attr_quartiles_trust = 0.1
 
+                    quartiles_trust += this_attr_quartiles_trust
+                    quartiles_in_trust += 1
+            
+            if quartiles_in_trust > 0:
+                quartiles_trust /= quartiles_in_trust #to be a mean
+            else:
+                quartiles_trust = 0 #cannot be trust bc there is not quartiles utilisables
+                logger.warning("Estimation.estimate : no quartiles_in_trust so we set it to 0")
+            return quartiles_trust
+        
         currently_correctly_estimated = True
         total = 0
         intervalls_used = [999999999999999, 0] #min, max
         price_and_quartiles = [] #price, quartiles
 
-        #estimate the item 
+        if self.enchanted_book:
+            for enchant in self.linked_item.enchants:
+                #estimate the enchant
+                currently_correctly_estimated, self.enchants[enchant], total = estimate_one_attr(enchant.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles, currently_correctly_estimated)
+            
+            if currently_correctly_estimated and total > 0:
+                #calculate the quartiles trust rate
+                return total, calculate_quatiles_trust(price_and_quartiles)
+            else:
+                return None, 0 #quartiles trust rate is 0
+
+        #estimate the item
         currently_correctly_estimated, self.item_only, total = estimate_one_attr(self.linked_item.basic.estimated_price_sold_hist, intervalls_used, total, price_and_quartiles, currently_correctly_estimated)
         
         if self.linked_item.reforge is not None:
@@ -529,23 +560,7 @@ class Estimation:
 
         if currently_correctly_estimated and total > 0:
             #calculate the quartiles trust rate
-            MIN_PRICE_PERCENTAGE_OF_AN_ATTR_TO_BE_IN_TRUST_RATE = 0.1
-            quartiles_trust = 0
-            quartiles_in_trust = 0
-            for price, quartiles in price_and_quartiles:
-                if price / total >= MIN_PRICE_PERCENTAGE_OF_AN_ATTR_TO_BE_IN_TRUST_RATE and quartiles[0] is not None:
-                    this_attr_quartiles_trust = quartiles[0] / quartiles[1]
-                    if this_attr_quartiles_trust < 0.1: this_attr_quartiles_trust = 0.1
-
-                    quartiles_trust += this_attr_quartiles_trust
-                    quartiles_in_trust += 1
-            
-            if quartiles_in_trust > 0:
-                quartiles_trust /= quartiles_in_trust #to be a mean
-            else:
-                quartiles_trust = 0 #cannot be trust bc there is not quartiles utilisables
-                logger.warning("Estimation.estimate : no quartiles_in_trust so we set it to 0")
-            return total, quartiles_trust
+            return total, calculate_quatiles_trust(price_and_quartiles)
         else:
             return None, 0 #quartiles trust rate is 0
 
@@ -625,8 +640,8 @@ class Auction:
             #at this point, if the item is worth than the cost => lowest_bins_trust is > 1 otherwise it's less than 1
             #so we'll dectrement it by 1 to make it negative when not worth the cost and positive when it is
             lowest_bins_trust -= 1
-            #we'll apply the x+0.3 function to have a close to correct trust
-            lowest_bins_trust += 0.3
+            #we'll apply the 1.1x+0.2 function to have a close to correct trust
+            lowest_bins_trust += 0.2
 
             #we apply the potential penalty
             lowest_bins_trust -= missing_lowest_bins_penalty
@@ -670,8 +685,18 @@ class Auction:
                         microservice.sender.send_to_a_microservice(microservice.sender.FIRST_REQUEST, "discord_bot", "item_tempban", {"item_name": self.item.basic.item_name, "duration": ban_duration})
 
             self.item.basic.alerts_detection_hist.append(round(time())) #we still save this as an alert
-            if must_be_alert:
-                print(f"{self.item.item_name} trust : quartiles : {round(quartiles_trust*100)}% | lowests : {round(lowest_bins_trust*100)}%")
+            
+            temp_disable_item_id_to_pop = None
+            if self.item.basic.item_id in GlobalHAM.temp_disabled_items:
+                disable_item = GlobalHAM.temp_disabled_items[self.item.basic.item_id]
+                if disable_item["expiring_timestamp"] < time():
+                    must_be_alert = False
+                    logger.debug(f"Skipped item (id {self.item.basic.item_id}) because it is tempbanned")
+                else:
+                    temp_disable_item_id_to_pop = self.item.basic.item_id
+            if temp_disable_item_id_to_pop is not None:
+                GlobalHAM.temp_disabled_items.pop(temp_disable_item_id_to_pop)
+
             return must_be_alert, absolute_profitability, percentage_profitability, trust
         #else not needed because of return
         return False, absolute_profitability, percentage_profitability, trust

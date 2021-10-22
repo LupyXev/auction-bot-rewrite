@@ -11,6 +11,7 @@ import asyncio
 from json import load
 from logging import INFO, StreamHandler, getLogger, Formatter, FileHandler
 from sys import stdout
+import aiohttp
 
 client = discord.Client()
 
@@ -49,7 +50,7 @@ async def wait_for_execute():
 
 def listening_to_main_microservices_serv():
     logger = init_a_new_logger("Socket listening DBM")
-    logger.info("listening_to_main_microservices_serv started")
+    logger.warning("listening_to_main_microservices_serv started")
     
     while GlobalDBM.run:
         receiver = MicroserviceReceiver(microservice, logger)
@@ -66,53 +67,59 @@ def listening_to_main_microservices_serv():
             else:
                 logger.error(f"Got a request with a command not in text_to_command : {req}")
 
-async def event_alerting():
-    await client.wait_until_ready()
-    logger = init_a_new_logger("Event alerting - DBM")
-    events_data = {}
-    with open("data/events.json") as f:
-        events_data = load(f)
-    events_to_alert = ("Spooky Festival", "Winter Island")
+async def scan_for_ended_auctions():
+    logger = init_a_new_logger("Scan for ending auctions DBM")
+    logger.info("Started scan_for_ended_auctions")
 
-    logger.info("started")
-    
     while GlobalDBM.run:
-        cur_year_start = events_data["start_timestamp"]
-        while cur_year_start < time() - events_data["1_year"]:
-            cur_year_start += events_data["1_year"]
-
-        channel = client.get_channel(891251073925406730)#TODO change to official channel
-
-        last_message = None
-        async for message in channel.history(limit=1):
-            last_message = message
-        
-        for this_event in events_to_alert:
-            this_event_data = events_data[this_event]
-            if cur_year_start + this_event_data["start"] - this_event_data["gap"] <= time() and\
-                cur_year_start + this_event_data["start"] + this_event_data["duration"] >= time():
-                #there is an event currently
-                
-                if this_event not in last_message.content or last_message.created_at.timestamp() < time() - this_event_data["duration"] - this_event_data["gap"]*2:
-                    #if the last alert is not for this event
-                    time_before_event = cur_year_start + this_event_data["start"] - time()
-                    time_before_event_end = cur_year_start + this_event_data["start"] + this_event_data["duration"] - time()
-                    end_date = datetime.fromtimestamp(cur_year_start + this_event_data["start"] + this_event_data["duration"])
-                    if time_before_event > 0:
-                        logger.info("An event incoming detected")
-                        await channel.send(f"<@&849292716788940841> **Event {this_event} is coming soon (less than {timestamp_to_pretty_hour(time_before_event)})**\nIt will end in **{timestamp_to_pretty_hour(time_before_event_end)}** (until {end_date} UTC+0)")
+        uuids_to_pop = []
+        logger.debug("restarting the loop in scan_for_ended_auctions")
+        async with aiohttp.ClientSession() as session:
+            for auction_uuid, alert_messages_data in tuple(GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id.items()):
+                await asyncio.sleep(1)
+                async with session.get('https://api.hypixel.net/skyblock/auction', params={"key": "21b31128-0fea-4f43-8452-6e972445df38", "uuid": auction_uuid}) as req:
+                    if req.status != 200:
+                        logger.warning(f"req for auction uuid page finished with code {req.status} for auction uuid {auction_uuid}")
                     else:
-                        logger.info("An event active detected")
-                        await channel.send(f"<@&849292716788940841> **Event {this_event} is currently active**\nIt will end in **{timestamp_to_pretty_hour(time_before_event_end)}** (until {end_date} UTC+0)")
-
-        await asyncio.sleep(120)
+                        json_data = await req.json()
+                        if json_data["success"] != True:
+                           logger.warning(f"req for auction uuid page hasn't been successful for auction uuid {auction_uuid}")
+                        else:
+                            if len(json_data["auctions"]) < 1 or json_data["auctions"][0]["end"] < time():
+                                for channel_id, message_id in alert_messages_data:
+                                    channel = client.get_channel(channel_id)
+                                    
+                                    message = await channel.fetch_message(message_id)
+                                    embed = message.embeds[0]
+                                    if len(json_data["auctions"]) > 0:
+                                        embed.title = f'[SOLD in {json_data["auctions"][0]["end"] - json_data["auctions"][0]["start"]} seconds] ' + embed.title
+                                    else:
+                                        embed.title = "[SOLD] " + embed.title
+                                    embed.set_thumbnail(url="https://media.discordapp.net/attachments/811611272251703357/850051408782819368/sold-stamp.jpg")
+                                    access_field = embed.fields[8].value
+                                    access_field = access_field[1:-1].split("\n")
+                                    access_field = [access_field[0][:-1], access_field[1][1:]]
+                                    access_field = "\n".join(access_field)
+                                    embed.set_field_at(8, name=embed.fields[8].name, value="~~" + access_field + "~~")
+                                    embed.colour = 0xff0000
+                                    await message.edit(embed=embed)
+                                    uuids_to_pop.append(auction_uuid)
+                                    """except:
+                                        logger.warning(f"Exception occured while fetching message or modifying it")"""
+            for uuid in uuids_to_pop:
+                try:
+                    GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id.pop(uuid)
+                except:
+                    logger.info(f"Error when trying to delete uuid {uuid} from GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id")
+            await asyncio.sleep(8)
+        
 
 #to change for dynamic alerts
 Guild(842453728154091561, alert_channels_by_id={
     849910024423866398: AlertChannel(849910024423866398, 100_000, 0.1, 999999999999, 9999999999),
     891251073925406730: AlertChannel(891251073925406730, 100_000, 0.1, 999999999999, 9999999999)
 }, alert_roles_by_id={
-    890651386721734666: AlertRole(890651386721734666, 100_000, 0.25, 999999999999, 9999999999, 1), #100k
+    890651386721734666: AlertRole(890651386721734666, 100_000, 0.20, 999999999999, 9999999999, 1), #100k
     842686623313690695: AlertRole(842686623313690695, 250_000, 0.15, 999999999999, 9999999999, 1), #250k
     842686927362719755: AlertRole(842686927362719755, 500_000, 0.10, 999999999999, 9999999999, 1), #500k
     842686965010530305: AlertRole(842686965010530305, 1_000_000, 0.10, 999999999999, 9999999999, 1), #1m
@@ -129,9 +136,10 @@ Guild(842453728154091561, alert_channels_by_id={
 process_listening = threading.Thread(target=listening_to_main_microservices_serv)
 process_listening.start()
 
-event_alerting_loop = discord.ext.tasks.Loop(event_alerting, 0, 0, 0, None, True, client.loop)
-event_alerting_loop.start()
-
 listening_loop = discord.ext.tasks.Loop(wait_for_execute, 0, 0, 0, None, True, client.loop)
 listening_loop.start()
+
+scan_for_ended_auctions_loop = discord.ext.tasks.Loop(scan_for_ended_auctions, 0, 0, 0, None, True, client.loop)
+scan_for_ended_auctions_loop.start()
+
 client.run("ODUxMDQzNTA2NjU5MjYyNDg0.YLyiBw._wW_KwuGd8FUMUIS15dVx3Xs3NA")

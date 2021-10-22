@@ -34,6 +34,9 @@ r_file_handler_all_warn = logging.handlers.RotatingFileHandler(
 )
 r_file_handler_all_warn.setLevel(logging.WARNING)
 
+socket_handler = logging.handlers.SocketHandler("localhost", 5060)
+socket_handler.setLevel(logging.WARNING)
+
 #a "print" handler
 stdout_handler = logging.StreamHandler(sys.stdout)
 
@@ -43,6 +46,7 @@ r_file_handler_debug.setFormatter(formatter)
 r_file_handler_info.setFormatter(formatter)
 r_file_handler_all_warn.setFormatter(formatter)
 stdout_handler.setFormatter(formatter)
+socket_handler.setFormatter(formatter)
 
 def init_a_new_logger(name, lvl=logging.DEBUG):
     #init the logger
@@ -53,6 +57,7 @@ def init_a_new_logger(name, lvl=logging.DEBUG):
     logger.addHandler(r_file_handler_info)
     logger.addHandler(r_file_handler_debug)
     logger.addHandler(r_file_handler_all_warn)
+    logger.addHandler(socket_handler)
 
     #adding a "print" handler
     logger.addHandler(stdout_handler)

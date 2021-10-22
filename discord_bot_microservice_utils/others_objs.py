@@ -55,6 +55,7 @@ class Guild:
 class GlobalDBM:
     run = True
     cur_hypixel_api_run_number = -1
+    auctions_to_scan_for_solding_with_uuid_and_alert_message_id = {} #{uuid: [[channel, message_id]]}
 
 def generate_embed(title, title_description, fields=[], footer="🛠️ Made by LupyXev#5816, Strasky#6559 and Saderfing#5924", color=0x1c86ff, thumbnail=None, link="https://discord.com/oauth2/authorize?client_id=811604371073794089&scope=bot&permissions=268954696"):
     embed = Embed(title=title,

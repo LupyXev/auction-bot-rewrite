@@ -28,16 +28,20 @@ def cmd_search_item_name(args, microservice, sent_from):
     
     l_dist, found_names = BasicItem.search_item_name(args["item_name"])
 
+    command_to_return_with = "search_item_name"
+    if "command_to_return_with" in args:
+        command_to_return_with = args["command_to_return_with"]
+
     if l_dist > len(args["item_name"]) / 2:
-        sender.send_to_a_microservice(sender.EXISTING_REQUEST, sent_from, "search_item_name", {"status": "NOTHING ACCURATE"}, args["request_id"])
+        sender.send_to_a_microservice(sender.EXISTING_REQUEST, sent_from, command_to_return_with, {"status": "NOTHING ACCURATE"}, args["request_id"])
         return
     if len(found_names) < 1:
-        sender.send_to_a_microservice(sender.EXISTING_REQUEST, sent_from, "search_item_name", {"status": "NOTHING FOUND"}, args["request_id"])
+        sender.send_to_a_microservice(sender.EXISTING_REQUEST, sent_from, command_to_return_with, {"status": "NOTHING FOUND"}, args["request_id"])
         return
     if len(found_names) > 1:
-        sender.send_to_a_microservice(sender.EXISTING_REQUEST, sent_from, "search_item_name", {"status": "MULTIPLE FOUND", "found_names": found_names}, args["request_id"])
+        sender.send_to_a_microservice(sender.EXISTING_REQUEST, sent_from, command_to_return_with, {"status": "MULTIPLE FOUND", "found_names": found_names}, args["request_id"])
         return
-    sender.send_to_a_microservice(sender.EXISTING_REQUEST, sent_from, "search_item_name", {"status": "OK", "found_name": found_names[0]}, args["request_id"])
+    sender.send_to_a_microservice(sender.EXISTING_REQUEST, sent_from, command_to_return_with, {"status": "OK", "found_name": found_names[0]}, args["request_id"])
 
 def cmd_get_price_with_search_item_name(args, microservice, sent_from):
     if not hasattr(microservice, "sender"):
@@ -100,9 +104,24 @@ def cmd_get_price_with_correct_name(args, microservice, sent_from):
     }
     microservice.sender.send_to_a_microservice(microservice.sender.EXISTING_REQUEST, sent_from, "get_price_with_correct_name", to_send_args, args["request_id"])
 
+def cmd_disable(args, microservice, sent_from):
+    if not hasattr(microservice, "sender"):
+        logger.error("cannot find diable an item because microservice obj hasn't a sender attribute")
+        return
+    #we consider that the item name received is correct
+    item_id = BasicItem.ALIAS_ID_BY_LOWCASE_NAME[args["item_name"].lower()]
+    expering_timestamp = args["duration_until_disabling_end"] + round(time())
+    GlobalHAM.temp_disabled_items[item_id] = {"expiring_timestamp": expering_timestamp}
+    logger.warning(f"Disabled item {item_id} for a {args['duration_until_disabling_end']}s duration")
+    logger.debug(f"Current GlobalHAM.temp_disabled_items : {GlobalHAM.temp_disabled_items}")
+
+    microservice.sender.send_to_a_microservice(microservice.sender.EXISTING_REQUEST, sent_from, "disable_confirmation", {"item_id": item_id, "expiring_timestamp": expering_timestamp}, args["request_id"])
+    
+
 text_to_command = {
     ">ping": cmd_ping,
     ">search_item_name": cmd_search_item_name,
     ">get_price_with_search_item_name": cmd_get_price_with_search_item_name,
-    ">get_price_with_correct_name": cmd_get_price_with_correct_name
+    ">get_price_with_correct_name": cmd_get_price_with_correct_name,
+    "$disable": cmd_disable
 }

@@ -58,6 +58,9 @@ r_file_handler_all_warn = logging.handlers.RotatingFileHandler(
 )
 r_file_handler_all_warn.setLevel(logging.WARNING)
 
+socket_handler = logging.handlers.SocketHandler("localhost", 5060)
+socket_handler.setLevel(logging.WARNING)
+
 #a "print" handler
 stdout_handler = logging.StreamHandler(sys.stdout)
 
@@ -67,6 +70,7 @@ r_file_handler_debug.setFormatter(formatter)
 r_file_handler_info.setFormatter(formatter)
 r_file_handler_all_warn.setFormatter(formatter)
 stdout_handler.setFormatter(formatter)
+socket_handler.setFormatter(formatter)
 
 def init_a_new_logger(name, lvl=logging.DEBUG):
     #init the logger
@@ -77,6 +81,7 @@ def init_a_new_logger(name, lvl=logging.DEBUG):
     logger.addHandler(r_file_handler_info)
     logger.addHandler(r_file_handler_debug)
     logger.addHandler(r_file_handler_all_warn)
+    logger.addHandler(socket_handler)
 
     #adding a "print" handler
     logger.addHandler(stdout_handler)
@@ -185,7 +190,7 @@ class Microservice:
                 socket_to_close.send(str(len("CLOSE".encode(FORMAT))).encode(FORMAT))
                 socket_to_close.send("CLOSE".encode(FORMAT))
             except:
-                print("didn't succeeded in send CLOSE state")
+                logger.info("didn't succeeded in send CLOSE state")
             if self.send_socket is not None:
                 self.send_socket.close()
                 self.send_socket = None
@@ -293,7 +298,7 @@ def handle_server(conn, addr): #for clientmode, when the other side is mainly re
         conn.send(name.encode(FORMAT))
         microservice_obj.alive = True
 
-        print(f"{microservice_obj.name} CLIENTmode initialized")
+        logger.info(f"{microservice_obj.name} CLIENTmode initialized")
 
 
 def handle_client(conn, addr):
@@ -310,7 +315,7 @@ def handle_client(conn, addr):
     #Confirm the initialization
     conn.send(name.encode(FORMAT))
 
-    print(f"{microservice_obj.name} SERVERmode initialized")
+    logger.info(f"{microservice_obj.name} SERVERmode initialized")
 
     while True:
         try:
@@ -330,7 +335,7 @@ def handle_client(conn, addr):
             msg_splitted = msg.split(" ")
             if msg[0] == "!": #main server commands
                 if msg == "!DISCONNECT":
-                    print("Disconnected by customer")
+                    logger.info("Disconnected by customer")
                     microservice_obj.destroy()
                     break
                 else:
@@ -372,10 +377,10 @@ def handle_client(conn, addr):
                 logger.warn(f"no correct prefix specified : {msg} from {name}")
         
         else:
-            print("None received, closing servermode loop")
+            logger.info("None received, closing servermode loop")
             break
     
-    print(f"microservice {name}'s request port (our SERVERmode) disconnected")
+    logger.info(f"microservice {name}'s request port (our SERVERmode) disconnected")
     
     if microservice_obj.last_listening_connexion_etablished == etablished_time: 
         logger.warning(f"We've set the microservice {name} to died")
@@ -383,7 +388,7 @@ def handle_client(conn, addr):
 
 def start_servermode():
     server.listen()
-    print("server is listening...")
+    logger.info("server is listening...")
     while True:
         conn, addr = server.accept()
         thread = threading.Thread(target=handle_client, args=(conn, addr))
@@ -392,12 +397,15 @@ def start_servermode():
 
 def start_clientmode():
     client.listen()
-    print("client is listening...")
+    logger.info("client is listening...")
     while True:
         conn, addr = client.accept()
         thread = threading.Thread(target=handle_server, args=(conn, addr))
         thread.start()
         logger.debug("new clientmode connexion started")
+
+
+logger.warning("Started main microservice server")
 
 thread_servermode = threading.Thread(target=start_servermode)
 thread_servermode.start()

@@ -2,10 +2,12 @@ try:
     from discord_bot_microservice_utils.logs_obj import init_a_new_logger
     from discord_bot_microservice_utils.others_objs import pretty_hour_to_timestamp, generate_embed, pretty_number
     from discord_bot_microservice_utils.sql_utils import update_stat, get_stat
+    from discord_bot_microservice_utils.sql_utils import command as sql_command
 except:
     from logs_obj import init_a_new_logger
     from others_objs import pretty_hour_to_timestamp, generate_embed, pretty_number
     from sql_utils import update_stat, get_stat
+    from sql_utils import command as sql_command
 
 from discord.ext import commands
 from discord_slash import SlashCommand
@@ -47,7 +49,7 @@ class DiscordCommands:
 
         guild_ids = [727239318602514526, 842453728154091561] # les Ids des serveurs pour gagner en temps lors de l'ajout de slashs commandes
 
-        @slash.slash(name="ping", guild_ids=guild_ids)
+        @slash.slash(name="ping", description="Show the discord bot latency", guild_ids=guild_ids)
         async def _ping(ctx):
             await ctx.send(f"Pong! ({round(client.latency*1000, 1)}ms)")
 
@@ -78,14 +80,14 @@ class DiscordCommands:
                 await ctx.send(":x: Internal error : request not successful | Try again in a few minutes")
             AwaitedRequest(request_id, {"ctx": ctx})
         
-        @slash.slash(name="search-item",
+        """@slash.slash(name="search-item",
             description="Search a correct item name with a possibly wrong one",
             options=[create_option(name="item_name", description="The item name you watn to search", option_type=3, required=True)],
             guild_ids=guild_ids
         )
         async def _search_item(ctx, item_name):
             success, verif_code, request_id = await self.send_to_a_microservice(ctx, "hypixel_api_analysis", "search_item_name", {"item_name": item_name}, return_req_id=True)
-            AwaitedRequest(request_id, {"ctx": ctx})
+            AwaitedRequest(request_id, {"ctx": ctx})"""
         
         @slash.slash(name="stats",
             description="Show the bot's statistics since 1st publish",
@@ -104,7 +106,60 @@ class DiscordCommands:
             )
             await ctx.send(embed=embed)
         
-        @slash.slash(name="config",
+        @slash.slash(name="donators",
+            description="Show the donators & supporters",
+            guild_ids=guild_ids
+        )
+        async def _stats(ctx):
+            donators = get_stat("donators", "discord")
+            donators_text = "\n".join(donators)
+            embed = generate_embed(
+                "Donators & Supporters",
+                f"Thanks a lot to the project's supporters <:Yep:859453452434538507>\n\n{donators_text}"
+            )
+            await ctx.send(embed=embed)
+        
+        @slash.slash(name="dev",
+            description="A developer's command (bot administrators only)",
+            options=[create_option(name="command", description="The command", option_type=3, required=True)],
+            guild_ids=guild_ids
+        )
+        async def _dev(ctx, command):
+            if ctx.author.id == 399978674578784286 or ctx.author.id == 579573266650497035 or ctx.author.id == 409395283617644544:
+                #authorised
+                await ctx.send(content=":white_check_mark: Authorized")
+                if len(command) > 2 and command[:3] == "sql":
+                    try:
+                        sql_command(command[3:])
+                        await ctx.send(content=":white_check_mark: Command done (unverified)")
+                    except:
+                        await ctx.send(content=":x: An error occured")
+                elif len(command) > 11 and command[:11] == "add-donator":
+                    donators = get_stat("donators", "discord")
+                    donators.append(command[11:])
+                    update_stat("donators", donators, "discord")
+                    await ctx.send(content=":white_check_mark: Command done (not verified)")
+                elif len(command) > 7 and command[:7] == "disable":
+                    await ctx.send("Syntax : /dev disable [DURATION_UNTIL_DISABLING_END] [ITEM_NAME]")
+                    command_splitted = command.split(" ")
+                    duration_since_disabling_end = None
+                    try:
+                        duration_since_disabling_end = int(pretty_hour_to_timestamp(command_splitted[1]))
+                    except:
+                        ctx.send(":x: Error with the duration until disabling end")
+                        return
+
+                    if len(command_splitted) <= 2:
+                        ctx.send(":x: item name needed")
+                        return
+                    success, verif_code, request_id = await self.send_to_a_microservice(ctx, "hypixel_api_analysis", "search_item_name", {"item_name": " ".join(command_splitted[2:]), "command_to_return_with": "disable"}, return_req_id=True)
+                    AwaitedRequest(request_id, {"ctx": ctx, "duration_since_disabling_end": duration_since_disabling_end, "item_name_asked": " ".join(command_splitted[2:])})
+                else:
+                    await ctx.send(content=":x: Unknow command, commands are : sql, add-donator, disable")
+            else:
+                await ctx.send(content=":x: Unauthorized")
+        
+        """@slash.slash(name="config",
             description="Open the server's configuration panel (administrator privilege only)",
             guild_ids=guild_ids
         )
@@ -143,5 +198,5 @@ class DiscordCommands:
             
             action_row = create_actionrow(create_select([create_select_option("hey", "idk")]))
             rep = await ctx.send(item_name, components=[action_row])
-            await ctx.send("Bye bye I'm going to sleep")
+            await ctx.send("Bye bye I'm going to sleep")"""
             

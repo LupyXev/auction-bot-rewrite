@@ -83,5 +83,12 @@
     "PET_SKIN_TIGER_SABER_TOOTH": ["Saber-Tooth Tiger Skin", false, 1633107412],
     "CELESTE_CHESTPLATE": ["Celeste Chestplate", false, 1633107412],
     "CELESTE_BOOTS": ["Celeste Boots", false, 1633107413],
-    "CELESTE_HELMET": ["Celeste Helmet", false, 1633107413]
+    "CELESTE_HELMET": ["Celeste Helmet", false, 1633107413],
+    "WITCH_BROOMSTICK": ["Witch's Broomstick", false, 1634459306],
+    "SCARECROW_PERSONALITY": ["Scarecrow Minion Skin", false, 1634459307],
+    "BLACK_CAT_PLUSH": ["Black Cat Plush", false, 1634459307],
+    "NETHER_ARTIFACT": ["Nether Artifact", false, 1634459308],
+    "SKULL_VASE": ["Skull Vase", false, 1634459308],
+    "CANDLE_TABLE": ["Candle Table", false, 1634459309],
+    "CYCLOPS_PERSONALITY": ["Cyclops Minion Skin", false, 1634459312]
 }

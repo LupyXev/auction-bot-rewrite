@@ -144,3 +144,5 @@ print(len(sm[3]))
 
 class GlobalHAM:
     run = True
+    current_events = []
+    temp_disabled_items = {} #{"id": {"expiring_timestamp": 56164078}}
