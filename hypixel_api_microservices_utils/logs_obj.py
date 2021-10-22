@@ -4,7 +4,7 @@ import sys
 
 #init the handlers
 r_file_handler_info = logging.handlers.RotatingFileHandler(
-    filename='logs/HAM_info.log', 
+    filename='/home/ubuntu/logs/HAM_info.log', 
     mode='a',
     maxBytes=5*1024*1024,
     backupCount=1,
@@ -15,7 +15,7 @@ r_file_handler_info.setLevel(logging.INFO)
 
 
 r_file_handler_debug = logging.handlers.RotatingFileHandler(
-    filename='logs/HAM_debug.log', 
+    filename='/home/ubuntu/logs/HAM_debug.log', 
     mode='a',
     maxBytes=3*1024*1024,
     backupCount=1,
@@ -25,7 +25,7 @@ r_file_handler_debug = logging.handlers.RotatingFileHandler(
 r_file_handler_debug.setLevel(logging.DEBUG)
 
 r_file_handler_all_warn = logging.handlers.RotatingFileHandler(
-    filename='logs/all_warn.log', 
+    filename='/home/ubuntu/logs/all_warn.log', 
     mode='a',
     maxBytes=4*1024*1024,
     backupCount=1,

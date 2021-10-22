@@ -12,13 +12,14 @@ from json import load
 from logging import INFO, StreamHandler, getLogger, Formatter, FileHandler
 from sys import stdout
 import aiohttp
+import os
 
 client = discord.Client()
 
 MICROSERVICE_NAME = "discord_bot"
 MICROSERVICE_PREFIX = "D"
 
-file_handler_discord_py = FileHandler(filename='./logs/discord.log', encoding='utf-8', mode='a')
+file_handler_discord_py = FileHandler(filename='/home/ubuntu/logs/discord.log', encoding='utf-8', mode='a')
 
 file_handler_discord_py.setLevel(INFO)
 
@@ -142,4 +143,11 @@ listening_loop.start()
 scan_for_ended_auctions_loop = discord.ext.tasks.Loop(scan_for_ended_auctions, 0, 0, 0, None, True, client.loop)
 scan_for_ended_auctions_loop.start()
 
-client.run("ODUxMDQzNTA2NjU5MjYyNDg0.YLyiBw._wW_KwuGd8FUMUIS15dVx3Xs3NA")
+try:
+    TOKEN = os.environ["TOKEN"]
+    print("Started in Normal Mode")
+except:
+    TOKEN = "ODUxMDQzNTA2NjU5MjYyNDg0.YLyiBw._wW_KwuGd8FUMUIS15dVx3Xs3NA"
+    print("Started in Nightly Mode")
+
+client.run(TOKEN)
