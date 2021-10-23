@@ -90,5 +90,6 @@
     "NETHER_ARTIFACT": ["Nether Artifact", false, 1634459308],
     "SKULL_VASE": ["Skull Vase", false, 1634459308],
     "CANDLE_TABLE": ["Candle Table", false, 1634459309],
-    "CYCLOPS_PERSONALITY": ["Cyclops Minion Skin", false, 1634459312]
+    "CYCLOPS_PERSONALITY": ["Cyclops Minion Skin", false, 1634459312],
+    "PET_SKIN_PARROT_GOLD_MACAW": ["Gold Macaw Parrot Skin", false, 1634919661]
 }

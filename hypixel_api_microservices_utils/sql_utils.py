@@ -15,7 +15,7 @@ def save_sold_history():
         cursor.execute(f"UPDATE sold_history SET value='{value}', update_time='{time()}' WHERE key='{key}'")
 
     logger.debug("saving sold history")
-    db = sqlite3.connect("testDB.db")
+    db = sqlite3.connect("/home/ubuntu/Advanced_Auction_DB.db")
 
     cursor = db.cursor()
     
@@ -79,7 +79,7 @@ def save_sold_history():
 
 def save_stats():
     logger.debug("saving stats")
-    db = sqlite3.connect("testDB.db")
+    db = sqlite3.connect("/home/ubuntu/Advanced_Auction_DB.db")
 
     cursor = db.cursor()
 
@@ -91,7 +91,7 @@ def save_stats():
 
 def load_sold_history():
     logger.debug("loading sold history")
-    db = sqlite3.connect("testDB.db")
+    db = sqlite3.connect("/home/ubuntu/Advanced_Auction_DB.db")
 
     cursor = db.cursor()
 
@@ -114,7 +114,7 @@ def load_sold_history():
 
 def load_stats():
     logger.debug("loading stats")
-    db = sqlite3.connect("testDB.db")
+    db = sqlite3.connect("/home/ubuntu/Advanced_Auction_DB.db")
 
     cursor = db.cursor()
 

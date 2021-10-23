@@ -7,7 +7,7 @@ except:
     from logs_obj import init_a_new_logger
 
 logger = init_a_new_logger("SQL Utils DBM")
-db = sqlite3.connect("testDB.db")
+db = sqlite3.connect("/home/ubuntu/Advanced_Auction_DB.db")
 
 def update_stat(stat_name, value, table="dbm_stats"):
     logger.debug(f"modifying stat {stat_name} to {value}")
