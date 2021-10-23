@@ -117,6 +117,9 @@ def get_new_auctions_and_analyzing_them(logger, last_api_update, cur_run):
     total_pages = 1
     first_last_api_update = None
 
+    #we sleep 1 sec to give Hypixel the time for updating all their pages
+    time.sleep(1)
+
     while cur_page < total_pages:
         req = requests.get(HYPIXEL_API_AUCTIONS_LINK, params={"page": cur_page}, timeout=TIMEOUT)
         logger.debug(f"Run {cur_run}: Got auctions list page {cur_page} / {total_pages} (0/1 not a bug)")
@@ -128,10 +131,14 @@ def get_new_auctions_and_analyzing_them(logger, last_api_update, cur_run):
             total_pages = req_json["totalPages"]
 
             this_req_last_update_given = round(req_json["lastUpdated"] / 1000)
+            if this_req_last_update_given < last_api_update:
+                #we consider it as a bug so we ignore it
+                logger.debug(f"Got a last api update older than the currently so we skip it {cur_page}/{total_pages} (in our RAM: {last_api_update} | given by API: {this_req_last_update_given}")
+                this_req_last_update_given = last_api_update
             if last_api_update is None:
                 last_api_update = this_req_last_update_given
             elif last_api_update != this_req_last_update_given:
-                logger.warning(f"lastUpdated changed between pages requests beggining and this page, {cur_page}/{total_pages} (old: {last_api_update} | new: {req_json['lastUpdated'] / 1000}")
+                logger.warning(f"lastUpdated changed between pages requests beggining and this page, {cur_page}/{total_pages} (old: {last_api_update} | new: {this_req_last_update_given}")
                 last_api_update = this_req_last_update_given
             if first_last_api_update is None:
                 first_last_api_update = this_req_last_update_given
