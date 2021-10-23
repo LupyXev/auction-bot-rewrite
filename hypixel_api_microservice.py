@@ -127,13 +127,14 @@ def get_new_auctions_and_analyzing_them(logger, last_api_update, cur_run):
         if req_json["success"]:
             total_pages = req_json["totalPages"]
 
+            this_req_last_update_given = round(req_json["lastUpdated"] / 1000)
             if last_api_update is None:
-                last_api_update = req_json["lastUpdated"] / 1000
-            elif last_api_update != req_json["lastUpdated"] / 1000:
-                last_api_update = req_json["lastUpdated"] / 1000
-                logger.warning(f"lastUpdated changed between pages requests beggining and this page, {cur_page}/{total_pages}")
+                last_api_update = this_req_last_update_given
+            elif last_api_update != this_req_last_update_given:
+                logger.warning(f"lastUpdated changed between pages requests beggining and this page, {cur_page}/{total_pages} (old: {last_api_update} | new: {req_json['lastUpdated'] / 1000}")
+                last_api_update = this_req_last_update_given
             if first_last_api_update is None:
-                first_last_api_update = req_json["lastUpdated"] / 1000
+                first_last_api_update = this_req_last_update_given
 
             for auction in req_json["auctions"]:
                 if "bin" in auction and auction["bin"] is True and auction["uuid"] not in Auction.auction_uuid_to_obj and auction["item_name"] != "null" : #is a new auction and a bin one
@@ -266,7 +267,7 @@ def wait_until_api_refresh(logger, last_api_update):
                 logger.warning(f"req for auctions list when waiting a new api refresh finished with code {req.status_code}")
         req_json = req.json()
         if req_json["success"]:
-            return req_json["lastUpdated"] / 1000
+            return round(req_json["lastUpdated"] / 1000)
         else:
             logger.error(f"req for auctions list when waiting a new api refresh = false, json : {req_json}")
             return 0 #error
