@@ -2,7 +2,7 @@ import sqlite3
 from json import loads, dumps
 from time import time
 try:
-    from hypixel_api_microservices_utils.logs_obj import init_a_new_logger
+    from discord_bot_microservice_utils.logs_obj import init_a_new_logger
 except:
     from logs_obj import init_a_new_logger
 
