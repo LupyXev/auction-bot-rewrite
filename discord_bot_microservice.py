@@ -104,7 +104,7 @@ async def scan_for_ended_auctions():
                                     message = await channel.fetch_message(message_id)
                                     embed = message.embeds[0]
                                     if len(json_data["auctions"]) > 0:
-                                        embed.title = f'[SOLD in {json_data["auctions"][0]["end"] - json_data["auctions"][0]["start"]} seconds] ' + embed.title
+                                        embed.title = f'[SOLD in {round(json_data["auctions"][0]["end"]/1000 - json_data["auctions"][0]["start"]/1000)} seconds] ' + embed.title
                                     else:
                                         embed.title = "[SOLD] " + embed.title
                                     embed.set_thumbnail(url="https://media.discordapp.net/attachments/811611272251703357/850051408782819368/sold-stamp.jpg")
