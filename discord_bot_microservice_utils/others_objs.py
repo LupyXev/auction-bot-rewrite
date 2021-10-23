@@ -89,9 +89,9 @@ def pretty_number(number, precision=2):
 def timestamp_to_pretty_hour(timestamp):
     date_obj = datetime.fromtimestamp(round(timestamp))
     if round(timestamp) >= 86400:
-        return f"{date_obj.day-1}d {date_obj.hour-1}h {date_obj.minute}m {date_obj.second}s"
+        return f"{date_obj.day-1}d {date_obj.hour}h {date_obj.minute}m {date_obj.second}s"
     elif round(timestamp) >= 3600:
-        return f"{date_obj.hour-1}h {date_obj.minute}m {date_obj.second}s"
+        return f"{date_obj.hour}h {date_obj.minute}m {date_obj.second}s"
     elif round(timestamp) >= 60:
         return f"{date_obj.minute}m {date_obj.second}s"
     return f"{date_obj.second}s"
