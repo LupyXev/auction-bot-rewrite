@@ -192,6 +192,7 @@ async def cmd_stonks_alert(args, microservice):
                             message = await channel.send(content=str_roles_to_ping, embed=embed)
                             if args["auction_uuid"] not in GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id:
                                 GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id[args["auction_uuid"]] = []
+                                GlobalDBM.auctions_to_scan_list.append(args["auction_uuid"])
                             GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id[args["auction_uuid"]].append((alert_channel.channel_id, message.id))
 
 async def cmd_cur_hypixel_api_run_number(args, microservice):

@@ -85,8 +85,10 @@ async def scan_for_ended_auctions():
         uuids_to_pop = []
         logger.debug("restarting the loop in scan_for_ended_auctions")
         async with aiohttp.ClientSession() as session:
-            for auction_uuid, alert_messages_data in tuple(GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id.items()):
-                await asyncio.sleep(1)
+            for auctions_list_index in range(len(GlobalDBM.auctions_to_scan_list)-1, -1, -1):
+                auction_uuid = GlobalDBM.auctions_to_scan_list[auctions_list_index]
+                alert_messages_data = GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id[auction_uuid]
+                await asyncio.sleep(0.8)
                 async with session.get('https://api.hypixel.net/skyblock/auction', params={"key": "21b31128-0fea-4f43-8452-6e972445df38", "uuid": auction_uuid}) as req:
                     if req.status != 200:
                         logger.warning(f"req for auction uuid page finished with code {req.status} for auction uuid {auction_uuid}")
@@ -95,7 +97,7 @@ async def scan_for_ended_auctions():
                         if json_data["success"] != True:
                            logger.warning(f"req for auction uuid page hasn't been successful for auction uuid {auction_uuid}")
                         else:
-                            if len(json_data["auctions"]) < 1 or json_data["auctions"][0]["end"] < time():
+                            if len(json_data["auctions"]) < 1 or json_data["auctions"][0]["end"]/1000 < time():
                                 for channel_id, message_id in alert_messages_data:
                                     channel = client.get_channel(channel_id)
                                     
@@ -121,6 +123,10 @@ async def scan_for_ended_auctions():
                     GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id.pop(uuid)
                 except:
                     logger.info(f"Error when trying to delete uuid {uuid} from GlobalDBM.auctions_to_scan_for_solding_with_uuid_and_alert_message_id")
+                try:
+                    GlobalDBM.auctions_to_scan_list.pop(GlobalDBM.auctions_to_scan_list.index(uuid))
+                except:
+                    logger.info(f"Error when trying to delete uuid {uuid} from GlobalDBM.auctions_to_scan_list")
             await asyncio.sleep(8)
         
 
