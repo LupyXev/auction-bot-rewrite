@@ -19,6 +19,15 @@ client = discord.Client()
 MICROSERVICE_NAME = "discord_bot"
 MICROSERVICE_PREFIX = "D"
 
+try:
+    TOKEN = os.environ["TOKEN"]
+    print("Started in Normal Mode")
+    NIGHTLY_MODE = False
+except:
+    TOKEN = "ODUxMDQzNTA2NjU5MjYyNDg0.YLyiBw._wW_KwuGd8FUMUIS15dVx3Xs3NA"
+    print("Started in Nightly Mode")
+    NIGHTLY_MODE = True
+
 file_handler_discord_py = FileHandler(filename='/home/ubuntu/logs/discord.log', encoding='utf-8', mode='a')
 
 file_handler_discord_py.setLevel(INFO)
@@ -116,10 +125,21 @@ async def scan_for_ended_auctions():
         
 
 #to change for dynamic alerts
-Guild(842453728154091561, alert_channels_by_id={
-    849910024423866398: AlertChannel(849910024423866398, 100_000, 0.1, 999999999999, 9999999999),
-    891251073925406730: AlertChannel(891251073925406730, 100_000, 0.1, 999999999999, 9999999999)
-}, alert_roles_by_id={
+
+if NIGHTLY_MODE:
+    alert_channels = {
+        849910024423866398: AlertChannel(849910024423866398, 100_000, 0.1, 999999999999, 9999999999),
+        891251073925406730: AlertChannel(891251073925406730, 100_000, 0.1, 999999999999, 9999999999)
+    }
+else:
+    alert_channels = {
+        857696959791235092: AlertChannel(857696959791235092, 100_000, 0.1, 999999999999, 9999999999), #all-flips
+        857301519531114546: AlertChannel(857301519531114546, 100_000, 0.1, 1_000_000, 9999999999), #low-flips
+        857301677850099722: AlertChannel(857301677850099722, 1_000_000, 0.1, 99999999999, 9999999999) #high-flips
+    }
+
+Guild(842453728154091561, alert_channels_by_id=alert_channels,
+alert_roles_by_id={
     890651386721734666: AlertRole(890651386721734666, 100_000, 0.20, 999999999999, 9999999999, 1), #100k
     842686623313690695: AlertRole(842686623313690695, 250_000, 0.15, 999999999999, 9999999999, 1), #250k
     842686927362719755: AlertRole(842686927362719755, 500_000, 0.10, 999999999999, 9999999999, 1), #500k
@@ -142,12 +162,5 @@ listening_loop.start()
 
 scan_for_ended_auctions_loop = discord.ext.tasks.Loop(scan_for_ended_auctions, 0, 0, 0, None, True, client.loop)
 scan_for_ended_auctions_loop.start()
-
-try:
-    TOKEN = os.environ["TOKEN"]
-    print("Started in Normal Mode")
-except:
-    TOKEN = "ODUxMDQzNTA2NjU5MjYyNDg0.YLyiBw._wW_KwuGd8FUMUIS15dVx3Xs3NA"
-    print("Started in Nightly Mode")
 
 client.run(TOKEN)
