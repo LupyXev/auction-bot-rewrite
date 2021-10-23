@@ -103,8 +103,21 @@ async def scan_for_ended_auctions():
                                     
                                     message = await channel.fetch_message(message_id)
                                     embed = message.embeds[0]
+                                    bought_by = ""
                                     if len(json_data["auctions"]) > 0:
                                         embed.title = f'[SOLD in {round(json_data["auctions"][0]["end"]/1000 - json_data["auctions"][0]["start"]/1000)} seconds] ' + embed.title
+                                        if "bids" in json_data["auctions"][0] and json_data["auctions"][0]["bids"] > 0 and "bidder" in json_data["auctions"][0]["bids"][0]:                                           
+                                            async with session.get("https://minecraft-api.com/api/pseudo/" + json_data["auctions"][0]["bids"][0]["bidder"] + "/json") as req_buyer:
+                                                if req_buyer.status != 200:
+                                                    logger.warning(f"req status for buyer player name finished with code {req_buyer.status} for player uuid {json_data['auctions'][0]['bids'][0]['bidder']}")
+                                                else:
+                                                    try:
+                                                        buyer_name = await req_buyer.json()
+                                                        buyer_name = buyer_name["pseudo"]
+                                                        bought_by = f"[BOUGHT BY {buyer_name}]\n"
+                                                    except:
+                                                        logger.warning(f"Error while getting buyer name of player's uuid {json_data['auctions'][0]['bids'][0]['bidder']}")
+
                                     else:
                                         embed.title = "[SOLD] " + embed.title
                                     embed.set_thumbnail(url="https://media.discordapp.net/attachments/811611272251703357/850051408782819368/sold-stamp.jpg")
@@ -112,7 +125,7 @@ async def scan_for_ended_auctions():
                                     access_field = access_field[1:-1].split("\n")
                                     access_field = [access_field[0][:-1], access_field[1][1:]]
                                     access_field = "\n".join(access_field)
-                                    embed.set_field_at(8, name=embed.fields[8].name, value="~~" + access_field + "~~")
+                                    embed.set_field_at(8, name=embed.fields[8].name, value=bought_by + "~~" + access_field + "~~")
                                     embed.colour = 0xff0000
                                     await message.edit(embed=embed)
                                     uuids_to_pop.append(auction_uuid)
