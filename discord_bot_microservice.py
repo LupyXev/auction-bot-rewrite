@@ -106,7 +106,7 @@ async def scan_for_ended_auctions():
                                     bought_by = ""
                                     if len(json_data["auctions"]) > 0:
                                         embed.title = f'[SOLD in {round(json_data["auctions"][0]["end"]/1000 - json_data["auctions"][0]["start"]/1000)} seconds] ' + embed.title
-                                        if "bids" in json_data["auctions"][0] and json_data["auctions"][0]["bids"] > 0 and "bidder" in json_data["auctions"][0]["bids"][0]:                                           
+                                        if "bids" in json_data["auctions"][0] and len(json_data["auctions"][0]["bids"]) > 0 and "bidder" in json_data["auctions"][0]["bids"][0]:                                           
                                             async with session.get("https://minecraft-api.com/api/pseudo/" + json_data["auctions"][0]["bids"][0]["bidder"] + "/json") as req_buyer:
                                                 if req_buyer.status != 200:
                                                     logger.warning(f"req status for buyer player name finished with code {req_buyer.status} for player uuid {json_data['auctions'][0]['bids'][0]['bidder']}")
