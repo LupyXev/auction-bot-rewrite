@@ -197,7 +197,7 @@ async def cmd_stonks_alert(args, microservice):
 
 async def cmd_cur_hypixel_api_run_number(args, microservice):
     await microservice.useful_objs["discord_client"].change_presence(status=Status.online,
-        activity=Game(f"Getting/Analysing Hypixel's data - Run {args['run_number']}")
+        activity=Game(f"/price - Run {args['run_number']}")
     )
     GlobalDBM.cur_hypixel_api_run_number = args["run_number"]
 

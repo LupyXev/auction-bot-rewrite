@@ -114,7 +114,7 @@ async def scan_for_ended_auctions():
                                                     try:
                                                         buyer_name = await req_buyer.json()
                                                         buyer_name = buyer_name["pseudo"]
-                                                        bought_by = f"[BOUGHT BY {buyer_name}]\n"
+                                                        bought_by = f"[BOUGHT BY **{buyer_name}**]\n"
                                                     except:
                                                         logger.warning(f"Error while getting buyer name of player's uuid {json_data['auctions'][0]['bids'][0]['bidder']}")
 
