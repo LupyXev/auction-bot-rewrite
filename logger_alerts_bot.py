@@ -7,7 +7,12 @@ client = discord.Client()
 
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
+from os import getcwd
 
+if getcwd() == "C:\\Users\\lucie\\Documents\\Projets code\\auction-bot-rewrite":
+    TOKEN = "OTAxNTAwMzA5NjMxODExNjQ1.YXQxlg.f60QdA43QAdxE1i5HeWnEHoqADg"
+else:
+    TOKEN = "ODk2MDcyODYzNTQxNTE0MzMw.YWBy4g.sbu-3Sa0rLwpp7pbuV91fbyrALk"
 
 async def handle_client(sock_client):
     log_channel = client.get_channel(813801717572960316)
@@ -60,4 +65,4 @@ client.loop.run_until_complete(a.serve_forever())"""
 listening_loop = discord.ext.tasks.Loop(listening, 0, 0, 0, None, True, client.loop)
 listening_loop.start()
 
-client.run("ODk2MDcyODYzNTQxNTE0MzMw.YWBy4g.sbu-3Sa0rLwpp7pbuV91fbyrALk")
+client.run(TOKEN)

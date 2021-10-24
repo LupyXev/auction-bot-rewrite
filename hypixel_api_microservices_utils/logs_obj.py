@@ -1,10 +1,16 @@
 import logging
 import logging.handlers
 import sys
+from os import getcwd
+
+if getcwd() == "C:\\Users\\lucie\\Documents\\Projets code\\auction-bot-rewrite":
+    logs_directory = "C:/Users/lucie/Documents/Projets code/auction-bot-rewrite/logs/"
+else:
+    logs_directory = "/home/ubuntu/logs/"
 
 #init the handlers
 r_file_handler_info = logging.handlers.RotatingFileHandler(
-    filename='/home/ubuntu/logs/HAM_info.log', 
+    filename=logs_directory + 'HAM_info.log', 
     mode='a',
     maxBytes=5*1024*1024,
     backupCount=1,
@@ -15,7 +21,7 @@ r_file_handler_info.setLevel(logging.INFO)
 
 
 r_file_handler_debug = logging.handlers.RotatingFileHandler(
-    filename='/home/ubuntu/logs/HAM_debug.log', 
+    filename=logs_directory + 'HAM_debug.log', 
     mode='a',
     maxBytes=3*1024*1024,
     backupCount=1,
@@ -25,7 +31,7 @@ r_file_handler_debug = logging.handlers.RotatingFileHandler(
 r_file_handler_debug.setLevel(logging.DEBUG)
 
 r_file_handler_all_warn = logging.handlers.RotatingFileHandler(
-    filename='/home/ubuntu/logs/all_warn.log', 
+    filename=logs_directory + 'all_warn.log', 
     mode='a',
     maxBytes=4*1024*1024,
     backupCount=1,

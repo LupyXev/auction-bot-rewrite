@@ -1,6 +1,7 @@
 import sqlite3
 from json import loads, dumps
 from time import time
+from os import getcwd
 try:
     from hypixel_api_microservices_utils.hypixel_data_objs import BasicItem, Reforge, Enchant, EnchantType, Rune, RuneType, Tier, Statistics
     from hypixel_api_microservices_utils.logs_obj import init_a_new_logger
@@ -10,12 +11,17 @@ except:
 
 logger = init_a_new_logger("SQL Utils HAM")
 
+if getcwd() == "C:\\Users\\lucie\\Documents\\Projets code\\auction-bot-rewrite":
+    db_directory = "C:/Users/lucie/Documents/Projets code/auction-bot-rewrite/testDB.db"
+else:
+    db_directory = "/home/ubuntu/Advanced_Auction_DB.db"
+
 def save_sold_history():
     def modify_into_db(cursor, key, value):
         cursor.execute(f"UPDATE sold_history SET value='{value}', update_time='{time()}' WHERE key='{key}'")
 
     logger.debug("saving sold history")
-    db = sqlite3.connect("/home/ubuntu/Advanced_Auction_DB.db")
+    db = sqlite3.connect(db_directory)
 
     cursor = db.cursor()
     
@@ -79,7 +85,7 @@ def save_sold_history():
 
 def save_stats():
     logger.debug("saving stats")
-    db = sqlite3.connect("/home/ubuntu/Advanced_Auction_DB.db")
+    db = sqlite3.connect(db_directory)
 
     cursor = db.cursor()
 
@@ -91,7 +97,7 @@ def save_stats():
 
 def load_sold_history():
     logger.debug("loading sold history")
-    db = sqlite3.connect("/home/ubuntu/Advanced_Auction_DB.db")
+    db = sqlite3.connect(db_directory)
 
     cursor = db.cursor()
 
@@ -114,7 +120,7 @@ def load_sold_history():
 
 def load_stats():
     logger.debug("loading stats")
-    db = sqlite3.connect("/home/ubuntu/Advanced_Auction_DB.db")
+    db = sqlite3.connect(db_directory)
 
     cursor = db.cursor()
 

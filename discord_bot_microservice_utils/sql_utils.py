@@ -1,13 +1,20 @@
 import sqlite3
 from json import loads, dumps
 from time import time
+from os import getcwd
 try:
     from discord_bot_microservice_utils.logs_obj import init_a_new_logger
 except:
     from logs_obj import init_a_new_logger
 
 logger = init_a_new_logger("SQL Utils DBM")
-db = sqlite3.connect("/home/ubuntu/Advanced_Auction_DB.db")
+
+if getcwd() == "C:\\Users\\lucie\\Documents\\Projets code\\auction-bot-rewrite":
+    db_directory = "C:/Users/lucie/Documents/Projets code/auction-bot-rewrite/testDB.db"
+else:
+    db_directory = "/home/ubuntu/Advanced_Auction_DB.db"
+
+db = sqlite3.connect(db_directory)
 
 def update_stat(stat_name, value, table="dbm_stats"):
     logger.debug(f"modifying stat {stat_name} to {value}")

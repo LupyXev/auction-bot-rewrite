@@ -5,3 +5,4 @@ venv/*
 *.pyc
 outputActu.txt
 test.txt
+logs/*

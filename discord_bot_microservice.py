@@ -28,7 +28,14 @@ except:
     print("Started in Nightly Mode")
     NIGHTLY_MODE = True
 
-file_handler_discord_py = FileHandler(filename='/home/ubuntu/logs/discord.log', encoding='utf-8', mode='a')
+from os import getcwd
+
+if getcwd() == "C:\\Users\\lucie\\Documents\\Projets code\\auction-bot-rewrite":
+    logs_directory = "C:/Users/lucie/Documents/Projets code/auction-bot-rewrite/logs/"
+else:
+    logs_directory = "/home/ubuntu/logs/"
+
+file_handler_discord_py = FileHandler(filename=logs_directory + 'discord.log', encoding='utf-8', mode='a')
 
 file_handler_discord_py.setLevel(INFO)
 
@@ -179,7 +186,8 @@ process_listening.start()
 listening_loop = discord.ext.tasks.Loop(wait_for_execute, 0, 0, 0, None, True, client.loop)
 listening_loop.start()
 
-scan_for_ended_auctions_loop = discord.ext.tasks.Loop(scan_for_ended_auctions, 0, 0, 0, None, True, client.loop)
-scan_for_ended_auctions_loop.start()
+if not NIGHTLY_MODE:
+    scan_for_ended_auctions_loop = discord.ext.tasks.Loop(scan_for_ended_auctions, 0, 0, 0, None, True, client.loop)
+    scan_for_ended_auctions_loop.start()
 
 client.run(TOKEN)

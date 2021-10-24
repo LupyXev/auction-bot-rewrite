@@ -121,13 +121,20 @@ def get_new_auctions_and_analyzing_them(logger, last_api_update, cur_run):
     time.sleep(1)
 
     while cur_page < total_pages:
-        req = requests.get(HYPIXEL_API_AUCTIONS_LINK, params={"page": cur_page}, timeout=TIMEOUT)
-        logger.debug(f"Run {cur_run}: Got auctions list page {cur_page} / {total_pages} (0/1 not a bug)")
-        if req.status_code != 200:
-            logger.warning(f"req for auctions page {cur_page}/{total_pages} (if 0/1 : not a bug) finished with code {req.status_code}")
+        try:
+            hypixel_api_request_error = False
+            req = requests.get(HYPIXEL_API_AUCTIONS_LINK, params={"page": cur_page}, timeout=TIMEOUT)
+            logger.debug(f"Run {cur_run}: Got auctions list page {cur_page} / {total_pages} (0/1 not a bug)")
+            if req.status_code != 200:
+                logger.warning(f"req for auctions page {cur_page}/{total_pages} (if 0/1 : not a bug) finished with code {req.status_code}")
 
-        req_json = req.json()
-        if req_json["success"]:
+            req_json = req.json()
+
+        except:
+            hypixel_api_request_error = True
+            logger.error("Error while getting Hypixel API data, timeout ?")
+        
+        if not hypixel_api_request_error and req_json["success"]:
             total_pages = req_json["totalPages"]
 
             this_req_last_update_given = round(req_json["lastUpdated"] / 1000)
@@ -243,7 +250,7 @@ def get_new_auctions_and_analyzing_them(logger, last_api_update, cur_run):
                                     "trust_rate": trust_rate
                                     })
 
-        else:
+        elif not hypixel_api_request_error:
             logger.error(f"req for auctions page {cur_page}/{total_pages} has success = false, json : {req_json}")
         
         cur_page += 1
