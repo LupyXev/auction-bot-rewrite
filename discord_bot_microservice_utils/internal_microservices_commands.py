@@ -316,7 +316,7 @@ async def cmd_item_tempban(args, microservice):
     await channel.send(f"Item {args['item_name']} tempbanned for {timestamp_to_pretty_hour(args['duration'])}")
 
 async def cmd_event_incoming(args, microservice):
-    channel = microservice.useful_objs["discord_client"].get_channel(856251437041188864)
+    channel = microservice.useful_objs["discord_client"].get_channel(853182979005087764)
     last_message = ""
     async for message in channel.history(limit=1):
         last_message = message
@@ -324,16 +324,17 @@ async def cmd_event_incoming(args, microservice):
     if args['event_name'] in last_message.content and last_message.created_at > time() - 86400:
         logger.warning(f"Skipped sending event {args['event_name']} alert because it seems already sent")
     else: 
-        await channel.send(f"<@&849292716788940841> **Event {args['event_name']} is coming soon (less than {timestamp_to_pretty_hour(args['time_before_event_start'])})**\nIt will end in **{timestamp_to_pretty_hour(args['time_before_event_end'])}** (until {args['end_date']} UTC+0)")
-
+        message = await channel.send(f"<@&849292716788940841> **Event {args['event_name']} is coming soon (less than {timestamp_to_pretty_hour(args['time_before_event_start'])})**\nIt will end in **{timestamp_to_pretty_hour(args['time_before_event_end'])}** (until {args['end_date']} UTC+0)")
+        await message.publish()
 
 async def cmd_event_active(args, microservice):
-    channel = microservice.useful_objs["discord_client"].get_channel(856251437041188864)
+    channel = microservice.useful_objs["discord_client"].get_channel(853182979005087764)
     if args['event_name'] in channel.last_message and channel.last_message.created_at > time() - 86400:
         logger.warning(f"Skipped sending event {args['event_name']} alert because it seems already sent")
     else: 
-        await microservice.useful_objs["discord_client"].get_channel(856251437041188864).send(f"<@&849292716788940841> **Event {args['event_name']} is currently active**\nIt will end in **{timestamp_to_pretty_hour(args['time_before_event_end'])}** (until {args['end_date']} UTC+0)")
-
+        message = await channel.send(f"<@&849292716788940841> **Event {args['event_name']} is currently active**\nIt will end in **{timestamp_to_pretty_hour(args['time_before_event_end'])}** (until {args['end_date']} UTC+0)")
+        await message.publish()
+        
 async def cmd_disable(args, microservice):
     awaited_request = AwaitedRequest.request_id_to_obj[args["request_id"]]
     ctx = awaited_request.args["ctx"]
