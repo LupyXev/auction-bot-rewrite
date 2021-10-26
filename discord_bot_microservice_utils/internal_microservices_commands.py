@@ -333,7 +333,7 @@ async def cmd_event_active(args, microservice):
     async for message in channel.history(limit=1):
         last_message = message
     
-    if args['event_name'] in last_message.content and channel.last_message.created_at > time() - 86400:
+    if args['event_name'] in last_message.content and last_message.created_at > time() - 86400:
         logger.warning(f"Skipped sending event {args['event_name']} alert because it seems already sent")
     else: 
         message = await channel.send(f"<@&849292716788940841> **Event {args['event_name']} is currently active**\nIt will end in **{timestamp_to_pretty_hour(args['time_before_event_end'])}** (until {args['end_date']} UTC+0)")
