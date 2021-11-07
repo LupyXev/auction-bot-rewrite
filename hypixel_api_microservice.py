@@ -259,8 +259,11 @@ def get_new_auctions_and_analyzing_them(logger, last_api_update, cur_run):
 def get_sold_auctions_and_analyzing_them(logger):
     req = requests.get(HYPIXEL_API_ENDED_AUCTIONS_LINK)
     logger.debug("Got ended auctions")
+    
     if req.status_code != 200:
-            logger.warning(f"req for ENDED auctions page finished with code {req.status_code}")
+        logger.error(f"req for ENDED auctions page finished with code {req.status_code}")
+        return
+    
     req_json = req.json()
     if req_json["success"]:
         for auction in req_json["auctions"]:
