@@ -279,10 +279,13 @@ def wait_until_api_refresh(logger, last_api_update):
     def request_the_last_api_update():
         req = requests.get(HYPIXEL_API_AUCTIONS_LINK)
         logger.debug("Got auctions list for waiting a new api refresh")
+        error = False
         if req.status_code != 200:
                 logger.warning(f"req for auctions list when waiting a new api refresh finished with code {req.status_code}")
-        req_json = req.json()
-        if req_json["success"]:
+                error = True
+        if not error:
+            req_json = req.json()
+        elif req_json["success"]:
             return round(req_json["lastUpdated"] / 1000)
         else:
             logger.error(f"req for auctions list when waiting a new api refresh = false, json : {req_json}")
