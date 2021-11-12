@@ -288,11 +288,11 @@ def wait_until_api_refresh(logger, last_api_update):
                 error = True
         if not error:
             req_json = req.json()
-        elif req_json["success"]:
-            return round(req_json["lastUpdated"] / 1000)
-        else:
-            logger.error(f"req for auctions list when waiting a new api refresh = false, json : {req_json}")
-            return 0 #error
+            if req_json["success"]:
+                return round(req_json["lastUpdated"] / 1000)
+
+        logger.error(f"req for auctions list when waiting a new api refresh = false, json : {req_json}")
+        return 0 #error
     
     def do_something_when_waiting(waiting_time):
         logger.debug(f"doing do_something_when_waiting for {waiting_time}")
@@ -301,7 +301,7 @@ def wait_until_api_refresh(logger, last_api_update):
     last_updated_got_with_request = request_the_last_api_update()
 
     while last_updated_got_with_request == last_api_update:
-        if last_api_update + OFFICIAL_REFRESH_INTERVALL > time.time() + 2: #if we have more than 2 secs before the official refresh
+        if last_api_update is not None and last_api_update + OFFICIAL_REFRESH_INTERVALL > time.time() + 2: #if we have more than 2 secs before the official refresh
             do_something_when_waiting(last_api_update + OFFICIAL_REFRESH_INTERVALL - time.time() - 2) #we're waiting until 2 secs before official refresh
         else:
             do_something_when_waiting(WAITING_TIME_WHEN_OFFICIAL_REFRESH_INTERVALL_OVERRUNED)
