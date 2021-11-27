@@ -291,7 +291,7 @@ def wait_until_api_refresh(logger, last_api_update):
             if req_json["success"]:
                 return round(req_json["lastUpdated"] / 1000)
 
-        logger.error(f"req for auctions list when waiting a new api refresh = false, json : {req_json}")
+        logger.error(f"req for auctions list when waiting a new api refresh = false (when requesting the last api update)")
         return 0 #error
     
     def do_something_when_waiting(waiting_time):
